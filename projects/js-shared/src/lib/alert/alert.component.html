@@ -1,0 +1,31 @@
+<ng-container 
+  *ngIf="alertId === ''; 
+    then alertWithoutId else alertWithId">
+</ng-container>
+<ng-template #alertWithoutId>
+  <div 
+    [ngClass]="alertClass"
+    [attr.role]="alertRole">
+    <p>
+      <ng-container 
+        *ngTemplateOutlet="content">
+      </ng-container>
+    </p>
+  </div>
+</ng-template>
+<ng-template #alertWithId>
+  <div 
+    [ngClass]="alertClass"
+    [id]="alertId"
+    [attr.role]="alertRole"
+    tabindex="-1">
+    <p>
+      <ng-container 
+        *ngTemplateOutlet="content">
+      </ng-container>
+    </p>
+  </div>
+</ng-template>
+<ng-template #content>
+  <ng-content></ng-content>
+</ng-template>

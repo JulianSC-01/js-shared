@@ -23,9 +23,12 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/bootstrap/dist/js/bootstrap.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -93,6 +96,37 @@
               "src/styles.css"
             ],
             "scripts": []
+          }
+        }
+      }
+    },
+    "js-shared": {
+      "projectType": "library",
+      "root": "projects/js-shared",
+      "sourceRoot": "projects/js-shared/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/js-shared/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/js-shared/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/js-shared/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/js-shared/src/test.ts",
+            "tsConfig": "projects/js-shared/tsconfig.spec.json",
+            "karmaConfig": "projects/js-shared/karma.conf.js"
           }
         }
       }

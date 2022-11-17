@@ -1,0 +1,58 @@
+<app-header>
+  Alert component
+</app-header>
+<h2>
+  Overview
+</h2>
+<p>
+  The <strong>app-alert</strong> component is used to generate a bootstrap style alert. 
+  The text inside the alert is output through <em>ng-content</em>. 
+  You may specify the following parameters:
+</p>
+<dl>
+  <dt>alertId</dt>
+  <dd>The id attribute for the alert.</dd>
+  <dt>alertRole</dt>
+  <dd>The role attribute for the alert.</dd>
+  <dt>alertType</dt>
+  <dd>The type of the alert, specified using the bootstrap CSS class.</dd>
+</dl>
+<h2>
+  Info alert
+</h2>
+<p>
+  The <strong>alertType</strong> is specified as <em>alert-info</em> or not provided.
+</p>
+<app-alert>
+  Enter your text here.
+</app-alert>
+<h2>
+  Warning alert
+</h2>
+<p>
+  The <strong>alertType</strong> is specified as <em>alert-warning</em>.
+</p>
+<app-alert 
+  [alertType]="'alert-warning'">
+  Enter your text here.
+</app-alert>
+<h2>
+  Danger alert
+</h2>
+<p>
+  The <strong>alertType</strong> is specified as <em>alert-danger</em>. 
+  An <strong>alertId</strong> of <em>dangerAlert</em> is also passed, which makes the alert focusable.
+</p>
+<app-alert 
+  [alertId]="'dangerAlert'"
+  [alertType]="'alert-danger'">
+  Enter your text here.
+</app-alert>
+<button
+  class="btn btn-outline-danger"
+  (click)="focusDangerAlert()">
+  Click to focus danger alert
+</button>
+<div class="mb-2 mt-4">
+  Return to: <a routerLink="/" aria-label="Return to home page">Home</a>
+</div>

@@ -1,0 +1,13 @@
+{
+  "name": "js-shared",
+  "version": "1.0.0",
+  "peerDependencies": {
+    "@angular/common": "^14.2.0",
+    "@angular/core": "^14.2.0",
+    "@angular/platform-browser": "^14.2.0",
+    "bootstrap": "^5.2.2"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  }
+}

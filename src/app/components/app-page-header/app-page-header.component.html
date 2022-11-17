@@ -1,0 +1,27 @@
+<app-header>
+  Page header component
+</app-header>
+<h2>
+  Overview
+</h2>
+<p>
+  The <strong>app-page-header</strong> component is used to generate a <em>h1</em> header.
+  For accessibility purposes, the <em>h1</em> will automatically receive focus when the page is loaded.
+  The text inside the header is output through <em>ng-content</em>.
+  You may specify the following parameters:
+</p>
+<dl>
+  <dt>
+    pageTitle
+  </dt>
+  <dd>
+    This is the text that will be set in the browser's title bar. 
+    If this parameter is not provided, the innerText of the <em>h1</em> is used.
+  </dd>
+</dl>
+<p>
+  An example of the header can be found at the top of this page.
+</p>
+<div class="mb-2 mt-4">
+  Return to: <a routerLink="/" aria-label="Return to home page">Home</a>
+</div>
