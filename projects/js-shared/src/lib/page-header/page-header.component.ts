@@ -3,7 +3,7 @@ import { Title } from '@angular/platform-browser';
 import { FocusService } from '../focus.service';
 
 @Component({
-  selector: 'app-header',
+  selector: 'app-page-header',
   templateUrl: './page-header.component.html',
   styleUrls: ['./page-header.component.css']
 })
