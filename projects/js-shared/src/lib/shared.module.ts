@@ -3,12 +3,14 @@ import { NgModule } from '@angular/core';
 import { AlertComponent } from './alert/alert.component';
 import { PageFooterComponent } from './page-footer/page-footer.component';
 import { PageHeaderComponent } from './page-header/page-header.component';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 @NgModule({
   declarations: [
     AlertComponent,
     PageFooterComponent,
-    PageHeaderComponent
+    PageHeaderComponent,
+    SpinnerComponent
   ],
   imports: [
     CommonModule
@@ -16,7 +18,8 @@ import { PageHeaderComponent } from './page-header/page-header.component';
   exports: [
     AlertComponent,
     PageFooterComponent,
-    PageHeaderComponent
+    PageHeaderComponent,
+    SpinnerComponent
   ]
 })
 export class SharedModule { }

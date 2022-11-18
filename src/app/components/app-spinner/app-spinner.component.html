@@ -1,0 +1,112 @@
+<app-page-header>
+  Spinner component
+</app-page-header>
+<h2>
+  Overview
+</h2>
+<p>
+  The <strong>app-spinner</strong> component is used to generate an animated spinner icon.
+  Additional HTML content can also be specified through <em>ng-content</em>.
+  You may specify the following parameters:
+</p>
+<dl>
+  <dt>
+    spinnerAccessibleText
+  </dt>
+  <dd>
+    This parameter specifies the invisible text located within the spinner that is read by screen readers.
+    If this parameter is not provided, the text "<em>Loading...</em>" is used.
+  </dd>
+  <dt>
+    spinnerColor
+  </dt>
+  <dd>
+    This parameter can be used to change the spinner's color. Simple text color classes from Bootstrap may be used.
+    (Example: <em>text-primary</em> or <em>text-secondary</em>.)
+    If this parameter is not provided, no custom color is applied.
+  </dd>
+  <dt>
+    spinnerSmall
+  </dt>
+  <dd>
+    This parameter can be set to true if you wish to use a small spinner.
+  </dd>
+  <dt>
+    spinnerStyle
+  </dt>
+  <dd>
+    This parameter specifies the style of spinner. It can be either <em>spinner-border</em> or <em>spinner-grow</em>.
+    If this parameter is not provided, <em>spinner-border</em> is used.
+  </dd>
+</dl>
+<h2>
+  Border spinner
+</h2>
+<p>
+  Here are examples of different types of border spinners:
+</p>
+<div class="mb-3">
+  <span class="me-1">
+    <app-spinner></app-spinner>
+  </span>
+  <span class="me-1">
+    <app-spinner 
+      [spinnerColor]="'text-danger'">
+    </app-spinner>
+  </span>
+  <span class="me-1">
+    <app-spinner 
+      [spinnerSmall]="true">
+    </app-spinner>
+  </span>
+  <span>
+    <app-spinner 
+      [spinnerColor]="'text-danger'"
+      [spinnerSmall]="true">
+    </app-spinner>
+  </span>
+</div>
+<h2>
+  Growing spinner
+</h2>
+<p>
+  Here are examples of different types of growing spinners:
+</p>
+<div class="mb-3">
+  <span class="me-1">
+    <app-spinner
+      [spinnerStyle]="'spinner-grow'">
+    </app-spinner>
+  </span>
+  <span class="me-1">
+    <app-spinner 
+      [spinnerColor]="'text-danger'"
+      [spinnerStyle]="'spinner-grow'">
+    </app-spinner>
+  </span>
+  <span class="me-1">
+    <app-spinner 
+      [spinnerSmall]="true"
+      [spinnerStyle]="'spinner-grow'">
+    </app-spinner>
+  </span>
+  <span>
+    <app-spinner 
+      [spinnerColor]="'text-danger'"
+      [spinnerSmall]="true"
+      [spinnerStyle]="'spinner-grow'">
+    </app-spinner>
+  </span>
+</div>
+<h2>
+  Spinner with text
+</h2>
+<p>
+  Any HTML content added within the spinner selector will be placed alongside the spinner using <em>ng-content</em>.
+</p>
+<app-spinner>
+  Loading...
+</app-spinner>
+<div class="mb-2 mt-4">
+  Return to: <a routerLink="/" aria-label="Return to home page">Home</a>
+</div>

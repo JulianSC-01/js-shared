@@ -1,0 +1,8 @@
+<div [ngClass]="spinnerClass" role="status">
+  <span 
+    *ngIf="spinnerAccessibleText !== ''" 
+    class="visually-hidden">
+    {{ spinnerAccessibleText }}
+  </span>
+</div>
+<ng-content></ng-content>

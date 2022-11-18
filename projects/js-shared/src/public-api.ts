@@ -7,3 +7,4 @@ export * from './lib/focus.service';
 export * from './lib/alert/alert.component';
 export * from './lib/page-footer/page-footer.component';
 export * from './lib/page-header/page-header.component';
+export * from './lib/spinner/spinner.component';

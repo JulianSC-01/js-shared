@@ -8,6 +8,7 @@ import { AppHomeComponent } from './components/app-home.component';
 import { AppAlertComponent } from './components/app-alert/app-alert.component';
 import { AppPageFooterComponent } from './components/app-page-footer/app-page-footer.component';
 import { AppPageHeaderComponent } from './components/app-page-header/app-page-header.component';
+import { AppSpinnerComponent } from './components/app-spinner/app-spinner.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { AppPageHeaderComponent } from './components/app-page-header/app-page-he
     // Component Examples
     AppAlertComponent,
     AppPageFooterComponent,
-    AppPageHeaderComponent
+    AppPageHeaderComponent,
+    AppSpinnerComponent
   ],
   imports: [
     BrowserModule,
