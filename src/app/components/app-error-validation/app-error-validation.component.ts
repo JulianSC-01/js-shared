@@ -23,6 +23,10 @@ export class AppErrorValidationComponent {
 
   public exampleForm : FormGroup<ExampleForm>;
 
+  public errorMessageMap : {[key: string]: string} = {
+    'required' : 'Error: Field is required.'
+  };
+
   constructor(
     private focusService : AppFocusService,
     private formBuilder : FormBuilder,

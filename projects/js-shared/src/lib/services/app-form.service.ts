@@ -8,18 +8,24 @@ export class AppFormService {
   constructor() { }
 
   isInvalid(control : AbstractControl) {
-    return (control.enabled && control.dirty && control.invalid);
+    return (
+      control && 
+      control.enabled && 
+      control.dirty && 
+      control.invalid);
   }
 
   markAllAsDirty(
     form : FormGroup<any> | FormArray<any>) : void {
-    for (const field in form.controls) {
-      let control = form.get(field);
-      if (control instanceof FormGroup || 
-          control instanceof FormArray) {
-        this.markAllAsDirty(control);
-      } else if (control instanceof FormControl) {
-        control.markAsDirty();
+    if (form) {
+      for (const field in form.controls) {
+        let control = form.get(field);
+        if (control instanceof FormGroup || 
+            control instanceof FormArray) {
+          this.markAllAsDirty(control);
+        } else if (control instanceof FormControl) {
+          control.markAsDirty();
+        }
       }
     }
   }

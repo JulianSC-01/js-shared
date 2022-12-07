@@ -1,0 +1,13 @@
+<div
+  class="text-danger"
+  [id]="errorFeedbackId"
+  *ngIf="formService.isInvalid(errorFeedbackControl)">
+  <ng-container 
+    *ngFor="let errorMessage of errorFeedbackMessages | keyvalue">
+    <small
+      class="d-block"
+      *ngIf="errorFeedbackControl.hasError(errorMessage.key)">
+      {{ errorMessage.value }}
+    </small>
+  </ng-container>
+</div>

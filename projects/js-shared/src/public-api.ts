@@ -4,6 +4,7 @@
 
 export * from './lib/shared.module';
 export * from './lib/components/alert/alert.component';
+export * from './lib/components/form-error-feedback/form-error-feedback.component';
 export * from './lib/components/form-error-header/form-error-header.component';
 export * from './lib/components/page-footer/page-footer.component';
 export * from './lib/components/page-header/page-header.component';

@@ -8,25 +8,43 @@
   Error Header
 </h3>
 <p>
-  The <strong>app-form-error-header</strong> component is used to generate a danger alert that informs 
-  the users how many errors exist on a form. You can also display a custom error message, which will 
+  The <strong>app-form-error-header</strong> component is used to generate a danger alert that tells 
+  the user how many errors exist on a form. You can also display a custom error message, which will 
   override the default message. 
   You may specify the following parameters:
 </p>
 <dl>
   <dt>errorHeaderMessage</dt>
   <dd>
-    A custom error message which should be displayed in the error header. 
+    This parameter specifies a custom error message which should be displayed in the error header. 
     If this parameter is not provided, the default message with the error count is displayed.
   </dd>
   <dt>errorHeaderFormGroup</dt>
   <dd>
-    The <em>FormGroup</em> that will have its errors counted.
+    This parameter specifies the <em>FormGroup</em> that will have its errors counted.
   </dd>
-  <dt>errorHeaderId</dt>
+</dl>
+<h3 class="h4">
+  Error Feedback
+</h3>
+<p>
+  The <strong>app-form-error-feedback</strong> component is used to generate error messages that pertain
+  to a specific form control. Typically, these message are displayed beneath the control.
+  You may specify the following parameters:
+</p>
+<dl>
+  <dt>errorFeedbackControl</dt>
   <dd>
-    A custom id which we be applied to the error header. 
-    If this parameter is not provided, the id <em>errorHeader</em> is used.
+    This parameter specifies the <em>FormControl</em> that will be checked for errors.
+  </dd>
+  <dt>errorFeedbackId</dt>
+  <dd>
+    This parmaeter specifies the id that will be applied to the error <em>div</em> element, for accessibility purposes.
+  </dd>
+  <dt>errorFeedbackMessages</dt>
+  <dd>
+    This parameter specifies a key/value list that maps error codes to error messages. If any of the
+    error codes are active on the control, the associated error message will be displayed.
   </dd>
 </dl>
 <h2 class="mb-3">
@@ -38,6 +56,7 @@
 </app-form-error-header>
 <form
   #form="ngForm"
+  autocomplete="off"
   [formGroup]="exampleForm" 
   (ngSubmit)="submit()">
   <h3 class="h4">
@@ -48,12 +67,18 @@
       FormControl Value
     </label>
     <input
+      aria-describedby="formValueOneError"
       formControlName="formValueOne"
       id="formValueOne"
       type="text"
       [ngClass]="{
         'form-control' : true,
         'is-invalid' : formService.isInvalid(exampleForm.controls.formValueOne)}">
+    <app-form-error-feedback
+      [errorFeedbackControl]="exampleForm.controls.formValueOne"
+      [errorFeedbackId]="'formValueOneError'"
+      [errorFeedbackMessages]="errorMessageMap">
+    </app-form-error-feedback>
   </div>
   <h3 class="h4">
     FormGroup
@@ -64,24 +89,36 @@
         FormGroup Value One
       </label>
       <input
+        aria-describedby="subFormValueOneError"
         formControlName="subFormValueOne"
         id="subFormValueOne"
         type="text"
         [ngClass]="{
           'form-control' : true,
           'is-invalid' : formService.isInvalid(subFormOne.controls.subFormValueOne)}">
+      <app-form-error-feedback
+        [errorFeedbackControl]="subFormOne.controls.subFormValueOne"
+        [errorFeedbackId]="'subFormValueOneError'"
+        [errorFeedbackMessages]="errorMessageMap">
+      </app-form-error-feedback>
     </div>
     <div class="col-lg-6 mb-3">
       <label class="form-label" for="subFormValueTwo">
         FormGroup Value Two
       </label>
       <input
+        aria-describedby="subFormValueTwoError"
         formControlName="subFormValueTwo"
         id="subFormValueTwo"
         type="text"
         [ngClass]="{
           'form-control' : true,
           'is-invalid' : formService.isInvalid(subFormOne.controls.subFormValueTwo)}">
+      <app-form-error-feedback
+        [errorFeedbackControl]="subFormOne.controls.subFormValueTwo"
+        [errorFeedbackId]="'subFormValueTwoError'"
+        [errorFeedbackMessages]="errorMessageMap">
+      </app-form-error-feedback>
     </div>
   </div>
   <h3 class="h4">
@@ -98,11 +135,17 @@
       </label>
       <input
         type="text"
+        [attr.aria-describedby]="'formArrayOne' + i + 'Error'"
         [formControlName]="i"
         [id]="'formArrayOne' + i"
         [ngClass]="{
           'form-control' : true,
           'is-invalid' : formService.isInvalid(formArrayOne.at(i))}">
+      <app-form-error-feedback
+        [errorFeedbackControl]="formArrayOne.at(i)"
+        [errorFeedbackId]="'formArrayOne' + i + 'Error'"
+        [errorFeedbackMessages]="errorMessageMap">
+      </app-form-error-feedback>
       <button
         class="btn btn-sm btn-danger mb-1 mt-1"
         type="button"

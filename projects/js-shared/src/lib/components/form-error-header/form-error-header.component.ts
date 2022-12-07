@@ -10,7 +10,6 @@ export class FormErrorHeaderComponent {
 
   @Input() errorHeaderMessage? : string;
   @Input() errorHeaderFormGroup! : FormGroup<any>;
-  @Input() errorHeaderId? : string = 'errorHeader';
 
   constructor(
     private formService : AppFormService) {   
