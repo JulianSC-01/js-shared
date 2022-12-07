@@ -1,13 +1,15 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { AlertComponent } from './alert/alert.component';
-import { PageFooterComponent } from './page-footer/page-footer.component';
-import { PageHeaderComponent } from './page-header/page-header.component';
-import { SpinnerComponent } from './spinner/spinner.component';
+import { AlertComponent } from './components/alert/alert.component';
+import { FormErrorHeaderComponent } from './components/form-error-header/form-error-header.component';
+import { PageFooterComponent } from './components/page-footer/page-footer.component';
+import { PageHeaderComponent } from './components/page-header/page-header.component';
+import { SpinnerComponent } from './components/spinner/spinner.component';
 
 @NgModule({
   declarations: [
     AlertComponent,
+    FormErrorHeaderComponent,
     PageFooterComponent,
     PageHeaderComponent,
     SpinnerComponent
@@ -17,6 +19,7 @@ import { SpinnerComponent } from './spinner/spinner.component';
   ],
   exports: [
     AlertComponent,
+    FormErrorHeaderComponent,
     PageFooterComponent,
     PageHeaderComponent,
     SpinnerComponent

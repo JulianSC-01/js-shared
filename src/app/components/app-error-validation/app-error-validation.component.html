@@ -1,0 +1,144 @@
+<app-page-header>
+  Error validation components
+</app-page-header>
+<h2 class="mb-3">
+  Overview
+</h2>
+<h3 class="h4">
+  Error Header
+</h3>
+<p>
+  The <strong>app-form-error-header</strong> component is used to generate a danger alert that informs 
+  the users how many errors exist on a form. You can also display a custom error message, which will 
+  override the default message. 
+  You may specify the following parameters:
+</p>
+<dl>
+  <dt>errorHeaderMessage</dt>
+  <dd>
+    A custom error message which should be displayed in the error header. 
+    If this parameter is not provided, the default message with the error count is displayed.
+  </dd>
+  <dt>errorHeaderFormGroup</dt>
+  <dd>
+    The <em>FormGroup</em> that will have its errors counted.
+  </dd>
+  <dt>errorHeaderId</dt>
+  <dd>
+    A custom id which we be applied to the error header. 
+    If this parameter is not provided, the id <em>errorHeader</em> is used.
+  </dd>
+</dl>
+<h2 class="mb-3">
+  Example
+</h2>
+<app-form-error-header
+  [errorHeaderMessage]="exampleForm.controls.customMessage.value"
+  [errorHeaderFormGroup]="exampleForm">
+</app-form-error-header>
+<form
+  #form="ngForm"
+  [formGroup]="exampleForm" 
+  (ngSubmit)="submit()">
+  <h3 class="h4">
+    FormControl
+  </h3>
+  <div class="col-lg-6 mb-3">
+    <label class="form-label" for="formValueOne">
+      FormControl Value
+    </label>
+    <input
+      formControlName="formValueOne"
+      id="formValueOne"
+      type="text"
+      [ngClass]="{
+        'form-control' : true,
+        'is-invalid' : formService.isInvalid(exampleForm.controls.formValueOne)}">
+  </div>
+  <h3 class="h4">
+    FormGroup
+  </h3>
+  <div [formGroup]="subFormOne">
+    <div class="col-lg-6 mb-3">
+      <label class="form-label" for="subFormValueOne">
+        FormGroup Value One
+      </label>
+      <input
+        formControlName="subFormValueOne"
+        id="subFormValueOne"
+        type="text"
+        [ngClass]="{
+          'form-control' : true,
+          'is-invalid' : formService.isInvalid(subFormOne.controls.subFormValueOne)}">
+    </div>
+    <div class="col-lg-6 mb-3">
+      <label class="form-label" for="subFormValueTwo">
+        FormGroup Value Two
+      </label>
+      <input
+        formControlName="subFormValueTwo"
+        id="subFormValueTwo"
+        type="text"
+        [ngClass]="{
+          'form-control' : true,
+          'is-invalid' : formService.isInvalid(subFormOne.controls.subFormValueTwo)}">
+    </div>
+  </div>
+  <h3 class="h4">
+    FormArray
+  </h3>
+  <div class="mb-3" formArrayName="formArrayOne">
+    <div 
+      class="col-lg-6 mb-3"
+      *ngFor="let control of formArrayOne.controls; let i = index">
+      <label 
+        class="form-label"
+        [for]="'formArrayOne' + i">
+        {{ 'FormArray Value ' + i }}
+      </label>
+      <input
+        type="text"
+        [formControlName]="i"
+        [id]="'formArrayOne' + i"
+        [ngClass]="{
+          'form-control' : true,
+          'is-invalid' : formService.isInvalid(formArrayOne.at(i))}">
+      <button
+        class="btn btn-sm btn-danger mb-1 mt-1"
+        type="button"
+        (click)="removeArrayElement(i)">
+        Remove element
+      </button>
+    </div>
+    <button
+      class="btn btn-secondary mb-1"
+      id="addButton"
+      type="button"
+      (click)="addArrayElement()">
+      Add element
+    </button>
+  </div>
+  <h3 class="h4">
+    Custom error header message
+  </h3>
+  <div class="col-lg-6 mb-3">
+    <label class="form-label" for="customMessage">
+      Enter custom error header message
+    </label>
+    <input
+      class="form-control"
+      formControlName="customMessage"
+      id="customMessage"
+      type="text">
+  </div>
+  <div class="mt-4">
+    <button
+      class="btn btn-primary mb-1 me-1"
+      type="submit">
+      Submit
+    </button>
+  </div>
+</form>
+<div class="mb-2 mt-4">
+  Return to: <a routerLink="/" aria-label="Return to home page">Home</a>
+</div>

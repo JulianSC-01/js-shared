@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { FocusService } from '../focus.service';
+import { AppFocusService } from '../../services/app-focus.service';
 
 @Component({
   selector: 'app-page-header',
@@ -14,7 +14,7 @@ export class PageHeaderComponent implements AfterViewInit {
   @ViewChild('header') header? : ElementRef;
 
   constructor(
-    private focusService : FocusService,
+    private focusService : AppFocusService,
     private titleService : Title) { }
 
   ngAfterViewInit() : void {

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FocusService } from 'js-shared';
+import { AppFocusService } from 'js-shared';
 
 @Component({
   selector: 'app-app-alert',
@@ -8,7 +8,7 @@ import { FocusService } from 'js-shared';
 export class AppAlertComponent {
 
   constructor(
-    private focusService : FocusService) { }
+    private focusService : AppFocusService) { }
 
   focusDangerAlert() : void {
     this.focusService.focusElement('#dangerAlert');

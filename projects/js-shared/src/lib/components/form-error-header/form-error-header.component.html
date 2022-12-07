@@ -1,0 +1,16 @@
+<app-alert
+  *ngIf="errorHeaderMessage || getErrorCount(errorHeaderFormGroup) > 0;"
+  [alertId]="errorHeaderId"
+  [alertRole]="'note'"
+  [alertType]="'alert-danger'">
+  <ng-container 
+    *ngIf="errorHeaderMessage;
+      then errorHeaderCustom else errorHeaderCount">
+  </ng-container>
+  <ng-template #errorHeaderCustom>
+    {{ errorHeaderMessage }}
+  </ng-template>
+  <ng-template #errorHeaderCount>
+    {{ getErrorCountHeaderMessage() }}
+  </ng-template>
+</app-alert>
