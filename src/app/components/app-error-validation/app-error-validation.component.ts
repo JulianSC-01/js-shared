@@ -73,7 +73,7 @@ export class AppErrorValidationComponent {
   
   submit() : void {
     if (this.exampleForm.invalid) {
-      this.formService.markAllAsDirty(this.exampleForm);
+      this.formService.revealAllErrors(this.exampleForm);
       this.focusService.focusErrorHeader();
     }
   }

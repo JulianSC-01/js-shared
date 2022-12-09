@@ -7,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class AlertComponent implements OnInit {
   
-  @Input() alertId? : string = '';
+  @Input() alertId? : string;
   @Input() alertRole? : string = 'alert';
   @Input() alertType? : string = 'alert-info';
 

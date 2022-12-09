@@ -128,9 +128,7 @@
     <div 
       class="col-lg-6 mb-3"
       *ngFor="let control of formArrayOne.controls; let i = index">
-      <label 
-        class="form-label"
-        [for]="'formArrayOne' + i">
+      <label class="form-label" [for]="'formArrayOne' + i">
         {{ 'FormArray Value ' + i }}
       </label>
       <input

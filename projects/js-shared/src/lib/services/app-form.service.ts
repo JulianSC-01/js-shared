@@ -15,14 +15,14 @@ export class AppFormService {
       control.invalid);
   }
 
-  markAllAsDirty(
+  revealAllErrors(
     form : FormGroup<any> | FormArray<any>) : void {
     if (form) {
       for (const field in form.controls) {
         let control = form.get(field);
         if (control instanceof FormGroup || 
             control instanceof FormArray) {
-          this.markAllAsDirty(control);
+          this.revealAllErrors(control);
         } else if (control instanceof FormControl) {
           control.markAsDirty();
         }
