@@ -8,8 +8,8 @@ import { AppFormService } from '../../services/app-form.service';
 })
 export class FormErrorHeaderComponent {
 
-  @Input() errorHeaderMessage? : string;
   @Input() errorHeaderFormGroup! : FormGroup<any>;
+  @Input() errorHeaderMessage? : string;
 
   constructor(
     private formService : AppFormService) {   

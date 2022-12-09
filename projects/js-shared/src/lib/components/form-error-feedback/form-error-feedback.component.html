@@ -1,6 +1,6 @@
 <div
   class="text-danger"
-  [id]="errorFeedbackId"
+  [attr.id]="errorFeedbackId"
   *ngIf="formService.isInvalid(errorFeedbackControl)">
   <ng-container 
     *ngFor="let errorMessage of errorFeedbackMessages | keyvalue">

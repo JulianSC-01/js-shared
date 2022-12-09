@@ -48,7 +48,7 @@
   </dd>
 </dl>
 <h2 class="mb-3">
-  Example
+  Example form
 </h2>
 <app-form-error-header
   [errorHeaderMessage]="exampleForm.controls.customMessage.value"
@@ -63,9 +63,10 @@
     FormControl
   </h3>
   <div class="col-lg-6 mb-3">
-    <label class="form-label" for="formValueOne">
+    <app-form-label
+      [labelControlId]="'formValueOne'">
       FormControl Value
-    </label>
+    </app-form-label>
     <input
       aria-describedby="formValueOneError"
       formControlName="formValueOne"
@@ -85,9 +86,10 @@
   </h3>
   <div [formGroup]="subFormOne">
     <div class="col-lg-6 mb-3">
-      <label class="form-label" for="subFormValueOne">
+      <app-form-label
+        [labelControlId]="'subFormValueOne'">
         FormGroup Value One
-      </label>
+      </app-form-label>
       <input
         aria-describedby="subFormValueOneError"
         formControlName="subFormValueOne"
@@ -103,9 +105,10 @@
       </app-form-error-feedback>
     </div>
     <div class="col-lg-6 mb-3">
-      <label class="form-label" for="subFormValueTwo">
+      <app-form-label
+        [labelControlId]="'subFormValueTwo'">
         FormGroup Value Two
-      </label>
+      </app-form-label>
       <input
         aria-describedby="subFormValueTwoError"
         formControlName="subFormValueTwo"
@@ -128,9 +131,10 @@
     <div 
       class="col-lg-6 mb-3"
       *ngFor="let control of formArrayOne.controls; let i = index">
-      <label class="form-label" [for]="'formArrayOne' + i">
+      <app-form-label
+        [labelControlId]="'formArrayOne' + i">
         {{ 'FormArray Value ' + i }}
-      </label>
+      </app-form-label>
       <input
         type="text"
         [attr.aria-describedby]="'formArrayOne' + i + 'Error'"
@@ -149,6 +153,9 @@
         type="button"
         (click)="removeArrayElement(i)">
         Remove element
+        <span class="visually-hidden">
+          {{ i }}
+        </span>
       </button>
     </div>
     <button
@@ -163,9 +170,11 @@
     Custom error header message
   </h3>
   <div class="col-lg-6 mb-3">
-    <label class="form-label" for="customMessage">
+    <app-form-label
+      [labelControlId]="'customMessage'"
+      [labelRequired]="false">
       Enter custom error header message
-    </label>
+    </app-form-label>
     <input
       class="form-control"
       formControlName="customMessage"
