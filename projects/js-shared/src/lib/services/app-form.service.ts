@@ -7,7 +7,7 @@ import { AbstractControl, FormArray, FormControl, FormGroup } from '@angular/for
 export class AppFormService {
   constructor() { }
 
-  isInvalid(control : AbstractControl) {
+  isInvalid(control : AbstractControl) : boolean {
     return (
       control && 
       control.enabled && 

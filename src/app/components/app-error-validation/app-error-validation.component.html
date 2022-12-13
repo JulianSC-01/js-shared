@@ -47,6 +47,9 @@
     error codes are active on the control, the associated error message will be displayed.
   </dd>
 </dl>
+<p>
+  Note: The <strong>app-form-error-feedback</strong> component is already contained within each <em>app-form-input</em> component.
+</p>
 <h2 class="mb-3">
   Example form
 </h2>
@@ -63,65 +66,38 @@
     FormControl
   </h3>
   <div class="col-lg-6 mb-3">
-    <app-form-label
-      [labelControlId]="'formValueOne'">
-      FormControl Value
-    </app-form-label>
-    <input
-      aria-describedby="formValueOneError"
+    <app-form-input-text
       formControlName="formValueOne"
-      id="formValueOne"
-      type="text"
-      [ngClass]="{
-        'form-control' : true,
-        'is-invalid' : formService.isInvalid(exampleForm.controls.formValueOne)}">
-    <app-form-error-feedback
-      [errorFeedbackControl]="exampleForm.controls.formValueOne"
-      [errorFeedbackId]="'formValueOneError'"
-      [errorFeedbackMessages]="errorMessageMap">
-    </app-form-error-feedback>
+      [inputErrorMessageId]="'formValueOneError'"
+      [inputErrorMessages]="errorMessageMap"
+      [inputLabelText]="'FormControl Value'"
+      [inputId]="'formValueOne'"
+      [inputRequired]="true">
+    </app-form-input-text>
   </div>
   <h3 class="h4">
     FormGroup
   </h3>
   <div [formGroup]="subFormOne">
     <div class="col-lg-6 mb-3">
-      <app-form-label
-        [labelControlId]="'subFormValueOne'">
-        FormGroup Value One
-      </app-form-label>
-      <input
-        aria-describedby="subFormValueOneError"
+      <app-form-input-text
         formControlName="subFormValueOne"
-        id="subFormValueOne"
-        type="text"
-        [ngClass]="{
-          'form-control' : true,
-          'is-invalid' : formService.isInvalid(subFormOne.controls.subFormValueOne)}">
-      <app-form-error-feedback
-        [errorFeedbackControl]="subFormOne.controls.subFormValueOne"
-        [errorFeedbackId]="'subFormValueOneError'"
-        [errorFeedbackMessages]="errorMessageMap">
-      </app-form-error-feedback>
+        [inputErrorMessageId]="'subFormValueOneError'"
+        [inputErrorMessages]="errorMessageMap"
+        [inputLabelText]="'FormGroup Value One'"
+        [inputId]="'subFormValueOne'"
+        [inputRequired]="true">
+      </app-form-input-text>
     </div>
     <div class="col-lg-6 mb-3">
-      <app-form-label
-        [labelControlId]="'subFormValueTwo'">
-        FormGroup Value Two
-      </app-form-label>
-      <input
-        aria-describedby="subFormValueTwoError"
+      <app-form-input-text
         formControlName="subFormValueTwo"
-        id="subFormValueTwo"
-        type="text"
-        [ngClass]="{
-          'form-control' : true,
-          'is-invalid' : formService.isInvalid(subFormOne.controls.subFormValueTwo)}">
-      <app-form-error-feedback
-        [errorFeedbackControl]="subFormOne.controls.subFormValueTwo"
-        [errorFeedbackId]="'subFormValueTwoError'"
-        [errorFeedbackMessages]="errorMessageMap">
-      </app-form-error-feedback>
+        [inputErrorMessageId]="'subFormValueTwoError'"
+        [inputErrorMessages]="errorMessageMap"
+        [inputLabelText]="'FormGroup Value Two'"
+        [inputId]="'subFormValueTwo'"
+        [inputRequired]="true">
+      </app-form-input-text>
     </div>
   </div>
   <h3 class="h4">
@@ -131,25 +107,16 @@
     <div 
       class="col-lg-6 mb-3"
       *ngFor="let control of formArrayOne.controls; let i = index">
-      <app-form-label
-        [labelControlId]="'formArrayOne' + i">
-        {{ 'FormArray Value ' + i }}
-      </app-form-label>
-      <input
-        type="text"
-        [attr.aria-describedby]="'formArrayOne' + i + 'Error'"
+      <app-form-input-text
         [formControlName]="i"
-        [id]="'formArrayOne' + i"
-        [ngClass]="{
-          'form-control' : true,
-          'is-invalid' : formService.isInvalid(formArrayOne.at(i))}">
-      <app-form-error-feedback
-        [errorFeedbackControl]="formArrayOne.at(i)"
-        [errorFeedbackId]="'formArrayOne' + i + 'Error'"
-        [errorFeedbackMessages]="errorMessageMap">
-      </app-form-error-feedback>
+        [inputErrorMessageId]="'formArrayOne' + i + 'Error'"
+        [inputErrorMessages]="errorMessageMap"
+        [inputLabelText]="'FormArray Value ' + i"
+        [inputId]="'formArrayOne' + i"
+        [inputRequired]="true">
+      </app-form-input-text>
       <button
-        class="btn btn-sm btn-danger mb-1 mt-1"
+        class="btn btn-sm btn-danger mb-1 mt-2"
         type="button"
         (click)="removeArrayElement(i)">
         Remove element
@@ -170,25 +137,23 @@
     Custom error header message
   </h3>
   <div class="col-lg-6 mb-3">
-    <app-form-label
-      [labelControlId]="'customMessage'"
-      [labelRequired]="false">
-      Enter custom error header message
-    </app-form-label>
-    <input
-      class="form-control"
+    <app-form-input-text
       formControlName="customMessage"
-      id="customMessage"
-      type="text">
+      [inputLabelText]="'Enter custom error header message'"
+      [inputId]="'customMessage'">
+    </app-form-input-text>
   </div>
   <div class="mt-4">
     <button
-      class="btn btn-primary mb-1 me-1"
+      class="btn btn-primary mb-1"
       type="submit">
       Submit
     </button>
   </div>
 </form>
 <div class="mb-2 mt-4">
-  Return to: <a routerLink="/" aria-label="Return to home page">Home</a>
+  Return to: 
+  <a routerLink="/" aria-label="Return to home page">
+    Home
+  </a>
 </div>

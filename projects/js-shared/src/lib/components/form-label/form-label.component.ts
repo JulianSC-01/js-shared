@@ -9,7 +9,7 @@ export class FormLabelComponent {
 
   @Input() labelControlId? : string;
   @Input() labelInvisible? : boolean = false;
-  @Input() labelRequired? : boolean = true;
+  @Input() labelRequired? : boolean = false;
 
   constructor() { }
 }
