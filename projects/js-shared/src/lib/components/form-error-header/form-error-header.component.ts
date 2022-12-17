@@ -8,21 +8,21 @@ import { AppFormService } from '../../services/app-form.service';
 })
 export class FormErrorHeaderComponent {
 
-  @Input() errorHeaderFormGroup! : FormGroup<any>;
+  @Input() errorHeaderFormGroup? : FormGroup<any>;
   @Input() errorHeaderMessage? : string;
 
   constructor(
-    private formService : AppFormService) {   
+    private formService : AppFormService) {
   }
 
   getErrorCount(
-    form : FormGroup<any> | FormArray<any>) : number {
+    form? : FormGroup<any> | FormArray<any>) : number {
     let count : number = 0;
-    
+
     if (form) {
       for (const field in form.controls) {
         let control = form.get(field);
-        if (control instanceof FormGroup || 
+        if (control instanceof FormGroup ||
             control instanceof FormArray) {
           count += this.getErrorCount(control);
         } else if (control instanceof FormControl) {
@@ -31,19 +31,19 @@ export class FormErrorHeaderComponent {
         }
       }
     }
-    
+
     return count;
   }
-  
+
   getErrorCountHeaderMessage() : string | null {
-    let count : number = 
+    let count : number =
       this.getErrorCount(this.errorHeaderFormGroup);
-    
+
     if (count == 1)
       return "Please correct the error on this page.";
     if (count > 1)
       return "Please correct the " + count + " errors on this page.";
-    
+
     return null;
   }
 }

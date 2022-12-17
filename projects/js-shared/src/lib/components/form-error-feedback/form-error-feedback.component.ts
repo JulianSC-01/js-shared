@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { AbstractControl, FormControl } from '@angular/forms';
+import { AbstractControl } from '@angular/forms';
 import { AppFormService } from '../../services/app-form.service';
 
 @Component({
@@ -10,9 +10,9 @@ export class FormErrorFeedbackComponent {
 
   @Input() errorFeedbackControl! : AbstractControl;
   @Input() errorFeedbackId? : string;
-  @Input() errorFeedbackMessages? : {[key: string]: string} = {};
-  
+  @Input() errorFeedbackMessages : {[key: string]: string} = {};
+
   constructor(
-    public formService : AppFormService) { 
+    public formService : AppFormService) {
   }
 }

@@ -1,0 +1,33 @@
+<h3 class="h4">
+  Error Feedback
+</h3>
+<p>
+  The <code>app-form-error-feedback</code> component is used to generate error messages that pertain
+  to a specific form control. Typically, these message are displayed beneath the control.
+  You may specify the following parameters:
+</p>
+<dl>
+  <dt>
+    errorFeedbackControl
+  </dt>
+  <dd>
+    This parameter specifies the <code>AbstractControl</code> that will be checked for errors.
+  </dd>
+  <dt>
+    errorFeedbackId <span class="opacity-75">(optional)</span>
+  </dt>
+  <dd>
+    This parmaeter specifies the <code>id</code> attribute that will be applied to the error element, for accessibility purposes.
+  </dd>
+  <dt>
+    errorFeedbackMessages <span class="opacity-75">(optional)</span>
+  </dt>
+  <dd>
+     This parameter specifies a key/value list that maps error codes to error messages. If any of the
+     error codes are active on the control, the associated error message(s) will be displayed.
+     Defaults to an empty list, which means no errors will ever be displayed.
+  </dd>
+</dl>
+<p>
+  Note: The <code>app-form-error-feedback</code> component is already contained within each <em>app-form-input</em> component.
+</p>

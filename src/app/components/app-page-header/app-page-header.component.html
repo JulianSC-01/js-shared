@@ -5,27 +5,25 @@
   Overview
 </h2>
 <p>
-  The <strong>app-page-header</strong> component is used to generate a <em>h1</em> header.
-  For accessibility purposes, the <em>h1</em> will automatically receive focus when the page is loaded.
-  The browser's page title is also updated using the content of the <em>h1</em> or the <em>pageTitle</em>
-  parameter below.
-  The text inside the header is output through <em>ng-content</em>.
+  The <code>app-page-header</code> component is used to generate a <code>h1</code> header.
+  The text inside the header is output through <code>ng-content</code>.
+  For accessibility purposes, the <code>h1</code> will automatically receive focus when the page is loaded.
   You may specify the following parameters:
 </p>
 <dl>
   <dt>
-    pageTitle
+    pageTitle <span class="opacity-75">(optional)</span>
   </dt>
   <dd>
-    This parameter specifies the text that will be set in the browser's title bar. 
-    If this parameter is not provided, the innerText of the <em>h1</em> is used.
+    This parameter specifies the text that will be set in the browser's title bar.
+    Defaults to the the innerText of the <code>h1</code>.
   </dd>
 </dl>
 <p>
   An example of the header can be found at the top of this page.
 </p>
 <div class="mb-2 mt-4">
-  Return to: 
+  Return to:
   <a routerLink="/" aria-label="Return to home page">
     Home
   </a>

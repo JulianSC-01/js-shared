@@ -1,0 +1,105 @@
+<app-page-header>
+  Reactive form components
+</app-page-header>
+<h2 class="mb-3">
+  Overview
+</h2>
+<p>
+  Select a component below to displayed more detailed information.
+</p>
+<ul class="mb-4">
+  <li><a routerLink="errorHeader">Error Header</a></li>
+  <li><a routerLink="errorFeedback">Error Feedback</a></li>
+  <li><a routerLink="formLabel">Form Label</a></li>
+  <li><a routerLink="formInputText">Form Input - Text</a></li>
+</ul>
+<hr>
+<div aria-live="polite">
+  <router-outlet></router-outlet>
+</div>
+<hr>
+<h2 class="mb-3">
+  Examples
+</h2>
+<form
+  autocomplete="off"
+  [formGroup]="exampleForm"
+  (ngSubmit)="submit()">
+  <app-form-error-header
+    [errorHeaderFormGroup]="exampleForm">
+  </app-form-error-header>
+  <h3 class="h4">
+    FormControl
+  </h3>
+  <div class="col-lg-6 mb-3">
+    <app-form-input-text
+      [formControl]="exampleForm.controls.formControlText"
+      [inputErrorMessageId]="'formControlTextError'"
+      [inputErrorMessages]="errorMessageMap"
+      [inputLabelText]="'FormControl Text Value'"
+      [inputId]="'formControlText'"
+      [inputRequired]="true">
+    </app-form-input-text>
+  </div>
+  <h3 class="h4">
+    FormGroup
+  </h3>
+  <div formGroupName="formGroup">
+    <div class="col-lg-6 mb-3">
+      <app-form-input-text
+        formControlName="formGroupText"
+        [inputErrorMessageId]="'formGroupTextError'"
+        [inputErrorMessages]="errorMessageMap"
+        [inputLabelText]="'FormGroup Text Value'"
+        [inputId]="'formGroupText'"
+        [inputRequired]="true">
+      </app-form-input-text>
+    </div>
+  </div>
+  <h3 class="h4">
+    FormArray
+  </h3>
+  <div class="mb-3" formArrayName="formArray">
+    <div
+      class="col-lg-6 mb-3"
+      *ngFor="let control of formArray.controls; let i = index">
+      <app-form-input-text
+        [formControlName]="i"
+        [inputErrorMessageId]="'formArrayText' + i + 'Error'"
+        [inputErrorMessages]="errorMessageMap"
+        [inputLabelText]="'FormArray Text Value ' + i"
+        [inputId]="'formArrayText' + i"
+        [inputRequired]="true">
+      </app-form-input-text>
+      <button
+        class="btn btn-sm btn-danger mb-1 mt-2"
+        type="button"
+        (click)="removeArrayElement(i)">
+        Remove element
+        <span class="visually-hidden">
+          {{ i }}
+        </span>
+      </button>
+    </div>
+    <button
+      class="btn btn-secondary mb-1"
+      id="addButton"
+      type="button"
+      (click)="addArrayElement()">
+      Add element
+    </button>
+  </div>
+  <div class="mt-4">
+    <button
+      class="btn btn-primary mb-1"
+      type="submit">
+      Submit
+    </button>
+  </div>
+</form>
+<div class="mb-2 mt-4">
+  Return to:
+  <a routerLink="/" aria-label="Return to home page">
+    Home
+  </a>
+</div>

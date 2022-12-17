@@ -5,38 +5,38 @@
   Overview
 </h2>
 <p>
-  The <strong>app-spinner</strong> component is used to generate an animated spinner icon.
-  Additional HTML content can also be specified through <em>ng-content</em>.
+  The <code>app-spinner</code> component is used to generate an animated spinner icon.
+  Additional HTML content can also be specified through <code>ng-content</code>.
   You may specify the following parameters:
 </p>
 <dl>
   <dt>
-    spinnerAccessibleText
+    spinnerAccessibleText <span class="opacity-75">(optional)</span>
   </dt>
   <dd>
-    This parameter specifies the invisible text located within the spinner that is read by screen readers.
-    If this parameter is not provided, the text "<em>Loading...</em>" is used.
+    This parameter specifies the invisible text located within the spinner, for accessibility purposes.
+    Defaults to <em>"Loading..."</em>.
   </dd>
   <dt>
-    spinnerColor
+    spinnerColor <span class="opacity-75">(optional)</span>
   </dt>
   <dd>
-    This parameter can be used to change the spinner's color. Simple text color classes from Bootstrap may be used.
-    (Example: <em>text-primary</em> or <em>text-secondary</em>.)
-    If this parameter is not provided, no custom color is applied.
+    This parameter specifies the spinner's color, using text color classes from Bootstrap.
+    (Example: <code>text-primary</code> or <code>text-secondary</code>.)
+    Defaults to the standard text color.
   </dd>
   <dt>
-    spinnerSmall
+    spinnerSmall <span class="opacity-75">(optional)</span>
   </dt>
   <dd>
-    This parameter can be set to true if you wish to use a small spinner.
+    This parameter specifies if you wish to use a small spinner. Defaults to false.
   </dd>
   <dt>
-    spinnerStyle
+    spinnerStyle <span class="opacity-75">(optional)</span>
   </dt>
   <dd>
-    This parameter specifies the style of spinner. It can be either <em>spinner-border</em> or <em>spinner-grow</em>.
-    If this parameter is not provided, <em>spinner-border</em> is used.
+    This parameter specifies the style of spinner. It can be either <code>spinner-border</code> or <code>spinner-grow</code>.
+    Defaults to <code>spinner-border</code>.
   </dd>
 </dl>
 <h2>
@@ -50,17 +50,17 @@
     <app-spinner></app-spinner>
   </span>
   <span class="me-1">
-    <app-spinner 
+    <app-spinner
       [spinnerColor]="'text-danger'">
     </app-spinner>
   </span>
   <span class="me-1">
-    <app-spinner 
+    <app-spinner
       [spinnerSmall]="true">
     </app-spinner>
   </span>
   <span>
-    <app-spinner 
+    <app-spinner
       [spinnerColor]="'text-danger'"
       [spinnerSmall]="true">
     </app-spinner>
@@ -79,19 +79,19 @@
     </app-spinner>
   </span>
   <span class="me-1">
-    <app-spinner 
+    <app-spinner
       [spinnerColor]="'text-danger'"
       [spinnerStyle]="'spinner-grow'">
     </app-spinner>
   </span>
   <span class="me-1">
-    <app-spinner 
+    <app-spinner
       [spinnerSmall]="true"
       [spinnerStyle]="'spinner-grow'">
     </app-spinner>
   </span>
   <span>
-    <app-spinner 
+    <app-spinner
       [spinnerColor]="'text-danger'"
       [spinnerSmall]="true"
       [spinnerStyle]="'spinner-grow'">
@@ -102,13 +102,13 @@
   Spinner with text
 </h2>
 <p>
-  Any HTML content added within the spinner selector will be placed alongside the spinner using <em>ng-content</em>.
+  Any HTML content added within the spinner selector will be placed alongside the spinner using <code>ng-content</code>.
 </p>
 <app-spinner>
   Loading...
 </app-spinner>
 <div class="mb-2 mt-4">
-  Return to: 
+  Return to:
   <a routerLink="/" aria-label="Return to home page">
     Home
   </a>

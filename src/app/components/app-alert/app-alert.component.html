@@ -5,23 +5,37 @@
   Overview
 </h2>
 <p>
-  The <strong>app-alert</strong> component is used to generate a bootstrap style alert. 
-  The text inside the alert is output through <em>ng-content</em>. 
+  The <code>app-alert</code> component is used to generate a bootstrap style alert.
+  The text inside the alert is output through <code>ng-content</code>.
   You may specify the following parameters:
 </p>
 <dl>
-  <dt>alertId</dt>
-  <dd>This parameter specifies the <em>id</em> attribute of the alert.</dd>
-  <dt>alertRole</dt>
-  <dd>This parameter specifies the <em>role</em> attribute of the alert.</dd>
-  <dt>alertType</dt>
-  <dd>This parameter specifies the type of the alert, using one of the bootstrap CSS classes.</dd>
+  <dt>
+    alertId <span class="opacity-75">(optional)</span>
+  </dt>
+  <dd>
+    This parameter specifies the <code>id</code> attribute of the alert.
+  </dd>
+  <dt>
+    alertRole <span class="opacity-75">(optional)</span>
+  </dt>
+  <dd>
+    This parameter specifies the <code>role</code> attribute of the alert.
+    Defaults to <code>alert</code>.
+  </dd>
+  <dt>
+    alertType <span class="opacity-75">(optional)</span>
+  </dt>
+  <dd>
+    This parameter specifies the type of the alert, using one of the bootstrap CSS classes.
+    Defaults to <code>alert-info</code>.
+  </dd>
 </dl>
 <h2>
   Info alert
 </h2>
 <p>
-  The <strong>alertType</strong> is specified as <em>alert-info</em>, or not provided.
+  The <code>alertType</code> is specified as <code>alert-info</code>, or not provided.
 </p>
 <app-alert>
   Enter your text here.
@@ -30,9 +44,9 @@
   Warning alert
 </h2>
 <p>
-  The <strong>alertType</strong> is specified as <em>alert-warning</em>.
+  The <code>alertType</code> is specified as <code>alert-warning</code>.
 </p>
-<app-alert 
+<app-alert
   [alertType]="'alert-warning'">
   Enter your text here.
 </app-alert>
@@ -40,10 +54,10 @@
   Danger alert
 </h2>
 <p>
-  The <strong>alertType</strong> is specified as <em>alert-danger</em>. 
-  An <strong>alertId</strong> of <em>dangerAlert</em> is also passed, which makes the alert focusable.
+  The <code>alertType</code> is specified as <code>alert-danger</code>.
+  An <code>alertId</code> of "dangerAlert" is also passed, which makes the alert focusable.
 </p>
-<app-alert 
+<app-alert
   [alertId]="'dangerAlert'"
   [alertType]="'alert-danger'">
   Enter your text here.
@@ -54,7 +68,7 @@
   Click to focus danger alert
 </button>
 <div class="mb-2 mt-4">
-  Return to: 
+  Return to:
   <a routerLink="/" aria-label="Return to home page">
     Home
   </a>

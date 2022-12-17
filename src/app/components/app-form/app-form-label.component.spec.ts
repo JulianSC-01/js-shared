@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FormInputTextComponent } from './form-input-text.component';
+import { AppFormLabelComponent } from './app-form-label.component';
 
-describe('FormInputTextComponent', () => {
-  let component: FormInputTextComponent;
-  let fixture: ComponentFixture<FormInputTextComponent>;
+describe('AppFormLabelComponent', () => {
+  let component: AppFormLabelComponent;
+  let fixture: ComponentFixture<AppFormLabelComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FormInputTextComponent ]
+      declarations: [ AppFormLabelComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(FormInputTextComponent);
+    fixture = TestBed.createComponent(AppFormLabelComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

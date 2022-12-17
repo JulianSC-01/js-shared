@@ -27,7 +27,7 @@ export class FormInputTextComponent implements ControlValueAccessor, OnInit {
 
   constructor(
     private formService : AppFormService,
-    @Optional() @Self() private ngControl: NgControl) { 
+    @Optional() @Self() private ngControl: NgControl) {
     if (ngControl) {
       ngControl.valueAccessor = this;
     }
@@ -67,7 +67,7 @@ export class FormInputTextComponent implements ControlValueAccessor, OnInit {
   setDisabledState(isDisabled: boolean): void {
     this.disabled = isDisabled;
   }
-  
+
   writeValue(obj : any) : void {
     this.value = obj;
   }

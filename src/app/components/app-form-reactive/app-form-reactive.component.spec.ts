@@ -3,11 +3,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 import { SharedModule } from 'js-shared';
 
-import { AppErrorValidationComponent } from './app-error-validation.component';
+import { AppFormReactiveComponent } from './app-form-reactive.component';
 
-describe('AppErrorValidationComponent', () => {
-  let component: AppErrorValidationComponent;
-  let fixture: ComponentFixture<AppErrorValidationComponent>;
+describe('AppFormReactiveComponent', () => {
+  let component: AppFormReactiveComponent;
+  let fixture: ComponentFixture<AppFormReactiveComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -16,11 +16,11 @@ describe('AppErrorValidationComponent', () => {
         ReactiveFormsModule,
         RouterTestingModule
       ],
-      declarations: [ AppErrorValidationComponent ],
+      declarations: [ AppFormReactiveComponent ],
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(AppErrorValidationComponent);
+    fixture = TestBed.createComponent(AppFormReactiveComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
