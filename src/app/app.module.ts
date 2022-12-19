@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { SharedModule } from 'js-shared';
 
@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { AppHomeComponent } from './components/app-home.component';
 import { AppAlertComponent } from './components/app-alert/app-alert.component';
 import { AppFormReactiveComponent } from './components/app-form-reactive/app-form-reactive.component';
+import { AppFormTemplateComponent } from './components/app-form-template/app-form-template.component';
 import { AppPageFooterComponent } from './components/app-page-footer/app-page-footer.component';
 import { AppPageHeaderComponent } from './components/app-page-header/app-page-header.component';
 import { AppSpinnerComponent } from './components/app-spinner/app-spinner.component';
@@ -24,6 +25,7 @@ import { AppFormInputTextComponent } from './components/app-form/app-form-input-
     // Component Examples
     AppAlertComponent,
     AppFormReactiveComponent,
+    AppFormTemplateComponent,
     AppPageFooterComponent,
     AppPageHeaderComponent,
     AppSpinnerComponent,
@@ -35,6 +37,7 @@ import { AppFormInputTextComponent } from './components/app-form/app-form-input-
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     ReactiveFormsModule,
     SharedModule,
     AppRoutingModule

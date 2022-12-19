@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { AppFocusService } from 'js-shared';
-import { AppFormService } from 'projects/js-shared/src/public-api';
+import { AppFocusService, AppFormService } from 'js-shared';
 
 interface ExampleForm {
   formControlText: FormControl<string>;
@@ -27,7 +26,7 @@ export class AppFormReactiveComponent {
   constructor(
     private focusService : AppFocusService,
     private formBuilder : FormBuilder,
-    public formService : AppFormService,) {
+    public formService : AppFormService) {
 
     this.exampleForm = this.formBuilder.group<ExampleForm>({
       formControlText : this.formBuilder.control('', {
@@ -65,6 +64,8 @@ export class AppFormReactiveComponent {
     if (this.exampleForm.invalid) {
       this.formService.revealAllErrors(this.exampleForm);
       this.focusService.focusErrorHeader();
+    } else {
+      alert("Form submitted successfully!");
     }
   }
 

@@ -11,7 +11,6 @@
   [attr.aria-invalid]="controlIsInvalid()"
   [attr.id]="inputId"
   [attr.maxLength]="inputMaxLength"
-  [attr.name]="inputId"
   [attr.placeholder]="inputPlaceholder"
   [attr.readonly]="inputReadOnly"
   [attr.size]="inputSize"
@@ -19,7 +18,8 @@
   [disabled]="disabled"
   [ngClass]="{
     'form-control' : true,
-    'is-invalid' : controlIsInvalid()
+    'is-invalid' : controlIsInvalid(),
+    'mb-1': controlIsInvalid() && inputErrorMessages
   }"
   [value]="value"
   (blur)="_onTouched()"
