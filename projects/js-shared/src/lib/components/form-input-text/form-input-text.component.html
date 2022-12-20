@@ -6,6 +6,7 @@
   {{ inputLabelText }}
 </app-form-label>
 <input
+  #input
   [attr.aria-describedby]="
     controlIsInvalid() ? inputErrorMessageId : null"
   [attr.aria-invalid]="controlIsInvalid()"
@@ -15,13 +16,12 @@
   [attr.readonly]="inputReadOnly"
   [attr.size]="inputSize"
   [attr.type]="inputType"
-  [disabled]="disabled"
+  [disabled]="controlDisabled"
   [ngClass]="{
     'form-control' : true,
     'is-invalid' : controlIsInvalid(),
     'mb-1': controlIsInvalid() && inputErrorMessages
   }"
-  [value]="value"
   (blur)="_onTouched()"
   (input)="controlHasChanged($event)">
 <app-form-error-feedback

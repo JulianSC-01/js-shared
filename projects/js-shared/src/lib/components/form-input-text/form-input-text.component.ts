@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Optional, Self } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, Optional, Self, ViewChild } from '@angular/core';
 import { AbstractControl, ControlValueAccessor, NgControl } from '@angular/forms';
 import { AppFormService } from '../../services/app-form.service';
 
@@ -20,10 +20,10 @@ export class FormInputTextComponent implements ControlValueAccessor, OnInit {
   @Input() inputSize? : number;
   @Input() inputType? : 'text' | 'password' = 'text';
 
+  public controlDisabled? : boolean;
   public formControl! : AbstractControl;
 
-  disabled? : boolean;
-  value? : string;
+  @ViewChild('input') input? : ElementRef;
 
   constructor(
     private formService : AppFormService,
@@ -42,17 +42,6 @@ export class FormInputTextComponent implements ControlValueAccessor, OnInit {
 
   // --
 
-  controlHasChanged(event : Event) {
-    const newValue = (<HTMLInputElement>event.target).value;
-    this._onChange(newValue);
-  }
-
-  controlIsInvalid() : boolean {
-    return this.formService.isInvalid(this.formControl);
-  }
-
-  // --
-
   _onChange: any = () => {}
   _onTouched: any = () => {}
 
@@ -65,10 +54,23 @@ export class FormInputTextComponent implements ControlValueAccessor, OnInit {
   }
 
   setDisabledState(isDisabled: boolean): void {
-    this.disabled = isDisabled;
+    this.controlDisabled = isDisabled;
   }
 
   writeValue(obj : any) : void {
-    this.value = obj;
+    if (this.input) {
+      this.input.nativeElement.value = obj;
+    }
+  }
+
+  // --
+
+  controlHasChanged(event : Event) {
+    const newValue = (<HTMLInputElement>event.target).value;
+    this._onChange(newValue);
+  }
+
+  controlIsInvalid() : boolean {
+    return this.formService.isInvalid(this.formControl);
   }
 }
