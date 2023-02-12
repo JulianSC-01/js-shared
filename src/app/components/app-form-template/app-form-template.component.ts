@@ -8,10 +8,13 @@ import { AppFocusService, AppFormService } from 'js-shared';
 })
 export class AppFormTemplateComponent {
 
-  public formValue : string = '';
+  public formTextValue : string = '';
+  public formNumberValue : number | null = null;
 
   public errorMessageMap : {[key: string]: string} = {
-    'required' : 'Error: Field is required.'
+    'required' : 'Error: Field is required.',
+    'min' : 'Error: Field must be greater than or equal to 0',
+    'max' : 'Error: Field must be less than or equal to 99'
   };
 
   constructor(

@@ -11,6 +11,7 @@
   <li><a routerLink="errorHeader">Error Header</a></li>
   <li><a routerLink="errorFeedback">Error Feedback</a></li>
   <li><a routerLink="formLabel">Form Label</a></li>
+  <li><a routerLink="formInputNumber">Form Input - Number</a></li>
   <li><a routerLink="formInputText">Form Input - Text</a></li>
 </ul>
 <hr>
@@ -36,9 +37,23 @@
       [inputId]="'formValueText'"
       [inputLabelText]="'Form Text Value'"
       [inputRequired]="true"
-      [(ngModel)]="formValue"
+      [(ngModel)]="formTextValue"
       required>
     </app-form-input-text>
+  </div>
+  <div class="col-lg-3 mb-3">
+    <app-form-input-number
+      name="formValueNumber"
+      [inputErrorMessageId]="'formValueNumberError'"
+      [inputErrorMessages]="errorMessageMap"
+      [inputId]="'formValueNumber'"
+      [inputLabelText]="'Form Number Value'"
+      [inputMin]="0"
+      [inputMax]="99"
+      [inputRequired]="true"
+      [(ngModel)]="formNumberValue"
+      required>
+    </app-form-input-number>
   </div>
   <div class="mt-4">
     <button

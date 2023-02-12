@@ -11,6 +11,7 @@ import { AppSpinnerComponent } from './components/app-spinner/app-spinner.compon
 import { AppFormErrorHeaderComponent } from './components/app-form/app-form-error-header.component';
 import { AppFormErrorFeedbackComponent } from './components/app-form/app-form-error-feedback.component';
 import { AppFormLabelComponent } from './components/app-form/app-form-label.component';
+import { AppFormInputNumberComponent } from './components/app-form/app-form-input-number.component';
 import { AppFormInputTextComponent } from './components/app-form/app-form-input-text.component';
 
 const routes: Routes = [
@@ -27,6 +28,7 @@ const routes: Routes = [
       { path: 'errorHeader', component: AppFormErrorHeaderComponent },
       { path: 'errorFeedback', component: AppFormErrorFeedbackComponent },
       { path: 'formLabel', component: AppFormLabelComponent },
+      { path: 'formInputNumber', component: AppFormInputNumberComponent },
       { path: 'formInputText', component: AppFormInputTextComponent }
     ]
   },
@@ -37,6 +39,7 @@ const routes: Routes = [
       { path: 'errorHeader', component: AppFormErrorHeaderComponent },
       { path: 'errorFeedback', component: AppFormErrorFeedbackComponent },
       { path: 'formLabel', component: AppFormLabelComponent },
+      { path: 'formInputNumber', component: AppFormInputNumberComponent },
       { path: 'formInputText', component: AppFormInputTextComponent }
     ]
   },

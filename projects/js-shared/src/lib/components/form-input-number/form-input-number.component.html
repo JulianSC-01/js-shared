@@ -1,0 +1,32 @@
+<app-form-label
+  [labelControlId]="inputId"
+  [labelInvisible]="inputLabelInvisible"
+  [labelRequired]="inputRequired"
+  *ngIf="inputLabelText">
+  {{ inputLabelText }}
+</app-form-label>
+<input
+  #input
+  type="number"
+  [attr.aria-describedby]="
+    controlIsInvalid() ? inputErrorMessageId : null"
+  [attr.aria-invalid]="controlIsInvalid()"
+  [attr.id]="inputId"
+  [attr.min]="inputMin"
+  [attr.max]="inputMax"
+  [attr.readonly]="inputReadOnly"
+  [attr.step]="inputStep"
+  [disabled]="controlDisabled"
+  [ngClass]="{
+    'form-control' : true,
+    'is-invalid' : controlIsInvalid(),
+    'mb-1': controlIsInvalid() && inputErrorMessages
+  }"
+  (blur)="_onTouched()"
+  (input)="controlHasChanged($event)">
+<app-form-error-feedback
+  [errorFeedbackControl]="formControl"
+  [errorFeedbackId]="inputErrorMessageId"
+  [errorFeedbackMessages]="inputErrorMessages"
+  *ngIf="inputErrorMessages">
+</app-form-error-feedback>

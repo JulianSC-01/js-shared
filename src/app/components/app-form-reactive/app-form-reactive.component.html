@@ -11,6 +11,7 @@
   <li><a routerLink="errorHeader">Error Header</a></li>
   <li><a routerLink="errorFeedback">Error Feedback</a></li>
   <li><a routerLink="formLabel">Form Label</a></li>
+  <li><a routerLink="formInputNumber">Form Input - Number</a></li>
   <li><a routerLink="formInputText">Form Input - Text</a></li>
 </ul>
 <hr>
@@ -40,6 +41,18 @@
       [inputId]="'formControlText'"
       [inputRequired]="true">
     </app-form-input-text>
+  </div>
+  <div class="col-lg-3 mb-3">
+    <app-form-input-number
+      [formControl]="exampleForm.controls.formControlNumber"
+      [inputErrorMessageId]="'formControlNumberError'"
+      [inputErrorMessages]="errorMessageMap"
+      [inputLabelText]="'FormControl Number Value'"
+      [inputMin]="0"
+      [inputMax]="99"
+      [inputId]="'formControlNumber'"
+      [inputRequired]="true">
+    </app-form-input-number>
   </div>
   <h3 class="h4">
     FormGroup

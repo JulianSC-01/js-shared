@@ -16,6 +16,7 @@ import { AppSpinnerComponent } from './components/app-spinner/app-spinner.compon
 import { AppFormErrorHeaderComponent } from './components/app-form/app-form-error-header.component';
 import { AppFormErrorFeedbackComponent } from './components/app-form/app-form-error-feedback.component';
 import { AppFormLabelComponent } from './components/app-form/app-form-label.component';
+import { AppFormInputNumberComponent } from './components/app-form/app-form-input-number.component';
 import { AppFormInputTextComponent } from './components/app-form/app-form-input-text.component';
 
 @NgModule({
@@ -33,6 +34,7 @@ import { AppFormInputTextComponent } from './components/app-form/app-form-input-
     AppFormErrorHeaderComponent,
     AppFormErrorFeedbackComponent,
     AppFormLabelComponent,
+    AppFormInputNumberComponent,
     AppFormInputTextComponent
   ],
   imports: [

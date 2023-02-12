@@ -4,6 +4,7 @@ import { AppFocusService, AppFormService } from 'js-shared';
 
 interface ExampleForm {
   formControlText: FormControl<string>;
+  formControlNumber: FormControl<number | null>;
   formGroup: FormGroup<ExampleSubForm>;
   formArray: FormArray<FormControl<string>>;
 }
@@ -20,7 +21,9 @@ export class AppFormReactiveComponent {
   public exampleForm : FormGroup<ExampleForm>;
 
   public errorMessageMap : {[key: string]: string} = {
-    'required' : 'Error: Field is required.'
+    'required' : 'Error: Field is required.',
+    'min' : 'Error: Field must be greater than or equal to 0',
+    'max' : 'Error: Field must be less than or equal to 99'
   };
 
   constructor(
@@ -31,6 +34,9 @@ export class AppFormReactiveComponent {
     this.exampleForm = this.formBuilder.group<ExampleForm>({
       formControlText : this.formBuilder.control('', {
         nonNullable: true,
+        validators: Validators.required
+      }),
+      formControlNumber : this.formBuilder.control(null, {
         validators: Validators.required
       }),
       formGroup: this.formBuilder.group<ExampleSubForm>({
