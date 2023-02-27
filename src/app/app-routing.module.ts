@@ -12,6 +12,7 @@ import { AppFormErrorHeaderComponent } from './components/app-form/app-form-erro
 import { AppFormErrorFeedbackComponent } from './components/app-form/app-form-error-feedback.component';
 import { AppFormLabelComponent } from './components/app-form/app-form-label.component';
 import { AppFormInputNumberComponent } from './components/app-form/app-form-input-number.component';
+import { AppFormInputSelectComponent } from './components/app-form/app-form-input-select.component';
 import { AppFormInputTextComponent } from './components/app-form/app-form-input-text.component';
 
 const routes: Routes = [
@@ -29,6 +30,7 @@ const routes: Routes = [
       { path: 'errorFeedback', component: AppFormErrorFeedbackComponent },
       { path: 'formLabel', component: AppFormLabelComponent },
       { path: 'formInputNumber', component: AppFormInputNumberComponent },
+      { path: 'formInputSelect', component: AppFormInputSelectComponent },
       { path: 'formInputText', component: AppFormInputTextComponent }
     ]
   },
@@ -40,6 +42,7 @@ const routes: Routes = [
       { path: 'errorFeedback', component: AppFormErrorFeedbackComponent },
       { path: 'formLabel', component: AppFormLabelComponent },
       { path: 'formInputNumber', component: AppFormInputNumberComponent },
+      { path: 'formInputSelect', component: AppFormInputSelectComponent },
       { path: 'formInputText', component: AppFormInputTextComponent }
     ]
   },

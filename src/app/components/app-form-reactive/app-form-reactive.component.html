@@ -12,6 +12,7 @@
   <li><a routerLink="errorFeedback">Error Feedback</a></li>
   <li><a routerLink="formLabel">Form Label</a></li>
   <li><a routerLink="formInputNumber">Form Input - Number</a></li>
+  <li><a routerLink="formInputSelect">Form Input - Select</a></li>
   <li><a routerLink="formInputText">Form Input - Text</a></li>
 </ul>
 <hr>
@@ -53,6 +54,21 @@
       [inputId]="'formControlNumber'"
       [inputRequired]="true">
     </app-form-input-number>
+  </div>
+  <div class="col-lg-3 mb-3">
+    <app-form-input-select
+      [formControl]="exampleForm.controls.formControlSelect"
+      [inputErrorMessageId]="'formControlSelectError'"
+      [inputErrorMessages]="errorMessageMap"
+      [inputLabelText]="'FormControl Select Value'"
+      [inputId]="'formControlSelect'"
+      [inputRequired]="true">
+      <option
+        [value]="formSelectElement"
+        *ngFor="let formSelectElement of formSelectElements">
+        {{ 'Item ' + formSelectElement }}
+      </option>
+    </app-form-input-select>
   </div>
   <h3 class="h4">
     FormGroup

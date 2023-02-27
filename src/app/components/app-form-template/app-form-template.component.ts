@@ -10,6 +10,9 @@ export class AppFormTemplateComponent {
 
   public formTextValue : string = '';
   public formNumberValue : number | null = null;
+  public formSelectValue : string = '';
+
+  public formSelectElements : string[] = ['01', '02', '03'];
 
   public errorMessageMap : {[key: string]: string} = {
     'required' : 'Error: Field is required.',

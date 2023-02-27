@@ -1,0 +1,69 @@
+<h3 class="h4">
+  Form Input - Select
+</h3>
+<p>
+  The <code>app-form-input-select</code> component is used to generate a standard dropdown input field
+  which includes a label and error validation support. This component uses the <code>ControlValueAccessor</code>
+  interface, so you should provide the form directive which identifies your control.
+  You may specify the following parameters:
+</p>
+<dl>
+  <dt>
+    inputEmptyOption <span class="opacity-75">(optional)</span>
+  </dt>
+  <dd>
+    This parameter specifies if the dropdown should have an empty option that will be selected
+    by default.
+  </dd>
+  <dt>
+    inputEmptyOptionText <span class="opacity-75">(optional)</span>
+  </dt>
+  <dd>
+    This parameter specifies the text of the empty option noted above. This parameter will
+    have no effect if the <code>inputEmptyOption</code> parameter is set to false.
+  </dd>
+  <dt>
+    inputErrorMessageId <span class="opacity-75">(optional)</span>
+  </dt>
+  <dd>
+    This parameter specifies the <code>id</code> attribute of the <code>div</code> element that
+    will contain the error message(s), for accessibility purposes.
+  </dd>
+  <dt>
+    inputErrorMessages <span class="opacity-75">(optional)</span>
+  </dt>
+  <dd>
+    This parameter specifies a key/value list that maps error codes to error messages. If any of the
+    error codes are active on the control, the associated error message(s) will be displayed beneath
+    the control. Defaults to an empty list, which omits any error feedback.
+  </dd>
+  <dt>
+    inputId <span class="opacity-75">(optional)</span>
+  </dt>
+  <dd>
+    This parameter specifies the <code>id</code> attribute of the <code>select</code> element,
+    for accessibility purposes.
+  </dd>
+  <dt>
+    inputLabelInvisible <span class="opacity-75">(optional)</span>
+  </dt>
+  <dd>
+    This parameter specifies if the <code>label</code> element should be invisible, for
+    accessibility purposes. Defaults to false.
+  </dd>
+  <dt>
+    inputLabelText <span class="opacity-75">(optional)</span>
+  </dt>
+  <dd>
+    This parameter specifies the label's text.
+    Defaults to undefined, which omits the label entirely.
+  </dd>
+  <dt>
+    inputRequired <span class="opacity-75">(optional)</span>
+  </dt>
+  <dd>
+    This parameter specifies if the field should be marked as required, which adds the text
+    <strong class="text-danger">(required)</strong> to the end of the label.
+    Defaults to false.
+  </dd>
+</dl>

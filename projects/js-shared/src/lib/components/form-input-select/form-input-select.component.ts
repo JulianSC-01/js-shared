@@ -2,24 +2,23 @@ import { Component, ElementRef, Input, OnInit, Optional, Self, ViewChild } from 
 import { AbstractControl, ControlValueAccessor, NgControl } from '@angular/forms';
 import { AppFormService } from '../../services/app-form.service';
 
+const DEFAULT_EMPTY_OPTION_TEXT = 'Select';
+
 @Component({
-  selector: 'app-form-input-text',
-  templateUrl: './form-input-text.component.html'
+  selector: 'app-form-input-select',
+  templateUrl: './form-input-select.component.html'
 })
-export class FormInputTextComponent
+export class FormInputSelectComponent
   implements ControlValueAccessor, OnInit {
 
+  @Input() inputEmptyOption? : boolean = true;
+  @Input() inputEmptyOptionText? : string = DEFAULT_EMPTY_OPTION_TEXT;
   @Input() inputErrorMessageId? : string;
   @Input() inputErrorMessages? : {[key: string]: string};
   @Input() inputId? : string;
   @Input() inputLabelInvisible? : boolean = false;
   @Input() inputLabelText? : string;
-  @Input() inputMaxLength? : number;
-  @Input() inputPlaceholder? : string;
-  @Input() inputReadOnly? : true;
   @Input() inputRequired? : boolean = false;
-  @Input() inputSize? : number;
-  @Input() inputType? : 'text' | 'password' = 'text';
 
   public controlDisabled? : boolean;
   public formControl! : AbstractControl;

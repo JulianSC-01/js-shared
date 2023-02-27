@@ -6,7 +6,8 @@ import { AppFormService } from '../../services/app-form.service';
   selector: 'app-form-input-number',
   templateUrl: './form-input-number.component.html'
 })
-export class FormInputNumberComponent implements ControlValueAccessor, OnInit {
+export class FormInputNumberComponent
+  implements ControlValueAccessor, OnInit {
 
   @Input() inputErrorMessageId? : string;
   @Input() inputErrorMessages? : {[key: string]: string};
@@ -22,7 +23,8 @@ export class FormInputNumberComponent implements ControlValueAccessor, OnInit {
   public controlDisabled? : boolean;
   public formControl! : AbstractControl;
 
-  @ViewChild('input') input? : ElementRef;
+  @ViewChild('input', {
+    static: true, read: ElementRef }) input? : ElementRef;
 
   constructor(
     private formService : AppFormService,

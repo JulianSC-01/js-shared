@@ -17,6 +17,7 @@ import { AppFormErrorHeaderComponent } from './components/app-form/app-form-erro
 import { AppFormErrorFeedbackComponent } from './components/app-form/app-form-error-feedback.component';
 import { AppFormLabelComponent } from './components/app-form/app-form-label.component';
 import { AppFormInputNumberComponent } from './components/app-form/app-form-input-number.component';
+import { AppFormInputSelectComponent } from './components/app-form/app-form-input-select.component';
 import { AppFormInputTextComponent } from './components/app-form/app-form-input-text.component';
 
 @NgModule({
@@ -35,6 +36,7 @@ import { AppFormInputTextComponent } from './components/app-form/app-form-input-
     AppFormErrorFeedbackComponent,
     AppFormLabelComponent,
     AppFormInputNumberComponent,
+    AppFormInputSelectComponent,
     AppFormInputTextComponent
   ],
   imports: [
