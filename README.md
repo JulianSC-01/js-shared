@@ -4,6 +4,22 @@ This sample application demonstrates the common components contained in the JSSh
 
 ## Change Log
 
-2022-11-16 (v1.0)
+2023-06-10 (v1.0.4)
+
+- Upgrade to Angular 15
+
+2023-02-26 (v1.0.3)
+
+- Add FormInputSelect component
+
+2023-02-11 (v1.0.2)
+
+- Add FormInputNumber component
+
+2022-12-07 (v1.0.1)
+
+- Add initial components
+
+2022-11-16 (v1.0.0)
 
 - Initial version
