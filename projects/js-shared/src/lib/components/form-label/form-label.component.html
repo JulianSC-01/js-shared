@@ -3,9 +3,9 @@
     'form-label' : true,
     'visually-hidden' : labelInvisible}"
   [for]="labelControlId">
-  <ng-content></ng-content>
-  <span 
-    class="label-required" 
+  <ng-content/>
+  <span
+    class="label-required"
     *ngIf="labelRequired">
     (required)
   </span>

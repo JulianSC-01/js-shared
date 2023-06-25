@@ -8,7 +8,7 @@ import { AppFormService } from '../../services/app-form.service';
 })
 export class FormErrorFeedbackComponent {
 
-  @Input() errorFeedbackControl! : AbstractControl;
+  @Input({ required: true }) errorFeedbackControl! : AbstractControl;
   @Input() errorFeedbackId? : string;
   @Input() errorFeedbackMessages : {[key: string]: string} = {};
 
