@@ -3,13 +3,13 @@ import { Component, Input, OnInit } from '@angular/core';
 @Component({
   selector: 'app-page-footer',
   templateUrl: './page-footer.component.html',
-  styleUrls: ['./page-footer.component.css']
+  styleUrl: './page-footer.component.css'
 })
 export class PageFooterComponent implements OnInit {
 
   @Input() buildDate? : string | Date = '';
   @Input() versionNumber? : string | number = '';
-  
+
   constructor() { }
 
   ngOnInit() : void {
