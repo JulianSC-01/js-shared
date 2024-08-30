@@ -1,6 +1,8 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { AppFocusService, AppFormService } from 'js-shared';
+import { FormArray, FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { RouterLink, RouterOutlet } from '@angular/router';
+import { AppFocusService, AppFormService, SharedModule } from 'js-shared';
 
 interface ExampleForm {
   formControlText: FormControl<string>;
@@ -14,7 +16,15 @@ interface ExampleSubForm {
 }
 
 @Component({
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    RouterLink,
+    RouterOutlet,
+    SharedModule
+  ],
   selector: 'app-form-reactive',
+  standalone: true,
   templateUrl: './app-form-reactive.component.html'
 })
 export class AppFormReactiveComponent {

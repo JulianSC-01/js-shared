@@ -1,9 +1,19 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormGroup } from '@angular/forms';
-import { AppFocusService, AppFormService } from 'js-shared';
+import { FormGroup, FormsModule } from '@angular/forms';
+import { RouterLink, RouterOutlet } from '@angular/router';
+import { AppFocusService, AppFormService, SharedModule } from 'js-shared';
 
 @Component({
+  imports: [
+    CommonModule,
+    FormsModule,
+    RouterLink,
+    RouterOutlet,
+    SharedModule
+  ],
   selector: 'app-app-form-template',
+  standalone: true,
   templateUrl: './app-form-template.component.html'
 })
 export class AppFormTemplateComponent {

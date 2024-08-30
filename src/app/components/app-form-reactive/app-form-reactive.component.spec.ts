@@ -1,8 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { ReactiveFormsModule } from '@angular/forms';
-import { RouterTestingModule } from '@angular/router/testing';
-import { SharedModule } from 'js-shared';
-
+import { provideRouter } from '@angular/router';
 import { AppFormReactiveComponent } from './app-form-reactive.component';
 
 describe('AppFormReactiveComponent', () => {
@@ -12,11 +9,11 @@ describe('AppFormReactiveComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        SharedModule,
-        ReactiveFormsModule,
-        RouterTestingModule
+        AppFormReactiveComponent
       ],
-      declarations: [ AppFormReactiveComponent ],
+      providers: [
+        provideRouter([])
+      ]
     })
     .compileComponents();
 

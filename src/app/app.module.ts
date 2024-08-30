@@ -5,24 +5,26 @@ import { SharedModule } from 'js-shared';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AppHomeComponent } from './components/app-home.component';
 import { AppAlertComponent } from './components/app-alert/app-alert.component';
 import { AppFormReactiveComponent } from './components/app-form-reactive/app-form-reactive.component';
 import { AppFormTemplateComponent } from './components/app-form-template/app-form-template.component';
+import { AppHomeComponent } from './components/app-home.component';
 import { AppPageFooterComponent } from './components/app-page-footer/app-page-footer.component';
 import { AppPageHeaderComponent } from './components/app-page-header/app-page-header.component';
 import { AppSpinnerComponent } from './components/app-spinner/app-spinner.component';
 
-import { AppFormErrorHeaderComponent } from './components/app-form/app-form-error-header.component';
 import { AppFormErrorFeedbackComponent } from './components/app-form/app-form-error-feedback.component';
-import { AppFormLabelComponent } from './components/app-form/app-form-label.component';
+import { AppFormErrorHeaderComponent } from './components/app-form/app-form-error-header.component';
 import { AppFormInputNumberComponent } from './components/app-form/app-form-input-number.component';
 import { AppFormInputSelectComponent } from './components/app-form/app-form-input-select.component';
 import { AppFormInputTextComponent } from './components/app-form/app-form-input-text.component';
+import { AppFormLabelComponent } from './components/app-form/app-form-label.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
+  ],
+  imports: [
     AppHomeComponent,
     // Component Examples
     AppAlertComponent,
@@ -32,14 +34,12 @@ import { AppFormInputTextComponent } from './components/app-form/app-form-input-
     AppPageHeaderComponent,
     AppSpinnerComponent,
     // Subcomponents
-    AppFormErrorHeaderComponent,
     AppFormErrorFeedbackComponent,
-    AppFormLabelComponent,
+    AppFormErrorHeaderComponent,
     AppFormInputNumberComponent,
     AppFormInputSelectComponent,
-    AppFormInputTextComponent
-  ],
-  imports: [
+    AppFormInputTextComponent,
+    AppFormLabelComponent,
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,

@@ -1,7 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
-import { SharedModule } from 'js-shared';
-
+import { provideRouter } from '@angular/router';
 import { AppPageHeaderComponent } from './app-page-header.component';
 
 describe('AppPageHeaderComponent', () => {
@@ -11,10 +9,11 @@ describe('AppPageHeaderComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        SharedModule,
-        RouterTestingModule
+        AppPageHeaderComponent
       ],
-      declarations: [ AppPageHeaderComponent ]
+      providers: [
+        provideRouter([])
+      ]
     })
     .compileComponents();
 

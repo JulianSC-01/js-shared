@@ -1,7 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
-import { SharedModule } from 'js-shared';
-
+import { provideRouter } from '@angular/router';
 import { AppSpinnerComponent } from './app-spinner.component';
 
 describe('AppSpinnerComponent', () => {
@@ -11,10 +9,11 @@ describe('AppSpinnerComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        SharedModule,
-        RouterTestingModule
+        AppSpinnerComponent
       ],
-      declarations: [ AppSpinnerComponent ]
+      providers: [
+        provideRouter([])
+      ]
     })
     .compileComponents();
 

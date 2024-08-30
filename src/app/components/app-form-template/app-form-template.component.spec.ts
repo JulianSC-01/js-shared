@@ -1,8 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { FormsModule } from '@angular/forms';
-import { RouterTestingModule } from '@angular/router/testing';
-import { SharedModule } from 'js-shared';
-
+import { provideRouter } from '@angular/router';
 import { AppFormTemplateComponent } from './app-form-template.component';
 
 describe('AppFormTemplateComponent', () => {
@@ -12,11 +9,11 @@ describe('AppFormTemplateComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        SharedModule,
-        FormsModule,
-        RouterTestingModule
+        AppFormTemplateComponent
       ],
-      declarations: [ AppFormTemplateComponent ]
+      providers: [
+        provideRouter([])
+      ]
     })
     .compileComponents();
 
