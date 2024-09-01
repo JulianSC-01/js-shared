@@ -7,7 +7,9 @@ describe('AppFormInputSelectComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ AppFormInputSelectComponent ]
+      imports: [
+        AppFormInputSelectComponent
+      ]
     })
     .compileComponents();
 

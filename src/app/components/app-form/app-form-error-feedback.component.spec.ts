@@ -7,7 +7,9 @@ describe('AppFormErrorFeedbackComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ AppFormErrorFeedbackComponent ]
+      imports: [
+        AppFormErrorFeedbackComponent
+      ]
     })
     .compileComponents();
 

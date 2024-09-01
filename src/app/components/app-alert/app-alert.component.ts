@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { AppFocusService, SharedModule } from 'js-shared';
+import { AlertComponent, AppFocusService, PageHeaderComponent } from 'js-shared';
 
 @Component({
   imports: [
-    RouterLink,
-    SharedModule
+    AlertComponent,
+    PageHeaderComponent,
+    RouterLink
   ],
   selector: 'app-app-alert',
   standalone: true,

@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { PageHeaderComponent } from './page-header.component';
 
 describe('PageHeaderComponent', () => {
@@ -8,7 +7,9 @@ describe('PageHeaderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PageHeaderComponent ]
+      imports: [
+        PageHeaderComponent
+      ]
     })
     .compileComponents();
 

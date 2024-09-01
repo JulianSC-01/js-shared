@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { FormLabelComponent } from './form-label.component';
 
 describe('FormLabelComponent', () => {
@@ -8,7 +7,9 @@ describe('FormLabelComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FormLabelComponent ]
+      imports: [
+        FormLabelComponent
+      ]
     })
     .compileComponents();
 

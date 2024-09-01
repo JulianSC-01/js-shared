@@ -1,14 +1,22 @@
+import { CommonModule } from '@angular/common';
 import { Component, ElementRef, Input, OnInit, Optional, Self, ViewChild } from '@angular/core';
 import { AbstractControl, ControlValueAccessor, NgControl, Validators } from '@angular/forms';
 import { AppFormService } from '../../services/app-form.service';
+import { FormErrorFeedbackComponent } from '../form-error-feedback/form-error-feedback.component';
+import { FormLabelComponent } from '../form-label/form-label.component';
 
 @Component({
+  imports: [
+    CommonModule,
+    FormErrorFeedbackComponent,
+    FormLabelComponent
+  ],
   selector: 'app-form-input-number',
+  standalone: true,
   templateUrl: './form-input-number.component.html'
 })
 export class FormInputNumberComponent
   implements ControlValueAccessor, OnInit {
-
   @Input() inputErrorMessageId? : string;
   @Input() inputErrorMessages? : {[key: string]: string};
   @Input() inputId? : string;

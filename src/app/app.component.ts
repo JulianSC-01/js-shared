@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { SharedModule } from 'js-shared';
+import { PageFooterComponent } from 'js-shared';
 
 @Component({
   imports: [
-    RouterOutlet,
-    SharedModule
+    PageFooterComponent,
+    RouterOutlet
   ],
   selector: 'app-root',
   standalone: true,

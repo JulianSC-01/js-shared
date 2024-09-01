@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { FormErrorHeaderComponent } from './form-error-header.component';
 
 describe('FormErrorHeaderComponent', () => {
@@ -8,7 +7,9 @@ describe('FormErrorHeaderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FormErrorHeaderComponent ]
+      imports: [
+        FormErrorHeaderComponent
+      ]
     })
     .compileComponents();
 

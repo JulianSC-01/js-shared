@@ -1,13 +1,19 @@
+import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { FormArray, FormControl, FormGroup } from '@angular/forms';
 import { AppFormService } from '../../services/app-form.service';
+import { AlertComponent } from '../alert/alert.component';
 
 @Component({
+  imports: [
+    AlertComponent,
+    CommonModule
+  ],
   selector: 'app-form-error-header',
+  standalone: true,
   templateUrl: './form-error-header.component.html'
 })
 export class FormErrorHeaderComponent {
-
   @Input() errorHeaderFormGroup? : FormGroup<any>;
   @Input() errorHeaderMessage? : string;
 

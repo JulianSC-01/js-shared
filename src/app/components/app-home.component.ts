@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { SharedModule } from 'js-shared';
+import { AlertComponent, PageHeaderComponent } from 'js-shared';
 
 @Component({
   imports: [
-    RouterLink,
-    SharedModule
+    AlertComponent,
+    PageHeaderComponent,
+    RouterLink
   ],
   selector: 'app-app-home',
   standalone: true,

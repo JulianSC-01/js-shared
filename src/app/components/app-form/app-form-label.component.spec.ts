@@ -7,7 +7,9 @@ describe('AppFormLabelComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ AppFormLabelComponent ]
+      imports: [
+        AppFormLabelComponent
+      ]
     })
     .compileComponents();
 

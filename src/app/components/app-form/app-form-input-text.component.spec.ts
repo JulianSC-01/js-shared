@@ -7,7 +7,9 @@ describe('AppFormInputTextComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ AppFormInputTextComponent ]
+      imports: [
+        AppFormInputTextComponent
+      ]
     })
     .compileComponents();
 

@@ -4,11 +4,11 @@ import { AppFocusService } from '../../services/app-focus.service';
 
 @Component({
   selector: 'app-page-header',
-  templateUrl: './page-header.component.html',
-  styleUrl: './page-header.component.css'
+  standalone: true,
+  styleUrl: './page-header.component.css',
+  templateUrl: './page-header.component.html'
 })
 export class PageHeaderComponent implements AfterViewInit {
-
   @Input() pageTitle? : string = '';
 
   @ViewChild('header') header? : ElementRef;

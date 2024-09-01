@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { SharedModule } from 'js-shared';
+import { PageHeaderComponent, SpinnerComponent } from 'js-shared';
 
 @Component({
   imports: [
-    RouterLink,
-    SharedModule
+    PageHeaderComponent,
+    SpinnerComponent,
+    RouterLink
   ],
   selector: 'app-app-spinner',
   standalone: true,

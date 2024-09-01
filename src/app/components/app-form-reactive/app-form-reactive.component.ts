@@ -2,7 +2,10 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterLink, RouterOutlet } from '@angular/router';
-import { AppFocusService, AppFormService, SharedModule } from 'js-shared';
+import {
+  AppFocusService, AppFormService, FormErrorHeaderComponent,
+  FormInputNumberComponent, FormInputSelectComponent, FormInputTextComponent, PageHeaderComponent
+} from 'js-shared';
 
 interface ExampleForm {
   formControlText: FormControl<string>;
@@ -11,6 +14,7 @@ interface ExampleForm {
   formGroup: FormGroup<ExampleSubForm>;
   formArray: FormArray<FormControl<string>>;
 }
+
 interface ExampleSubForm {
   formGroupText: FormControl<string>;
 }
@@ -18,17 +22,20 @@ interface ExampleSubForm {
 @Component({
   imports: [
     CommonModule,
+    FormErrorHeaderComponent,
+    FormInputNumberComponent,
+    FormInputSelectComponent,
+    FormInputTextComponent,
+    PageHeaderComponent,
     ReactiveFormsModule,
     RouterLink,
-    RouterOutlet,
-    SharedModule
+    RouterOutlet
   ],
   selector: 'app-form-reactive',
   standalone: true,
   templateUrl: './app-form-reactive.component.html'
 })
 export class AppFormReactiveComponent {
-
   public exampleForm : FormGroup<ExampleForm>;
 
   public formSelectElements : string[] = ['01', '02', '03'];
