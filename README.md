@@ -4,9 +4,11 @@ This sample application demonstrates the common components contained in the JSSh
 
 ## Change Log
 
-2024-08-30 (v1.0.6)
+2024-08-30 (v1.1.0)
 
 - Upgrade to Angular 17
+- Upgrade to new application builder
+- Upgrade all projects to standalone
 
 2023-06-25 (v1.0.5)
 
