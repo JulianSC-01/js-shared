@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { AppFormLabelComponent } from './app-form-label.component';
 
 describe('AppFormLabelComponent', () => {
@@ -8,7 +7,9 @@ describe('AppFormLabelComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AppFormLabelComponent ]
+      imports: [
+        AppFormLabelComponent
+      ]
     })
     .compileComponents();
 

@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-app-form-input-select',
+  selector: 'app-form-input-select',
+  standalone: true,
   templateUrl: './app-form-input-select.component.html'
 })
 export class AppFormInputSelectComponent {

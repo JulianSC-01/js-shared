@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { PageFooterComponent } from './page-footer.component';
 
 describe('PageFooterComponent', () => {
@@ -8,7 +7,9 @@ describe('PageFooterComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PageFooterComponent ]
+      imports: [
+        PageFooterComponent
+      ]
     })
     .compileComponents();
 

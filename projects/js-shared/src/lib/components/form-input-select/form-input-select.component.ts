@@ -1,16 +1,24 @@
+import { CommonModule } from '@angular/common';
 import { Component, ElementRef, Input, OnInit, Optional, Self, ViewChild } from '@angular/core';
 import { AbstractControl, ControlValueAccessor, NgControl } from '@angular/forms';
 import { AppFormService } from '../../services/app-form.service';
+import { FormErrorFeedbackComponent } from '../form-error-feedback/form-error-feedback.component';
+import { FormLabelComponent } from '../form-label/form-label.component';
 
 const DEFAULT_EMPTY_OPTION_TEXT = 'Select';
 
 @Component({
+  imports: [
+    CommonModule,
+    FormErrorFeedbackComponent,
+    FormLabelComponent
+  ],
   selector: 'app-form-input-select',
+  standalone: true,
   templateUrl: './form-input-select.component.html'
 })
 export class FormInputSelectComponent
   implements ControlValueAccessor, OnInit {
-
   @Input() inputEmptyOption? : boolean = true;
   @Input() inputEmptyOptionText? : string = DEFAULT_EMPTY_OPTION_TEXT;
   @Input() inputErrorMessageId? : string;

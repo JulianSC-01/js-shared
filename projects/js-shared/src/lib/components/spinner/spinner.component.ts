@@ -1,19 +1,23 @@
+import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 
 const SPINNER_BORDER = 'spinner-border';
 const SPINNER_GROW = 'spinner-grow';
 
 @Component({
+  imports: [
+    CommonModule
+  ],
   selector: 'app-spinner',
+  standalone: true,
   templateUrl: './spinner.component.html'
 })
 export class SpinnerComponent implements OnInit {
-
   @Input() spinnerAccessibleText? : string = 'Loading...';
   @Input() spinnerColor? : string = '';
   @Input() spinnerSmall? : boolean = false;
   @Input() spinnerStyle? : string = SPINNER_BORDER;
- 
+
   public spinnerClass : string = '';
 
   constructor() { }
@@ -32,9 +36,9 @@ export class SpinnerComponent implements OnInit {
       }
     }
 
-    this.spinnerClass = 
+    this.spinnerClass =
       this.spinnerStyle + spinnerSize;
-    
+
     if (this.spinnerColor !== '') {
       this.spinnerClass = this.spinnerClass + ' ' + this.spinnerColor;
     }

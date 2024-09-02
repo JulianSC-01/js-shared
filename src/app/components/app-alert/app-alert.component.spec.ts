@@ -1,7 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
-import { SharedModule } from 'js-shared';
-
+import { provideRouter } from '@angular/router';
 import { AppAlertComponent } from './app-alert.component';
 
 describe('AppAlertComponent', () => {
@@ -11,10 +9,11 @@ describe('AppAlertComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        SharedModule,
-        RouterTestingModule
+        AppAlertComponent
       ],
-      declarations: [ AppAlertComponent ]
+      providers: [
+        provideRouter([])
+      ]
     })
     .compileComponents();
 

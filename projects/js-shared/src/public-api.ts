@@ -1,8 +1,6 @@
 /*
  * Public API Surface of js-shared
  */
-
-export * from './lib/shared.module';
 export * from './lib/components/alert/alert.component';
 export * from './lib/components/form-error-feedback/form-error-feedback.component';
 export * from './lib/components/form-error-header/form-error-header.component';

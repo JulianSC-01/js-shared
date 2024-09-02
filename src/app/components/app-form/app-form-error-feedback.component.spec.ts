@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { AppFormErrorFeedbackComponent } from './app-form-error-feedback.component';
 
 describe('AppFormErrorFeedbackComponent', () => {
@@ -8,7 +7,9 @@ describe('AppFormErrorFeedbackComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AppFormErrorFeedbackComponent ]
+      imports: [
+        AppFormErrorFeedbackComponent
+      ]
     })
     .compileComponents();
 
