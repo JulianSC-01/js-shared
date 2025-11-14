@@ -35,7 +35,7 @@
   </h3>
   <div class="col-lg-6 mb-3">
     <app-form-input-text
-      [formControl]="exampleForm.controls.formControlText"
+      formControlName="formControlText"
       [inputErrorMessageId]="'formControlTextError'"
       [inputErrorMessages]="errorMessageMap"
       [inputLabelText]="'FormControl Text Value'"
@@ -45,7 +45,7 @@
   </div>
   <div class="col-lg-3 mb-3">
     <app-form-input-number
-      [formControl]="exampleForm.controls.formControlNumber"
+      formControlName="formControlNumber"
       [inputErrorMessageId]="'formControlNumberError'"
       [inputErrorMessages]="errorMessageMap"
       [inputLabelText]="'FormControl Number Value'"
@@ -57,7 +57,7 @@
   </div>
   <div class="col-lg-3 mb-3">
     <app-form-input-select
-      [formControl]="exampleForm.controls.formControlSelect"
+      formControlName="formControlSelect"
       [inputErrorMessageId]="'formControlSelectError'"
       [inputErrorMessages]="errorMessageMap"
       [inputLabelText]="'FormControl Select Value'"
