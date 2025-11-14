@@ -4,6 +4,11 @@ This sample application demonstrates the common components contained in the JSSh
 
 ## Change Log
 
+2025-11-14 (18.0.0)
+
+- Upgrade to Angular 18
+- Prefix application and library names with ng/ngx
+
 2024-08-30 (v1.1.0)
 
 - Upgrade to Angular 17
