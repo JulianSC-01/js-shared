@@ -1,5 +1,5 @@
 /*
- * Public API Surface of js-shared
+ * Public API Surface of ngx-js-shared
  */
 export * from './lib/components/alert/alert.component';
 export * from './lib/components/form-error-feedback/form-error-feedback.component';
@@ -13,3 +13,4 @@ export * from './lib/components/page-header/page-header.component';
 export * from './lib/components/spinner/spinner.component';
 export * from './lib/services/app-focus.service';
 export * from './lib/services/app-form.service';
+

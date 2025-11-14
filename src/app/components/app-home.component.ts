@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { AlertComponent, PageHeaderComponent } from 'js-shared';
+import { AlertComponent, PageHeaderComponent } from 'ngx-js-shared';
 
 @Component({
   imports: [

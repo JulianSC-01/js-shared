@@ -5,7 +5,7 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 import {
   AppFocusService, AppFormService, FormErrorHeaderComponent,
   FormInputNumberComponent, FormInputSelectComponent, FormInputTextComponent, PageHeaderComponent
-} from 'js-shared';
+} from 'ngx-js-shared';
 
 interface ExampleForm {
   formControlText: FormControl<string>;

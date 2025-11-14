@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ngJSShared": {
+    "ng-js-shared": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -14,7 +14,7 @@
           "builder": "@angular-devkit/build-angular:application",
           "options": {
             "outputPath": {
-              "base": "dist/ng-jsshared"
+              "base": "dist/ng-js-shared"
             },
             "index": "src/index.html",
             "browser": "src/main.ts",
@@ -69,10 +69,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "ngJSShared:build:production"
+              "buildTarget": "ng-js-shared:build:production"
             },
             "development": {
-              "buildTarget": "ngJSShared:build:development"
+              "buildTarget": "ng-js-shared:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -80,7 +80,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "ngJSShared:build"
+            "buildTarget": "ng-js-shared:build"
           }
         },
         "test": {
@@ -102,23 +102,23 @@
         }
       }
     },
-    "js-shared": {
+    "ngx-js-shared": {
       "projectType": "library",
-      "root": "projects/js-shared",
-      "sourceRoot": "projects/js-shared/src",
+      "root": "projects/ngx-js-shared",
+      "sourceRoot": "projects/ngx-js-shared/src",
       "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "project": "projects/js-shared/ng-package.json"
+            "project": "projects/ngx-js-shared/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/js-shared/tsconfig.lib.prod.json"
+              "tsConfig": "projects/ngx-js-shared/tsconfig.lib.prod.json"
             },
             "development": {
-              "tsConfig": "projects/js-shared/tsconfig.lib.json"
+              "tsConfig": "projects/ngx-js-shared/tsconfig.lib.json"
             }
           },
           "defaultConfiguration": "production"
@@ -126,9 +126,9 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/js-shared/src/test.ts",
-            "tsConfig": "projects/js-shared/tsconfig.spec.json",
-            "karmaConfig": "projects/js-shared/karma.conf.js"
+            "main": "projects/ngx-js-shared/src/test.ts",
+            "tsConfig": "projects/ngx-js-shared/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-js-shared/karma.conf.js"
           }
         }
       }
