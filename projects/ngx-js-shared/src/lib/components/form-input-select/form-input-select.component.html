@@ -1,32 +1,34 @@
-<app-form-label
-  [labelControlId]="inputId"
-  [labelInvisible]="inputLabelInvisible"
-  [labelRequired]="inputRequired"
-  *ngIf="inputLabelText">
-  {{ inputLabelText }}
-</app-form-label>
+@if (inputLabelText) {
+  <app-form-label
+    [labelControlId]="inputId"
+    [labelInvisible]="inputLabelInvisible"
+    [labelRequired]="inputRequired">
+    {{ inputLabelText }}
+  </app-form-label>
+}
 <select
   #input
+  class="form-select"
   [attr.aria-describedby]="
     controlIsInvalid() ? inputErrorMessageId : null"
   [attr.aria-invalid]="controlIsInvalid()"
   [attr.id]="inputId"
+  [class.is-invalid]="controlIsInvalid()"
+  [class.mb-1]="controlIsInvalid() && inputErrorMessages"
   [disabled]="controlDisabled"
-  [ngClass]="{
-    'form-select' : true,
-    'is-invalid' : controlIsInvalid(),
-    'mb-1': controlIsInvalid() && inputErrorMessages
-  }"
   (blur)="_onTouched()"
   (change)="controlHasChanged($event)">
-  <option selected value="" *ngIf="inputEmptyOption">
-    {{ inputEmptyOptionText }}
-  </option>
+  @if (inputEmptyOption) {
+    <option selected value="">
+      {{ inputEmptyOptionText }}
+    </option>
+  }
   <ng-content/>
 </select>
-<app-form-error-feedback
-  [errorFeedbackControl]="formControl"
-  [errorFeedbackId]="inputErrorMessageId"
-  [errorFeedbackMessages]="inputErrorMessages"
-  *ngIf="inputErrorMessages">
-</app-form-error-feedback>
+@if (inputErrorMessages) {
+  <app-form-error-feedback
+    [errorFeedbackControl]="formControl"
+    [errorFeedbackId]="inputErrorMessageId"
+    [errorFeedbackMessages]="inputErrorMessages">
+  </app-form-error-feedback>
+}

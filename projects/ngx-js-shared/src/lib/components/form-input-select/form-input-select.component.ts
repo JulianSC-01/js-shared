@@ -1,4 +1,3 @@
-import { CommonModule } from '@angular/common';
 import { Component, ElementRef, Input, OnInit, Optional, Self, ViewChild } from '@angular/core';
 import { AbstractControl, ControlValueAccessor, NgControl } from '@angular/forms';
 import { AppFormService } from '../../services/app-form.service';
@@ -9,7 +8,6 @@ const DEFAULT_EMPTY_OPTION_TEXT = 'Select';
 
 @Component({
   imports: [
-    CommonModule,
     FormErrorFeedbackComponent,
     FormLabelComponent
   ],

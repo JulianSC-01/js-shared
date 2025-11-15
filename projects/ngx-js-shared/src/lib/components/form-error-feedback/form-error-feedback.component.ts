@@ -1,11 +1,11 @@
-import { CommonModule } from '@angular/common';
+import { KeyValuePipe } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { AbstractControl } from '@angular/forms';
 import { AppFormService } from '../../services/app-form.service';
 
 @Component({
   imports: [
-    CommonModule
+    KeyValuePipe
   ],
   selector: 'app-form-error-feedback',
   standalone: true,

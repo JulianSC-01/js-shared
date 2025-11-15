@@ -1,4 +1,3 @@
-import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterLink, RouterOutlet } from '@angular/router';
@@ -21,7 +20,6 @@ interface ExampleSubForm {
 
 @Component({
   imports: [
-    CommonModule,
     FormErrorHeaderComponent,
     FormInputNumberComponent,
     FormInputSelectComponent,

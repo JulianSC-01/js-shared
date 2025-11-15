@@ -1,4 +1,3 @@
-import { CommonModule } from '@angular/common';
 import { Component, ElementRef, Input, OnInit, Optional, Self, ViewChild } from '@angular/core';
 import { AbstractControl, ControlValueAccessor, NgControl, Validators } from '@angular/forms';
 import { AppFormService } from '../../services/app-form.service';
@@ -7,7 +6,6 @@ import { FormLabelComponent } from '../form-label/form-label.component';
 
 @Component({
   imports: [
-    CommonModule,
     FormErrorFeedbackComponent,
     FormLabelComponent
   ],

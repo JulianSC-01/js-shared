@@ -1,11 +1,13 @@
-<div
-  class="text-danger"
-  [attr.id]="errorFeedbackId"
-  *ngIf="formService.isInvalid(errorFeedbackControl)">
-  <ng-container
-    *ngFor="let error of errorFeedbackControl.errors | keyvalue">
-    <small class="d-block">
-      {{ errorFeedbackMessages[error.key] }}
-    </small>
-  </ng-container>
-</div>
+@if (formService.isInvalid(errorFeedbackControl)) {
+  <div
+    class="text-danger"
+    [attr.id]="errorFeedbackId">
+    @for (error of errorFeedbackControl.errors | keyvalue; track error.key) {
+      <ng-container>
+        <small class="d-block">
+          {{ errorFeedbackMessages[error.key] }}
+        </small>
+      </ng-container>
+    }
+  </div>
+}

@@ -1,10 +1,6 @@
-import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 
 @Component({
-  imports: [
-    CommonModule
-  ],
   selector: 'app-form-label',
   standalone: true,
   styleUrl: './form-label.component.css',

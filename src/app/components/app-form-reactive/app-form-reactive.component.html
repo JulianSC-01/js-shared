@@ -63,11 +63,11 @@
       [inputLabelText]="'FormControl Select Value'"
       [inputId]="'formControlSelect'"
       [inputRequired]="true">
-      <option
-        [value]="formSelectElement"
-        *ngFor="let formSelectElement of formSelectElements">
-        {{ 'Item ' + formSelectElement }}
-      </option>
+      @for (formSelectElement of formSelectElements; track $index) {
+        <option [value]="formSelectElement">
+          {{ 'Item ' + formSelectElement }}
+        </option>
+      }
     </app-form-input-select>
   </div>
   <h3 class="h4">
@@ -89,27 +89,33 @@
     FormArray
   </h3>
   <div class="mb-3" formArrayName="formArray">
-    <div
-      class="col-lg-6 mb-3"
-      *ngFor="let control of formArray.controls; let i = index">
-      <app-form-input-text
-        [formControlName]="i"
-        [inputErrorMessageId]="'formArrayText' + i + 'Error'"
-        [inputErrorMessages]="errorMessageMap"
-        [inputLabelText]="'FormArray Text Value ' + i"
-        [inputId]="'formArrayText' + i"
-        [inputRequired]="true">
-      </app-form-input-text>
-      <button
-        class="btn btn-sm btn-danger mb-1 mt-2"
-        type="button"
-        (click)="removeArrayElement(i)">
-        Remove element
-        <span class="visually-hidden">
-          {{ i }}
-        </span>
-      </button>
-    </div>
+    @for (control of formArray.controls; track control) {
+      <div class="col-lg-6 mb-3">
+        <app-form-input-text
+          [formControlName]="$index"
+          [inputErrorMessageId]="'formArrayText' + $index + 'Error'"
+          [inputErrorMessages]="errorMessageMap"
+          [inputLabelText]="'FormArray Text Value ' + $index"
+          [inputId]="'formArrayText' + $index"
+          [inputRequired]="true">
+        </app-form-input-text>
+        <button
+          class="btn btn-sm btn-danger mb-1 mt-2"
+          type="button"
+          (click)="removeArrayElement($index)">
+          Remove element
+          <span class="visually-hidden">
+            {{ $index }}
+          </span>
+        </button>
+      </div>
+    } @empty {
+      <div class="mb-3">
+        <p>
+          Select the "Add element" button to add a control.
+        </p>
+      </div>
+    }
     <button
       class="btn btn-secondary mb-1"
       id="addButton"

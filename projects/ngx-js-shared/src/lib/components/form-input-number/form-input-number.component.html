@@ -1,12 +1,14 @@
-<app-form-label
-  [labelControlId]="inputId"
-  [labelInvisible]="inputLabelInvisible"
-  [labelRequired]="inputRequired"
-  *ngIf="inputLabelText">
-  {{ inputLabelText }}
-</app-form-label>
+@if (inputLabelText) {
+  <app-form-label
+    [labelControlId]="inputId"
+    [labelInvisible]="inputLabelInvisible"
+    [labelRequired]="inputRequired">
+    {{ inputLabelText }}
+  </app-form-label>
+}
 <input
   #input
+  class="form-control"
   type="number"
   [attr.aria-describedby]="
     controlIsInvalid() ? inputErrorMessageId : null"
@@ -16,17 +18,15 @@
   [attr.max]="inputMax"
   [attr.readonly]="inputReadOnly"
   [attr.step]="inputStep"
+  [class.is-invalid]="controlIsInvalid()"
+  [class.mb-1]="controlIsInvalid() && inputErrorMessages"
   [disabled]="controlDisabled"
-  [ngClass]="{
-    'form-control' : true,
-    'is-invalid' : controlIsInvalid(),
-    'mb-1': controlIsInvalid() && inputErrorMessages
-  }"
   (blur)="_onTouched()"
   (input)="controlHasChanged($event)">
-<app-form-error-feedback
-  [errorFeedbackControl]="formControl"
-  [errorFeedbackId]="inputErrorMessageId"
-  [errorFeedbackMessages]="inputErrorMessages"
-  *ngIf="inputErrorMessages">
-</app-form-error-feedback>
+@if (inputErrorMessages) {
+  <app-form-error-feedback
+    [errorFeedbackControl]="formControl"
+    [errorFeedbackId]="inputErrorMessageId"
+    [errorFeedbackMessages]="inputErrorMessages">
+  </app-form-error-feedback>
+}

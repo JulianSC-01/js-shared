@@ -66,11 +66,11 @@
       [inputRequired]="true"
       [(ngModel)]="formSelectValue"
       required>
-      <option
-        [value]="formSelectElement"
-        *ngFor="let formSelectElement of formSelectElements">
-        {{ 'Item ' + formSelectElement }}
-      </option>
+      @for (formSelectElement of formSelectElements; track $index) {
+        <option [value]="formSelectElement">
+          {{ 'Item ' + formSelectElement }}
+        </option>
+      }
     </app-form-input-select>
   </div>
   <div class="mt-4">

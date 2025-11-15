@@ -1,13 +1,9 @@
-import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 
 const SPINNER_BORDER = 'spinner-border';
 const SPINNER_GROW = 'spinner-grow';
 
 @Component({
-  imports: [
-    CommonModule
-  ],
   selector: 'app-spinner',
   standalone: true,
   templateUrl: './spinner.component.html'
@@ -28,19 +24,22 @@ export class SpinnerComponent implements OnInit {
     if (this.spinnerSmall) {
       switch (this.spinnerStyle) {
         case SPINNER_BORDER:
-          spinnerSize = ' spinner-border-sm';
+          spinnerSize = 'spinner-border-sm';
           break;
         case SPINNER_GROW:
-          spinnerSize = ' spinner-grow-sm';
+          spinnerSize = 'spinner-grow-sm';
           break;
+        default:
+          spinnerSize = 'spinner-border-sm';
       }
     }
 
     this.spinnerClass =
-      this.spinnerStyle + spinnerSize;
+      `${this.spinnerStyle} ${spinnerSize}`;
 
-    if (this.spinnerColor !== '') {
-      this.spinnerClass = this.spinnerClass + ' ' + this.spinnerColor;
+    if (this.spinnerColor) {
+      this.spinnerClass =
+        `${this.spinnerClass} ${this.spinnerColor}`;
     }
   }
 }
