@@ -9,14 +9,17 @@
 </p>
 <dl>
   <dt>
-    errorHeaderFormGroup <span class="opacity-75">(optional)</span>
+    formGroup <span class="opacity-75">(optional)</span>
   </dt>
   <dd>
     This parameter specifies the <code>FormGroup</code> that will have its errors counted, in order
-    to display the default error message.
+    to display the default error message. You must use the <code>appFormA11y</code> directive on the
+    <code>form</code> element and pass a reference to the error header component to the directive
+    using the <code>formErrorHeader</code> parameter, if you wish for the error header to automatically
+    display the error count.
   </dd>
   <dt>
-    errorHeaderMessage <span class="opacity-75">(optional)</span>
+    errorMessage <span class="opacity-75">(optional)</span>
   </dt>
   <dd>
     This parameter specifies a custom error message which should be displayed in the error header.

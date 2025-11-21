@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { AlertComponent, AppFocusService, PageHeaderComponent } from 'ngx-js-shared';
+import { AlertComponent, FocusService, PageHeaderComponent } from 'ngx-js-shared';
 
 @Component({
   imports: [
@@ -10,11 +10,12 @@ import { AlertComponent, AppFocusService, PageHeaderComponent } from 'ngx-js-sha
   ],
   selector: 'app-app-alert',
   standalone: true,
-  templateUrl: './app-alert.component.html'
+  templateUrl: './app-alert.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppAlertComponent {
-  constructor(
-    private focusService : AppFocusService) { }
+  readonly focusService =
+    inject(FocusService);
 
   focusDangerAlert() : void {
     this.focusService.focusElement('#dangerAlert');

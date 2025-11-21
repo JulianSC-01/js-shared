@@ -24,20 +24,23 @@
   Examples
 </h2>
 <form
+  appFormA11y
   autocomplete="off"
-  #exampleForm="ngForm"
-  (ngSubmit)="submit(exampleForm.form)">
+  #templateForm="ngForm"
+  [formErrorHeader]="formErrorHeader"
+  (ngSubmit)="submit(templateForm)">
   <app-form-error-header
-    [errorHeaderFormGroup]="exampleForm.form">
+    #formErrorHeader
+    [formGroup]="templateForm.form">
   </app-form-error-header>
   <div class="col-lg-6 mb-3">
     <app-form-input-text
       name="formValueText"
-      [inputErrorMessageId]="'formValueTextError'"
-      [inputErrorMessages]="errorMessageMap"
-      [inputId]="'formValueText'"
-      [inputLabelText]="'Form Text Value'"
-      [inputRequired]="true"
+      inputErrorMessageId="formValueTextError"
+      inputId="formValueText"
+      inputLabelText="Form Text Value"
+      inputRequired="true"
+      [inputErrorMessages]="errorMessageMap()"
       [(ngModel)]="formTextValue"
       required>
     </app-form-input-text>
@@ -45,13 +48,13 @@
   <div class="col-lg-3 mb-3">
     <app-form-input-number
       name="formValueNumber"
-      [inputErrorMessageId]="'formValueNumberError'"
-      [inputErrorMessages]="errorMessageMap"
-      [inputId]="'formValueNumber'"
-      [inputLabelText]="'Form Number Value'"
-      [inputMin]="0"
-      [inputMax]="99"
-      [inputRequired]="true"
+      inputErrorMessageId="formValueNumberError"
+      inputId="formValueNumber"
+      inputLabelText="Form Number Value"
+      inputMin="0"
+      inputMax="99"
+      inputRequired="true"
+      [inputErrorMessages]="errorMessageMap()"
       [(ngModel)]="formNumberValue"
       required>
     </app-form-input-number>
@@ -59,14 +62,14 @@
   <div class="col-lg-3 mb-3">
     <app-form-input-select
       name="formControlSelect"
-      [inputErrorMessageId]="'formControlSelectError'"
-      [inputErrorMessages]="errorMessageMap"
-      [inputLabelText]="'Form Select Value'"
-      [inputId]="'formControlSelect'"
-      [inputRequired]="true"
+      inputErrorMessageId="formControlSelectError"
+      inputLabelText="Form Select Value"
+      inputId="formControlSelect"
+      inputRequired="true"
+      [inputErrorMessages]="errorMessageMap()"
       [(ngModel)]="formSelectValue"
       required>
-      @for (formSelectElement of formSelectElements; track $index) {
+      @for (formSelectElement of formSelectElements(); track $index) {
         <option [value]="formSelectElement">
           {{ 'Item ' + formSelectElement }}
         </option>

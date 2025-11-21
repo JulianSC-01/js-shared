@@ -3,9 +3,7 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class AppFocusService {
-  constructor() { }
-
+export class FocusService {
   focusNavbar() : void {
     this.focusElement('#mainNavbarLink');
   }
@@ -24,7 +22,8 @@ export class AppFocusService {
 
   focusElement(elementId : string) : void {
     setTimeout(() => {
-      const element = <HTMLElement>document.querySelector(elementId);
+      const element = <HTMLElement>document.
+        querySelector(elementId);
       if (element)
         element.focus();
     }, 100);

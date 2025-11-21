@@ -1,13 +1,14 @@
-import { Component } from '@angular/core';
-import { FormGroup, FormsModule } from '@angular/forms';
+import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import { FormsModule, NgForm } from '@angular/forms';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import {
-  AppFocusService, AppFormService, FormErrorHeaderComponent,
-  FormInputNumberComponent, FormInputSelectComponent, FormInputTextComponent, PageHeaderComponent
+  FormA11yDirective, FormErrorHeaderComponent, FormInputNumberComponent,
+  FormInputSelectComponent, FormInputTextComponent, PageHeaderComponent
 } from 'ngx-js-shared';
 
 @Component({
   imports: [
+    FormA11yDirective,
     FormErrorHeaderComponent,
     FormInputNumberComponent,
     FormInputSelectComponent,
@@ -17,34 +18,31 @@ import {
     RouterLink,
     RouterOutlet
   ],
-  selector: 'app-app-form-template',
+  selector: 'app-form-template',
   standalone: true,
-  templateUrl: './app-form-template.component.html'
+  templateUrl: './app-form-template.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppFormTemplateComponent {
+  public formTextValue =
+    signal('');
+  public formNumberValue =
+    signal<number | null>(null);
+  public formSelectValue =
+    signal('');
 
-  public formTextValue : string = '';
-  public formNumberValue : number | null = null;
-  public formSelectValue : string = '';
+  public formSelectElements =
+    signal(['01', '02', '03']);
 
-  public formSelectElements : string[] = ['01', '02', '03'];
+  public errorMessageMap =
+    signal<Record<string, string>>({
+      'required' : 'Error: Field is required.',
+      'min' : 'Error: Field must be greater than or equal to 0',
+      'max' : 'Error: Field must be less than or equal to 99'
+  });
 
-  public errorMessageMap : {[key: string]: string} = {
-    'required' : 'Error: Field is required.',
-    'min' : 'Error: Field must be greater than or equal to 0',
-    'max' : 'Error: Field must be less than or equal to 99'
-  };
-
-  constructor(
-    private focusService : AppFocusService,
-    private formService : AppFormService) {
-  }
-
-  submit(formGroup : FormGroup<any>) : void {
-    if (formGroup.invalid) {
-      this.formService.revealAllErrors(formGroup);
-      this.focusService.focusErrorHeader();
-    } else {
+  submit(ngForm : NgForm) : void {
+    if (ngForm.valid) {
       alert("Form submitted successfully!");
     }
   }

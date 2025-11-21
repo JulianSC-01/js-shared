@@ -1,11 +1,11 @@
-@if (formService.isInvalid(errorFeedbackControl)) {
+@if (formControlIsInvalid()) {
   <div
     class="text-danger"
-    [attr.id]="errorFeedbackId">
-    @for (error of errorFeedbackControl.errors | keyvalue; track error.key) {
+    [attr.id]="errorFeedbackId()">
+    @for (error of formControlErrors() | keyvalue; track error.key) {
       <ng-container>
         <small class="d-block">
-          {{ errorFeedbackMessages[error.key] }}
+          {{ errorFeedbackMessages()[error.key] }}
         </small>
       </ng-container>
     }

@@ -1,12 +1,15 @@
-@if (errorHeaderMessage || getErrorCount(errorHeaderFormGroup) > 0) {
+@if (errorMessage()) {
   <app-alert
-    [alertId]="'errorHeader'"
-    [alertRole]="'note'"
-    [alertType]="'alert-danger'">
-    @if (errorHeaderMessage) {
-      {{ errorHeaderMessage }}
-    } @else {
-      {{ getErrorCountHeaderMessage() }}
-    }
+    alertId="errorHeader"
+    alertRole="note"
+    alertType="alert-danger">
+    {{ errorMessage() }}
+  </app-alert>
+} @else if (errorCountMessage()) {
+  <app-alert
+    alertId="errorHeader"
+    alertRole="note"
+    alertType="alert-danger">
+    {{ errorCountMessage() }}
   </app-alert>
 }

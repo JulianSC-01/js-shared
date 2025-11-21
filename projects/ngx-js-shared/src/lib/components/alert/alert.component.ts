@@ -1,20 +1,20 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
 
 @Component({
   selector: 'app-alert',
   standalone: true,
   styleUrl: './alert.component.css',
-  templateUrl: './alert.component.html'
+  templateUrl: './alert.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AlertComponent implements OnInit {
-  @Input() alertId? : string;
-  @Input() alertRole? : string = 'alert';
-  @Input() alertType? : string = 'alert-info';
+export class AlertComponent {
+  readonly alertId =
+    input<string>();
+  readonly alertRole =
+    input('alert');
+  readonly alertType =
+    input('alert-info');
 
-  public alertClass : string = 'alert';
-
-  ngOnInit() {
-    this.alertClass =
-      `${this.alertClass} ${this.alertType}`;
-  }
+  alertClass =
+    computed(() => `alert ${this.alertType()}`);
 }

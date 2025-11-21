@@ -1,9 +1,9 @@
 <label
   class="form-label"
-  [class.visually-hidden]="labelInvisible"
-  [for]="labelControlId">
+  [class.visually-hidden]="labelInvisible()"
+  [for]="labelControlId()">
   <ng-content/>
-  @if (labelRequired) {
+  @if (labelRequired()) {
     <span class="label-required">
       (required)
     </span>

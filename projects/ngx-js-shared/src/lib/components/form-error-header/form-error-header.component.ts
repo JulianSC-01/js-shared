@@ -1,6 +1,7 @@
-import { Component, Input } from '@angular/core';
-import { FormArray, FormControl, FormGroup } from '@angular/forms';
-import { AppFormService } from '../../services/app-form.service';
+import { ChangeDetectionStrategy, Component, inject, input, signal } from '@angular/core';
+import { FormGroup } from '@angular/forms';
+import { FocusService } from '../../services/focus.service';
+import { FormHelper } from '../../util/form.helper';
 import { AlertComponent } from '../alert/alert.component';
 
 @Component({
@@ -9,45 +10,36 @@ import { AlertComponent } from '../alert/alert.component';
   ],
   selector: 'app-form-error-header',
   standalone: true,
-  templateUrl: './form-error-header.component.html'
+  templateUrl: './form-error-header.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FormErrorHeaderComponent {
-  @Input() errorHeaderFormGroup? : FormGroup<any>;
-  @Input() errorHeaderMessage? : string;
+  private readonly focusService =
+    inject(FocusService);
 
-  constructor(
-    private formService : AppFormService) {
+  readonly errorMessage =
+    input<string>();
+  readonly formGroup =
+    input<FormGroup<any>>();
+
+  readonly errorCountMessage =
+    signal<string>('');
+
+  clearErrors() {
+    this.errorCountMessage.set('');
   }
 
-  getErrorCount(
-    form? : FormGroup<any> | FormArray<any>) : number {
-    let count : number = 0;
+  countErrors() {
+    const formGroup =
+      this.formGroup();
 
-    if (form) {
-      for (const field in form.controls) {
-        let control = form.get(field);
-        if (control instanceof FormGroup ||
-            control instanceof FormArray) {
-          count += this.getErrorCount(control);
-        } else if (control instanceof FormControl) {
-          if (this.formService.isInvalid(control))
-            count++;
-        }
+    if (formGroup) {
+      this.errorCountMessage.set(
+        FormHelper.getErrorCountMessage(formGroup));
+
+      if (this.errorCountMessage()) {
+        this.focusService.focusErrorHeader();
       }
     }
-
-    return count;
-  }
-
-  getErrorCountHeaderMessage() : string | null {
-    let count : number =
-      this.getErrorCount(this.errorHeaderFormGroup);
-
-    if (count == 1)
-      return "Please correct the error on this page.";
-    if (count > 1)
-      return "Please correct the " + count + " errors on this page.";
-
-    return null;
   }
 }

@@ -1,7 +1,7 @@
-<div [class]="spinnerClass" role="status">
-  @if (spinnerAccessibleText) {
+<div [class]="spinnerClass()" role="status">
+  @if (spinnerAccessibleText()) {
     <span class="visually-hidden">
-      {{ spinnerAccessibleText }}
+      {{ spinnerAccessibleText() }}
     </span>
   }
 </div>

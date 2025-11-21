@@ -1,15 +1,19 @@
-import { Component, Input } from '@angular/core';
+import { booleanAttribute, ChangeDetectionStrategy, Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-form-label',
   standalone: true,
   styleUrl: './form-label.component.css',
-  templateUrl: './form-label.component.html'
+  templateUrl: './form-label.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FormLabelComponent {
-  @Input() labelControlId? : string;
-  @Input() labelInvisible? : boolean = false;
-  @Input() labelRequired? : boolean = false;
-
-  constructor() { }
+  readonly labelControlId =
+    input<string>();
+  readonly labelInvisible =
+    input(false,
+      { transform: booleanAttribute });
+  readonly labelRequired =
+    input(false,
+      { transform: booleanAttribute });
 }

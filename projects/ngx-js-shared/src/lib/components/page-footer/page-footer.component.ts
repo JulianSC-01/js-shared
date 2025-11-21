@@ -1,20 +1,20 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-page-footer',
   standalone: true,
   styleUrl: './page-footer.component.css',
-  templateUrl: './page-footer.component.html'
+  templateUrl: './page-footer.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class PageFooterComponent implements OnInit {
-  @Input() buildDate? : string | Date = '';
-  @Input() versionNumber? : string | number = '';
+export class PageFooterComponent {
+  readonly buildDate =
+    input('', {
+      transform: (value: string | Date) =>
+        value instanceof Date ?
+          value.toLocaleDateString() : value
+    });
 
-  constructor() { }
-
-  ngOnInit() : void {
-    if (this.buildDate instanceof Date) {
-      this.buildDate = this.buildDate.toLocaleDateString();
-    }
-  }
+  readonly versionNumber =
+    input<string | number>('');
 }

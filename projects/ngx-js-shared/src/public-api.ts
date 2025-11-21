@@ -11,6 +11,6 @@ export * from './lib/components/form-label/form-label.component';
 export * from './lib/components/page-footer/page-footer.component';
 export * from './lib/components/page-header/page-header.component';
 export * from './lib/components/spinner/spinner.component';
-export * from './lib/services/app-focus.service';
-export * from './lib/services/app-form.service';
+export * from './lib/directives/form-a11y.directive';
+export * from './lib/services/focus.service';
 
