@@ -14,7 +14,6 @@ export class PageFooterComponent {
         value instanceof Date ?
           value.toLocaleDateString() : value
     });
-
   readonly versionNumber =
     input<string | number>('');
 }

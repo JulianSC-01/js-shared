@@ -11,10 +11,11 @@ export class AlertComponent {
   readonly alertId =
     input<string>();
   readonly alertRole =
-    input('alert');
+    input<string>();
   readonly alertType =
     input('alert-info');
 
   alertClass =
-    computed(() => `alert ${this.alertType()}`);
+    computed(() =>
+      `alert ${this.alertType()}`);
 }

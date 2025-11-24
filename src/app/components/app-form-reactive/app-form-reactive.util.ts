@@ -18,7 +18,11 @@ export function createReactiveForm(
       }),
     formControlNumber:
       formBuilder.control(null, {
-        validators: Validators.required
+        validators: [
+          Validators.required,
+          Validators.min(0),
+          Validators.max(99)
+        ]
       }),
     formControlSelect:
       formBuilder.control('', {

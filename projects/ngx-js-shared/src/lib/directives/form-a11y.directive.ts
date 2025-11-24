@@ -4,6 +4,9 @@ import { FormGroupDirective, NgForm } from '@angular/forms';
 import { FormErrorHeaderComponent } from '../components/form-error-header/form-error-header.component';
 import { FormHelper } from '../util/form.helper';
 
+type FormType =
+  FormGroupDirective | NgForm;
+
 @Directive({
   selector: 'form[appFormA11y]',
   standalone: true
@@ -30,7 +33,7 @@ export class FormA11yDirective {
   }
 
   private addSubmissionListener(
-    formInstance : FormGroupDirective | NgForm) {
+    formInstance : FormType) {
     formInstance.ngSubmit.pipe(
       takeUntilDestroyed()
     ).subscribe(() => {

@@ -1,6 +1,6 @@
 import {
-  AfterViewInit, ChangeDetectionStrategy, Component, effect, ElementRef,
-  inject, Injector, input, OnInit, untracked, viewChild
+  afterNextRender, ChangeDetectionStrategy, Component, effect,
+  ElementRef, inject, input, untracked, viewChild
 } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { FocusService } from '../../services/focus.service';
@@ -12,12 +12,9 @@ import { FocusService } from '../../services/focus.service';
   templateUrl: './page-header.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class PageHeaderComponent
-  implements AfterViewInit, OnInit {
+export class PageHeaderComponent {
   private readonly focusService =
     inject(FocusService);
-  private readonly injector =
-    inject(Injector);
   private readonly titleService =
     inject(Title);
 
@@ -27,21 +24,21 @@ export class PageHeaderComponent
   readonly header =
     viewChild.required<ElementRef>('header');
 
-  ngOnInit(): void {
+  constructor() {
+    afterNextRender({
+      read: () => {
+        this.focusService.focusMainHeader();
+      }
+    });
+
     effect(() => {
       const header =
         untracked(this.header);
 
-      if (header) {
-        this.titleService.setTitle(
-          this.pageTitle() === '' ?
-            header.nativeElement.innerText :
-            this.pageTitle());
-      }
-    }, { injector: this.injector });
-  }
-
-  ngAfterViewInit() : void {
-    this.focusService.focusMainHeader();
+      this.titleService.setTitle(
+        this.pageTitle() === '' ?
+          header.nativeElement.innerText :
+          this.pageTitle());
+    });
   }
 }

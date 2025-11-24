@@ -1,8 +1,6 @@
 import { KeyValuePipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component, DestroyRef, inject, input, OnInit, signal } from '@angular/core';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { AbstractControl, PristineChangeEvent, StatusChangeEvent, ValidationErrors } from '@angular/forms';
-import { filter } from 'rxjs';
+import { AbstractControl, ValidationErrors } from '@angular/forms';
 import { FormHelper } from '../../util/form.helper';
 
 @Component({
@@ -31,22 +29,14 @@ export class FormErrorFeedbackComponent
   readonly formControlIsInvalid =
     signal(false);
 
-  ngOnInit(): void {
-    this.addErrorListener();
-  }
-
-  private addErrorListener() {
-    this.formControl().events.pipe(
-      filter(e =>
-        e instanceof PristineChangeEvent ||
-        e instanceof StatusChangeEvent
-      ),
-      takeUntilDestroyed(this.destroyRef)
-    ).subscribe(() => {
-      this.formControlErrors.set(
-        this.formControl().errors);
-      this.formControlIsInvalid.set(
-        FormHelper.isInvalid(this.formControl()));
-    });
+  ngOnInit() {
+    FormHelper.getErrorListener(
+      this.formControl(), this.destroyRef).
+      subscribe(event => {
+        this.formControlErrors.set(
+          event.source.errors);
+        this.formControlIsInvalid.set(
+          FormHelper.isInvalid(event.source));
+      });
   }
 }

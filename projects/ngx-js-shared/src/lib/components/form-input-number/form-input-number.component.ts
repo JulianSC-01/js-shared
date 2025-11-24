@@ -1,5 +1,4 @@
 import { ChangeDetectionStrategy, Component, input, numberAttribute } from '@angular/core';
-import { Validators } from '@angular/forms';
 import { FormErrorFeedbackComponent } from '../form-error-feedback/form-error-feedback.component';
 import { FormInputBaseDirective } from '../form-input-base/form-input-base.directive';
 import { FormLabelComponent } from '../form-label/form-label.component';
@@ -25,32 +24,6 @@ export class FormInputNumberComponent
   readonly inputStep =
     input(-1,
       { transform: numberAttribute });
-
-  override ngOnInit(): void {
-    super.ngOnInit();
-
-    this.addValidators();
-  }
-
-  private addValidators() {
-    const inputMin =
-      this.inputMin();
-
-    if (inputMin !== undefined) {
-      this.formControl().addValidators(
-        Validators.min(inputMin));
-      this.formControl().updateValueAndValidity();
-    }
-
-    const inputMax =
-      this.inputMax();
-
-    if (inputMax !== undefined) {
-      this.formControl().addValidators(
-        Validators.max(inputMax));
-      this.formControl().updateValueAndValidity();
-    }
-  }
 
   controlHasChanged(event : Event) {
     const newValue =

@@ -1,7 +1,5 @@
 import { booleanAttribute, DestroyRef, Directive, ElementRef, inject, input, OnInit, signal, viewChild } from '@angular/core';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { AbstractControl, ControlValueAccessor, FormControl, NgControl, PristineChangeEvent, StatusChangeEvent } from '@angular/forms';
-import { filter } from 'rxjs';
+import { AbstractControl, ControlValueAccessor, FormControl, NgControl } from '@angular/forms';
 import { FormHelper } from '../../util/form.helper';
 
 @Directive({
@@ -47,25 +45,17 @@ export abstract class FormInputBaseDirective
     this.ngControl.valueAccessor = this;
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.formControl.set(
       this.ngControl.control ??
       this.formControl());
 
-    this.addErrorListener();
-  }
-
-  private addErrorListener() {
-    this.formControl().events.pipe(
-      filter(e =>
-        e instanceof PristineChangeEvent ||
-        e instanceof StatusChangeEvent
-      ),
-      takeUntilDestroyed(this.destroyRef)
-    ).subscribe(() => {
-      this.controlIsInvalid.set(
-        FormHelper.isInvalid(this.formControl()));
-    });
+    FormHelper.getErrorListener(
+      this.formControl(), this.destroyRef).
+      subscribe(event => {
+        this.controlIsInvalid.set(
+          FormHelper.isInvalid(event.source));
+      });
   }
 
   _onChange: any = () => {}
