@@ -17,12 +17,12 @@ export class FormErrorFeedbackComponent
   private readonly destroyRef =
     inject(DestroyRef);
 
+  readonly errorFeedbackControl =
+    input.required<AbstractControl>();
   readonly errorFeedbackId =
     input<string>();
   readonly errorFeedbackMessages =
     input<Record<string, string>>({});
-  readonly formControl =
-    input.required<AbstractControl>();
 
   readonly formControlErrors =
     signal<ValidationErrors | null>({});
@@ -31,7 +31,8 @@ export class FormErrorFeedbackComponent
 
   ngOnInit() {
     FormHelper.getErrorListener(
-      this.formControl(), this.destroyRef).
+      this.errorFeedbackControl(),
+      this.destroyRef).
       subscribe(event => {
         this.formControlErrors.set(
           event.source.errors);

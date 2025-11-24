@@ -31,7 +31,7 @@
   (ngSubmit)="submit(templateForm)">
   <app-form-error-header
     #formErrorHeader
-    [formGroup]="templateForm.form">
+    [errorFormGroup]="templateForm.form">
   </app-form-error-header>
   <div class="col-lg-6 mb-3">
     <app-form-input-text

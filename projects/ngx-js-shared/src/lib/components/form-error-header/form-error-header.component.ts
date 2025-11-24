@@ -17,10 +17,10 @@ export class FormErrorHeaderComponent {
   private readonly focusService =
     inject(FocusService);
 
+  readonly errorFormGroup =
+    input<FormGroup<any>>();
   readonly errorMessage =
     input<string>();
-  readonly formGroup =
-    input<FormGroup<any>>();
 
   readonly errorCountMessage =
     signal<string>('');
@@ -31,7 +31,7 @@ export class FormErrorHeaderComponent {
 
   countErrors() {
     const formGroup =
-      this.formGroup();
+      this.errorFormGroup();
 
     if (formGroup) {
       this.errorCountMessage.set(

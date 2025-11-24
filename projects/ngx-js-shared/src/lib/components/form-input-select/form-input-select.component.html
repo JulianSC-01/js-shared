@@ -27,7 +27,7 @@
 </select>
 @if (inputErrorMessages()) {
   <app-form-error-feedback
-    [formControl]="formControl()"
+    [errorFeedbackControl]="formControl()"
     [errorFeedbackId]="inputErrorMessageId()"
     [errorFeedbackMessages]="inputErrorMessages()">
   </app-form-error-feedback>

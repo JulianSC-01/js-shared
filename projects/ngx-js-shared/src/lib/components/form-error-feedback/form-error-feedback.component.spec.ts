@@ -19,8 +19,10 @@ describe('AppErrorFeedbackComponent', () => {
     fixture = TestBed.createComponent(FormErrorFeedbackComponent);
     component = fixture.componentInstance;
 
-    componentRef = fixture.componentRef;
-    componentRef.setInput('formControl', new FormControl());
+    componentRef =
+      fixture.componentRef;
+    componentRef.setInput(
+      'errorFeedbackControl', new FormControl());
 
     fixture.detectChanges();
   });
