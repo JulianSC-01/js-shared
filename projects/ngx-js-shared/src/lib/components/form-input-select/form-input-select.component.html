@@ -1,0 +1,34 @@
+@if (inputLabelText()) {
+  <app-form-label
+    [labelControlId]="inputId()"
+    [labelInvisible]="inputLabelInvisible()"
+    [labelRequired]="inputRequired()">
+    {{ inputLabelText() }}
+  </app-form-label>
+}
+<select
+  #input
+  class="form-select"
+  [attr.aria-describedby]="
+    controlIsInvalid() ? inputErrorMessageId() : null"
+  [attr.aria-invalid]="controlIsInvalid()"
+  [attr.id]="inputId()"
+  [class.is-invalid]="controlIsInvalid()"
+  [class.mb-1]="controlIsInvalid() && inputErrorMessages()"
+  [disabled]="controlDisabled()"
+  (blur)="_onTouched()"
+  (change)="controlHasChanged($event)">
+  @if (inputEmptyOption()) {
+    <option selected value="">
+      {{ inputEmptyOptionText() }}
+    </option>
+  }
+  <ng-content/>
+</select>
+@if (inputErrorMessages()) {
+  <app-form-error-feedback
+    [errorFeedbackControl]="formControl()"
+    [errorFeedbackId]="inputErrorMessageId()"
+    [errorFeedbackMessages]="inputErrorMessages()">
+  </app-form-error-feedback>
+}

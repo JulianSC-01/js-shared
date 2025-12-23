@@ -1,27 +1,15 @@
-import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import {
-  AppFocusService, AppFormService, FormErrorHeaderComponent,
-  FormInputNumberComponent, FormInputSelectComponent, FormInputTextComponent, PageHeaderComponent
-} from 'js-shared';
-
-interface ExampleForm {
-  formControlText: FormControl<string>;
-  formControlNumber: FormControl<number | null>;
-  formControlSelect: FormControl<string>;
-  formGroup: FormGroup<ExampleSubForm>;
-  formArray: FormArray<FormControl<string>>;
-}
-
-interface ExampleSubForm {
-  formGroupText: FormControl<string>;
-}
+  FocusService, FormA11yDirective, FormErrorHeaderComponent, FormInputNumberComponent,
+  FormInputSelectComponent, FormInputTextComponent, PageHeaderComponent
+} from 'ngx-js-shared';
+import { createReactiveForm, ReactiveForm } from './app-form-reactive.util';
 
 @Component({
   imports: [
-    CommonModule,
+    FormA11yDirective,
     FormErrorHeaderComponent,
     FormInputNumberComponent,
     FormInputSelectComponent,
@@ -33,45 +21,31 @@ interface ExampleSubForm {
   ],
   selector: 'app-form-reactive',
   standalone: true,
-  templateUrl: './app-form-reactive.component.html'
+  templateUrl: './app-form-reactive.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppFormReactiveComponent {
-  public exampleForm : FormGroup<ExampleForm>;
+  private readonly focusService =
+    inject(FocusService);
+  private readonly formBuilder =
+    inject(FormBuilder);
 
-  public formSelectElements : string[] = ['01', '02', '03'];
+  public reactiveForm :
+    FormGroup<ReactiveForm>;
 
-  public errorMessageMap : {[key: string]: string} = {
-    'required' : 'Error: Field is required.',
-    'min' : 'Error: Field must be greater than or equal to 0',
-    'max' : 'Error: Field must be less than or equal to 99'
-  };
+  public formSelectElements =
+    signal(['01', '02', '03']);
 
-  constructor(
-    private focusService : AppFocusService,
-    private formBuilder : FormBuilder,
-    public formService : AppFormService) {
+  public errorMessageMap =
+    signal<Record<string, string>>({
+      'required' : 'Error: Field is required.',
+      'min' : 'Error: Field must be greater than or equal to 0',
+      'max' : 'Error: Field must be less than or equal to 99'
+  });
 
-    this.exampleForm = this.formBuilder.group<ExampleForm>({
-      formControlText : this.formBuilder.control('', {
-        nonNullable: true,
-        validators: Validators.required
-      }),
-      formControlNumber : this.formBuilder.control(null, {
-        validators: Validators.required
-      }),
-      formControlSelect : this.formBuilder.control('', {
-        nonNullable: true,
-        validators: Validators.required
-      }),
-      formGroup: this.formBuilder.group<ExampleSubForm>({
-        formGroupText : this.formBuilder.control('', {
-          nonNullable: true,
-          validators: Validators.required
-        })
-      }),
-      formArray: this.formBuilder.array<
-        FormControl<string>>([])
-    });
+  constructor() {
+    this.reactiveForm =
+      createReactiveForm(this.formBuilder);
   }
 
   addArrayElement() : void {
@@ -80,7 +54,9 @@ export class AppFormReactiveComponent {
         nonNullable: true,
         validators: Validators.required
     });
+
     this.formArray.push(formArrayElement);
+
     this.focusService.focusElement(
       '#formArrayText' + (this.formArray.length - 1))
   }
@@ -91,19 +67,12 @@ export class AppFormReactiveComponent {
   }
 
   submit() : void {
-    if (this.exampleForm.invalid) {
-      this.formService.revealAllErrors(this.exampleForm);
-      this.focusService.focusErrorHeader();
-    } else {
+    if (this.reactiveForm.valid) {
       alert("Form submitted successfully!");
     }
   }
 
-  get formGroup() : FormGroup<ExampleSubForm> {
-    return this.exampleForm.controls.formGroup;
-  }
-
   get formArray() : FormArray<FormControl<string>> {
-    return this.exampleForm.controls.formArray;
+    return this.reactiveForm.controls.formArray;
   }
 }

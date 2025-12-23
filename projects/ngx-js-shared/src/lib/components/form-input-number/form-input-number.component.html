@@ -1,0 +1,32 @@
+@if (inputLabelText()) {
+  <app-form-label
+    [labelControlId]="inputId()"
+    [labelInvisible]="inputLabelInvisible()"
+    [labelRequired]="inputRequired()">
+    {{ inputLabelText() }}
+  </app-form-label>
+}
+<input
+  #input
+  class="form-control"
+  type="number"
+  [attr.aria-describedby]="
+    controlIsInvalid() ? inputErrorMessageId() : null"
+  [attr.aria-invalid]="controlIsInvalid()"
+  [attr.id]="inputId()"
+  [attr.min]="inputMin()"
+  [attr.max]="inputMax()"
+  [attr.readonly]="inputReadOnly()"
+  [attr.step]="inputStep()"
+  [class.is-invalid]="controlIsInvalid()"
+  [class.mb-1]="controlIsInvalid() && inputErrorMessages()"
+  [disabled]="controlDisabled()"
+  (blur)="_onTouched()"
+  (input)="controlHasChanged($event)">
+@if (inputErrorMessages()) {
+  <app-form-error-feedback
+    [errorFeedbackControl]="formControl()"
+    [errorFeedbackId]="inputErrorMessageId()"
+    [errorFeedbackMessages]="inputErrorMessages()">
+  </app-form-error-feedback>
+}

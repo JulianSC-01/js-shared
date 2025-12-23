@@ -10,8 +10,8 @@
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "paths": {
-      "js-shared": [
-        "dist/js-shared"
+      "ngx-js-shared": [
+        "dist/ngx-js-shared"
       ]
     },
     "noImplicitReturns": true,

@@ -21,7 +21,6 @@
   </dt>
   <dd>
     This parameter specifies the <code>role</code> attribute of the alert.
-    Defaults to <code>alert</code>.
   </dd>
   <dt>
     alertType <span class="opacity-75">(optional)</span>
@@ -47,7 +46,7 @@
   The <code>alertType</code> is specified as <code>alert-warning</code>.
 </p>
 <app-alert
-  [alertType]="'alert-warning'">
+  alertType="alert-warning">
   Enter your text here.
 </app-alert>
 <h2>
@@ -58,8 +57,9 @@
   An <code>alertId</code> of "dangerAlert" is also passed, which makes the alert focusable.
 </p>
 <app-alert
-  [alertId]="'dangerAlert'"
-  [alertType]="'alert-danger'">
+  alertId="dangerAlert"
+  alertRole="alert"
+  alertType="alert-danger">
   Enter your text here.
 </app-alert>
 <button
