@@ -2,7 +2,6 @@ import { ChangeDetectionStrategy, Component, computed, input } from '@angular/co
 
 @Component({
   selector: 'app-alert',
-  standalone: true,
   styleUrl: './alert.component.css',
   templateUrl: './alert.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush

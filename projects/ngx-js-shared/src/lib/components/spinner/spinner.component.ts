@@ -8,7 +8,6 @@ const SPINNER_GROW_SM = 'spinner-grow-sm';
 
 @Component({
   selector: 'app-spinner',
-  standalone: true,
   templateUrl: './spinner.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })

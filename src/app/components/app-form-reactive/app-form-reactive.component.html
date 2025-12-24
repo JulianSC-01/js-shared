@@ -82,10 +82,10 @@
         <app-form-input-text
           inputRequired="true"
           [formControlName]="$index"
-          [inputErrorMessageId]="'formArrayText' + $index + 'Error'"
+          [inputErrorMessageId]="`formArrayText${$index}Error`"
           [inputErrorMessages]="errorMessageMap()"
-          [inputLabelText]="'FormArray Text Value ' + $index"
-          [inputId]="'formArrayText' + $index">
+          [inputLabelText]="`FormArray Text Value ${$index+1}`"
+          [inputId]="`formArrayText${$index}`">
         </app-form-input-text>
         <button
           class="btn btn-sm btn-danger mb-1 mt-2"
@@ -93,7 +93,7 @@
           (click)="removeArrayElement($index)">
           Remove element
           <span class="visually-hidden">
-            {{ $index }}
+            {{ ($index+1) }}
           </span>
         </button>
       </div>

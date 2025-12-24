@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
-import { FormArray, FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import {
   FocusService, FormA11yDirective, FormErrorHeaderComponent, FormInputNumberComponent,
@@ -20,7 +20,6 @@ import { createReactiveForm, ReactiveForm } from './app-form-reactive.util';
     RouterOutlet
   ],
   selector: 'app-form-reactive',
-  standalone: true,
   templateUrl: './app-form-reactive.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -48,7 +47,7 @@ export class AppFormReactiveComponent {
       createReactiveForm(this.formBuilder);
   }
 
-  addArrayElement() : void {
+  addArrayElement() {
     const formArrayElement =
       new FormControl('', {
         nonNullable: true,
@@ -61,18 +60,18 @@ export class AppFormReactiveComponent {
       '#formArrayText' + (this.formArray.length - 1))
   }
 
-  removeArrayElement(index : number) : void {
+  removeArrayElement(index: number) {
     this.formArray.removeAt(index);
     this.focusService.focusElement('#addButton');
   }
 
-  submit() : void {
+  submit() {
     if (this.reactiveForm.valid) {
       alert("Form submitted successfully!");
     }
   }
 
-  get formArray() : FormArray<FormControl<string>> {
+  get formArray() {
     return this.reactiveForm.controls.formArray;
   }
 }

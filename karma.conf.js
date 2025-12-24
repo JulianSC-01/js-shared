@@ -38,6 +38,6 @@ module.exports = function (config) {
     port: 9876,
     reporters: ['progress', 'kjhtml'],
     restartOnFileChange: true,
-    singleRun: false
+    singleRun: true
   });
 };

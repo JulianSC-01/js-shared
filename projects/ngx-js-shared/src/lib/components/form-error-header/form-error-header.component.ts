@@ -9,7 +9,6 @@ import { AlertComponent } from '../alert/alert.component';
     AlertComponent
   ],
   selector: 'app-form-error-header',
-  standalone: true,
   templateUrl: './form-error-header.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })

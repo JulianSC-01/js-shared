@@ -9,7 +9,6 @@ import { AlertComponent, FocusService, PageHeaderComponent } from 'ngx-js-shared
     RouterLink
   ],
   selector: 'app-app-alert',
-  standalone: true,
   templateUrl: './app-alert.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -17,7 +16,7 @@ export class AppAlertComponent {
   readonly focusService =
     inject(FocusService);
 
-  focusDangerAlert() : void {
+  focusDangerAlert() {
     this.focusService.focusElement('#dangerAlert');
   }
 }

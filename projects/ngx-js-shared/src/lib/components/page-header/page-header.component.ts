@@ -7,7 +7,6 @@ import { FocusService } from '../../services/focus.service';
 
 @Component({
   selector: 'app-page-header',
-  standalone: true,
   styleUrl: './page-header.component.css',
   templateUrl: './page-header.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush

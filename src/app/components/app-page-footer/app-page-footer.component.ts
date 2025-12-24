@@ -8,7 +8,6 @@ import { PageHeaderComponent } from 'ngx-js-shared';
     RouterLink
   ],
   selector: 'app-app-page-footer',
-  standalone: true,
   templateUrl: './app-page-footer.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })

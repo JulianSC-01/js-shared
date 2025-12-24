@@ -9,7 +9,6 @@ import { AlertComponent, PageHeaderComponent } from 'ngx-js-shared';
     RouterLink
   ],
   selector: 'app-home',
-  standalone: true,
   templateUrl: './app-home.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })

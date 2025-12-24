@@ -1,4 +1,4 @@
-import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
+import { FormArray, FormBuilder, FormControl, Validators } from "@angular/forms";
 
 export interface ReactiveForm {
   formControlText: FormControl<string>;
@@ -8,7 +8,7 @@ export interface ReactiveForm {
 }
 
 export function createReactiveForm(
-  formBuilder: FormBuilder) : FormGroup<ReactiveForm>{
+  formBuilder: FormBuilder) {
   return formBuilder.
     group<ReactiveForm>({
     formControlText:

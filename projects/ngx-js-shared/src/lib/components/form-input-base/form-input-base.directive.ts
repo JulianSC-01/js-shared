@@ -2,9 +2,7 @@ import { booleanAttribute, DestroyRef, Directive, ElementRef, inject, input, OnI
 import { AbstractControl, ControlValueAccessor, FormControl, NgControl } from '@angular/forms';
 import { FormHelper } from '../../util/form.helper';
 
-@Directive({
-  standalone: true
-})
+@Directive()
 export abstract class FormInputBaseDirective
   implements ControlValueAccessor, OnInit {
   private readonly destroyRef =
@@ -73,9 +71,9 @@ export abstract class FormInputBaseDirective
     this.controlDisabled.set(isDisabled);
   }
 
-  writeValue(obj : any) : void {
+  writeValue(obj : any) {
     this.input().nativeElement.value = obj;
   }
 
-  abstract controlHasChanged(event : Event) : void;
+  abstract controlHasChanged(event : Event): void;
 }
