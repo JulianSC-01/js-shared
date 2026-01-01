@@ -1,9 +1,10 @@
 import { ApplicationConfig } from "@angular/core";
-import { provideRouter } from "@angular/router";
+import { PreloadAllModules, provideRouter, withPreloading } from "@angular/router";
 import { appRoutes } from "./app.routes";
 
 export const appConfig : ApplicationConfig = {
   providers: [
-    provideRouter(appRoutes)
+    provideRouter(appRoutes,
+      withPreloading(PreloadAllModules))
   ]
 }

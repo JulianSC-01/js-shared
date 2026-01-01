@@ -12,5 +12,6 @@ export * from './lib/components/page-footer/page-footer.component';
 export * from './lib/components/page-header/page-header.component';
 export * from './lib/components/spinner/spinner.component';
 export * from './lib/directives/form-a11y.directive';
+export * from './lib/pipes/leading-zero.pipe';
 export * from './lib/services/focus.service';
 
