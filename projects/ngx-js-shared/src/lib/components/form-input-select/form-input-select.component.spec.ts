@@ -1,3 +1,4 @@
+import { provideExperimentalZonelessChangeDetection } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { NgControl } from '@angular/forms';
 import { FormInputSelectComponent } from './form-input-select.component';
@@ -13,6 +14,9 @@ describe('FormInputSelectComponent', () => {
     await TestBed.configureTestingModule({
       imports: [
         FormInputSelectComponent
+      ],
+      providers: [
+        provideExperimentalZonelessChangeDetection()
       ]
     })
     .overrideComponent(FormInputSelectComponent, {
@@ -29,7 +33,7 @@ describe('FormInputSelectComponent', () => {
 
     fixture = TestBed.createComponent(FormInputSelectComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+    await fixture.whenStable();
   });
 
   it('should create', () => {

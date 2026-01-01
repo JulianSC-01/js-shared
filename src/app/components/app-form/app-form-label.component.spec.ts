@@ -1,3 +1,4 @@
+import { provideExperimentalZonelessChangeDetection } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppFormLabelComponent } from './app-form-label.component';
 
@@ -9,13 +10,16 @@ describe('AppFormLabelComponent', () => {
     await TestBed.configureTestingModule({
       imports: [
         AppFormLabelComponent
+      ],
+      providers: [
+        provideExperimentalZonelessChangeDetection()
       ]
     })
     .compileComponents();
 
     fixture = TestBed.createComponent(AppFormLabelComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+    await fixture.whenStable();
   });
 
   it('should create', () => {

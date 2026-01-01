@@ -1,3 +1,4 @@
+import { provideExperimentalZonelessChangeDetection } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { PageHeaderComponent } from './page-header.component';
 
@@ -9,13 +10,16 @@ describe('PageHeaderComponent', () => {
     await TestBed.configureTestingModule({
       imports: [
         PageHeaderComponent
+      ],
+      providers: [
+        provideExperimentalZonelessChangeDetection()
       ]
     })
     .compileComponents();
 
     fixture = TestBed.createComponent(PageHeaderComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+    await fixture.whenStable();
   });
 
   it('should create', () => {

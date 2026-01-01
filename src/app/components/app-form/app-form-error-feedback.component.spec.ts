@@ -1,3 +1,4 @@
+import { provideExperimentalZonelessChangeDetection } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppFormErrorFeedbackComponent } from './app-form-error-feedback.component';
 
@@ -9,13 +10,16 @@ describe('AppFormErrorFeedbackComponent', () => {
     await TestBed.configureTestingModule({
       imports: [
         AppFormErrorFeedbackComponent
+      ],
+      providers: [
+        provideExperimentalZonelessChangeDetection()
       ]
     })
     .compileComponents();
 
     fixture = TestBed.createComponent(AppFormErrorFeedbackComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+    await fixture.whenStable();
   });
 
   it('should create', () => {

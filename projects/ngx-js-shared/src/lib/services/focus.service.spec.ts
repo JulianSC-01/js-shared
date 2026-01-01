@@ -1,3 +1,4 @@
+import { provideExperimentalZonelessChangeDetection } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { FocusService } from './focus.service';
 
@@ -5,7 +6,11 @@ describe('FocusService', () => {
   let service: FocusService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      providers: [
+        provideExperimentalZonelessChangeDetection()
+      ]
+    });
     service = TestBed.inject(FocusService);
   });
 

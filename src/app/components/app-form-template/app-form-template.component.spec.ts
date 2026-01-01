@@ -1,3 +1,4 @@
+import { provideExperimentalZonelessChangeDetection } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
 import { AppFormTemplateComponent } from './app-form-template.component';
@@ -12,6 +13,7 @@ describe('AppFormTemplateComponent', () => {
         AppFormTemplateComponent
       ],
       providers: [
+        provideExperimentalZonelessChangeDetection(),
         provideRouter([])
       ]
     })
@@ -19,7 +21,7 @@ describe('AppFormTemplateComponent', () => {
 
     fixture = TestBed.createComponent(AppFormTemplateComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+    await fixture.whenStable();
   });
 
   it('should create', () => {
