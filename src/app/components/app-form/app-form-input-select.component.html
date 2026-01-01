@@ -9,14 +9,14 @@
 </p>
 <dl>
   <dt>
-    inputEmptyOption <span class="opacity-75">(optional)</span>
+    inputEmptyOption <span class="opacity-75">(optional - Default: true)</span>
   </dt>
   <dd>
     This parameter specifies if the dropdown should have an empty option that will be selected
     by default.
   </dd>
   <dt>
-    inputEmptyOptionText <span class="opacity-75">(optional)</span>
+    inputEmptyOptionText <span class="opacity-75">(optional - Default: "Select")</span>
   </dt>
   <dd>
     This parameter specifies the text of the empty option noted above. This parameter will
@@ -30,12 +30,12 @@
     will contain the error message(s), for accessibility purposes.
   </dd>
   <dt>
-    inputErrorMessages <span class="opacity-75">(optional)</span>
+    inputErrorMessages <span class="opacity-75">(optional - Default: No mapping)</span>
   </dt>
   <dd>
-    This parameter specifies a key/value list that maps error codes to error messages. If any of the
+    This parameter specifies the key/value pairs that map error codes to error messages. If any of the
     error codes are active on the control, the associated error message(s) will be displayed beneath
-    the control. Defaults to an empty list, which omits any error feedback.
+    the control.
   </dd>
   <dt>
     inputId <span class="opacity-75">(optional)</span>
@@ -45,25 +45,23 @@
     for accessibility purposes.
   </dd>
   <dt>
-    inputLabelInvisible <span class="opacity-75">(optional)</span>
+    inputLabelInvisible <span class="opacity-75">(optional - Default: false)</span>
   </dt>
   <dd>
     This parameter specifies if the <code>label</code> element should be invisible, for
-    accessibility purposes. Defaults to false.
+    accessibility purposes.
   </dd>
   <dt>
-    inputLabelText <span class="opacity-75">(optional)</span>
+    inputLabelText <span class="opacity-75">(optional - Default: No label)</span>
   </dt>
   <dd>
     This parameter specifies the label's text.
-    Defaults to undefined, which omits the label entirely.
   </dd>
   <dt>
-    inputRequired <span class="opacity-75">(optional)</span>
+    inputRequired <span class="opacity-75">(optional - Default: false)</span>
   </dt>
   <dd>
     This parameter specifies if the field should be marked as required, which adds the text
     <strong class="text-danger">(required)</strong> to the end of the label.
-    Defaults to false.
   </dd>
 </dl>

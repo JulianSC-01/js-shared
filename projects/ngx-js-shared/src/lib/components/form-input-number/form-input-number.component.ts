@@ -21,7 +21,7 @@ export class FormInputNumberComponent
     input(undefined,
       { transform: numberAttribute });
   readonly inputStep =
-    input(-1,
+    input(1,
       { transform: numberAttribute });
 
   controlHasChanged(event: Event) {
