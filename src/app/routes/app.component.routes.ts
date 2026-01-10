@@ -12,7 +12,7 @@ import { AppPageFooterComponent } from "../components/app-page-footer/app-page-f
 import { AppPageHeaderComponent } from "../components/app-page-header/app-page-header.component";
 import { AppSpinnerComponent } from "../components/app-spinner/app-spinner.component";
 
-export const appComponentRoutes : Routes = [
+export const appComponentRoutes: Routes = [
   { path: '',
     redirectTo: 'alert',
     pathMatch: 'full'

@@ -1,7 +1,7 @@
 import { Routes } from "@angular/router";
 import { AppHomeComponent } from "./components/app-home.component";
 
-export const appRoutes : Routes = [
+export const appRoutes: Routes = [
   { path: '',
     component: AppHomeComponent
   },
