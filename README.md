@@ -7,6 +7,9 @@ This sample application demonstrates the common components contained in the JSSh
 2025-12-24 (19.0.0)
 
 - Upgrade to Angular 19
+- Upgrade to new _@angular/build_ package
+- Add _LeadingZeroPipe_
+- Convert to Zoneless
 
 2025-11-14 (18.0.0)
 
