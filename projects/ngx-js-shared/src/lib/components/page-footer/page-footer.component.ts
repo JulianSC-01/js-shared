@@ -2,7 +2,6 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-page-footer',
-  standalone: true,
   styleUrl: './page-footer.component.css',
   templateUrl: './page-footer.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush

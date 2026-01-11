@@ -8,7 +8,6 @@ import { FormHelper } from '../../util/form.helper';
     KeyValuePipe
   ],
   selector: 'app-form-error-feedback',
-  standalone: true,
   templateUrl: './form-error-feedback.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })

@@ -1,0 +1,60 @@
+<app-page-header>
+  Leading zero pipe
+</app-page-header>
+<h2>
+  Overview
+</h2>
+<p>
+  The <code>appLeadingZero</code> pipe is used to pad the absolute
+  value of a fixed rounded number with leading zeros.
+  You may specify the following parameters:
+</p>
+<dl>
+  <dt>
+    desiredLength <span class="opacity-75">(optional - Default: 2)</span>
+  </dt>
+  <dd>
+    This parameter specifies the desired length of the number. If the
+    converted number's length is less than the desired length, it will be
+    padded with leading zeros as needed.
+  </dd>
+</dl>
+<h2>
+  Try it
+</h2>
+<div class="col-sm-3 mb-3">
+  <app-form-input-number
+    name="inputNumber"
+    inputId="inputNumber"
+    inputLabelText="Enter a number"
+    [(ngModel)]="inputNumber">
+  </app-form-input-number>
+</div>
+<div class="col-sm-3 mb-3">
+  <app-form-input-select
+    name="inputDesiredLength"
+    inputEmptyOption="false"
+    inputLabelText="Select a desired length"
+    inputId="inputDesiredLength"
+    [(ngModel)]="inputDesiredLength">
+    @for (desiredLength of desiredLengths(); track $index) {
+      <option [value]="desiredLength">
+        {{ desiredLength }}
+      </option>
+    }
+  </app-form-input-select>
+</div>
+<dl>
+  <dt>
+    Result
+  </dt>
+  <dd>
+    {{ inputNumber() | appLeadingZero: inputDesiredLength() }}
+  </dd>
+</dl>
+<div class="mb-2 mt-4">
+  Return to:
+  <a routerLink="/" aria-label="Return to home page">
+    Home
+  </a>
+</div>

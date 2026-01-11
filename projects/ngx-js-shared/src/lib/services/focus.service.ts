@@ -4,23 +4,23 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class FocusService {
-  focusNavbar() : void {
+  focusNavbar() {
     this.focusElement('#mainNavbarLink');
   }
 
-  focusMainHeader() : void {
+  focusMainHeader() {
     this.focusElement('#mainHeader');
   }
 
-  focusErrorHeader() : void {
+  focusErrorHeader() {
     this.focusElement('#errorHeader');
   }
 
-  focusSuccessHeader() : void {
+  focusSuccessHeader() {
     this.focusElement('#successHeader');
   }
 
-  focusElement(elementId : string) : void {
+  focusElement(elementId: string) {
     setTimeout(() => {
       const element = <HTMLElement>document.
         querySelector(elementId);

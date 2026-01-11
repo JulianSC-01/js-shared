@@ -1,3 +1,4 @@
+import { provideExperimentalZonelessChangeDetection } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppFormInputSelectComponent } from './app-form-input-select.component';
 
@@ -9,13 +10,16 @@ describe('AppFormInputSelectComponent', () => {
     await TestBed.configureTestingModule({
       imports: [
         AppFormInputSelectComponent
+      ],
+      providers: [
+        provideExperimentalZonelessChangeDetection()
       ]
     })
     .compileComponents();
 
     fixture = TestBed.createComponent(AppFormInputSelectComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+    await fixture.whenStable();
   });
 
   it('should create', () => {

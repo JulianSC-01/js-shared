@@ -9,7 +9,6 @@ import { FormLabelComponent } from '../form-label/form-label.component';
     FormLabelComponent
   ],
   selector: 'app-form-input-number',
-  standalone: true,
   templateUrl: './form-input-number.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -22,10 +21,10 @@ export class FormInputNumberComponent
     input(undefined,
       { transform: numberAttribute });
   readonly inputStep =
-    input(-1,
+    input(1,
       { transform: numberAttribute });
 
-  controlHasChanged(event : Event) {
+  controlHasChanged(event: Event) {
     const newValue =
       (<HTMLInputElement>event.target).
         valueAsNumber;

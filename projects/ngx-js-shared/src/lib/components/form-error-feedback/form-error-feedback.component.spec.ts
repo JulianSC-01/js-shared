@@ -1,4 +1,4 @@
-import { ComponentRef } from '@angular/core';
+import { ComponentRef, provideExperimentalZonelessChangeDetection } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormControl } from '@angular/forms';
 import { FormErrorFeedbackComponent } from './form-error-feedback.component';
@@ -12,6 +12,9 @@ describe('AppErrorFeedbackComponent', () => {
     await TestBed.configureTestingModule({
       imports: [
         FormErrorFeedbackComponent
+      ],
+      providers: [
+        provideExperimentalZonelessChangeDetection()
       ]
     })
     .compileComponents();
@@ -24,7 +27,7 @@ describe('AppErrorFeedbackComponent', () => {
     componentRef.setInput(
       'errorFeedbackControl', new FormControl());
 
-    fixture.detectChanges();
+    await fixture.whenStable();
   });
 
   it('should create', () => {

@@ -1,3 +1,4 @@
+import { provideExperimentalZonelessChangeDetection } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
 import { AppSpinnerComponent } from './app-spinner.component';
@@ -12,6 +13,7 @@ describe('AppSpinnerComponent', () => {
         AppSpinnerComponent
       ],
       providers: [
+        provideExperimentalZonelessChangeDetection(),
         provideRouter([])
       ]
     })
@@ -19,7 +21,7 @@ describe('AppSpinnerComponent', () => {
 
     fixture = TestBed.createComponent(AppSpinnerComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+    await fixture.whenStable();
   });
 
   it('should create', () => {

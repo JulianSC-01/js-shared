@@ -2,7 +2,6 @@ import { booleanAttribute, ChangeDetectionStrategy, Component, input } from '@an
 
 @Component({
   selector: 'app-form-label',
-  standalone: true,
   styleUrl: './form-label.component.css',
   templateUrl: './form-label.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush

@@ -19,7 +19,6 @@ import {
     RouterOutlet
   ],
   selector: 'app-form-template',
-  standalone: true,
   templateUrl: './app-form-template.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -41,7 +40,7 @@ export class AppFormTemplateComponent {
       'max' : 'Error: Field must be less than or equal to 99'
   });
 
-  submit(ngForm : NgForm) : void {
+  submit(ngForm: NgForm) {
     if (ngForm.valid) {
       alert("Form submitted successfully!");
     }

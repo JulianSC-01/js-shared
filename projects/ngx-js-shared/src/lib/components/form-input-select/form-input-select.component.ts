@@ -11,7 +11,6 @@ const DEFAULT_EMPTY_OPTION_TEXT = 'Select';
     FormLabelComponent
   ],
   selector: 'app-form-input-select',
-  standalone: true,
   templateUrl: './form-input-select.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -23,7 +22,7 @@ export class FormInputSelectComponent
   readonly inputEmptyOptionText =
     input(DEFAULT_EMPTY_OPTION_TEXT);
 
-  controlHasChanged(event : Event) {
+  controlHasChanged(event: Event) {
     const newValue =
       (<HTMLInputElement>event.target).value;
     this._onChange(newValue);

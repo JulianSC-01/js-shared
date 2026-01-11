@@ -9,7 +9,6 @@ import { FormLabelComponent } from '../form-label/form-label.component';
     FormLabelComponent
   ],
   selector: 'app-form-input-text',
-  standalone: true,
   templateUrl: './form-input-text.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -26,7 +25,7 @@ export class FormInputTextComponent
   readonly inputType =
     input<'text' | 'password'>('text');
 
-  controlHasChanged(event : Event) {
+  controlHasChanged(event: Event) {
     const newValue =
       (<HTMLInputElement>event.target).value;
     this._onChange(newValue);

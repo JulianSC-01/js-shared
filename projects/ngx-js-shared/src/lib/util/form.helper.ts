@@ -10,8 +10,8 @@ export class FormHelper {
   private constructor() {}
 
   static getErrorCountMessage(
-    formGroup : FormGroup<any>) {
-    let count : number =
+    formGroup: FormGroup<any>) {
+    let count: number =
       this.getErrorCount(formGroup);
 
     if (count == 1)
@@ -42,7 +42,7 @@ export class FormHelper {
   }
 
   static revealAllErrors(
-    form : FormGroup<any> | FormArray<any>) {
+    form: FormGroup<any> | FormArray<any>) {
     if (form) {
       for (const field in form.controls) {
         let control = form.get(field);
@@ -57,7 +57,7 @@ export class FormHelper {
   }
 
   private static getErrorCount(
-    form? : FormGroup<any> | FormArray<any>) {
+    form?: FormGroup<any> | FormArray<any>) {
     let count = 0;
 
     if (form) {

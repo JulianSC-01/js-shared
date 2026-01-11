@@ -1,23 +1,25 @@
 import { provideExperimentalZonelessChangeDetection } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { FormLabelComponent } from './form-label.component';
+import { provideRouter } from '@angular/router';
+import { AppLeadingZeroComponent } from './app-leading-zero.component';
 
-describe('FormLabelComponent', () => {
-  let component: FormLabelComponent;
-  let fixture: ComponentFixture<FormLabelComponent>;
+describe('AppLeadingZero', () => {
+  let component: AppLeadingZeroComponent;
+  let fixture: ComponentFixture<AppLeadingZeroComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        FormLabelComponent
+        AppLeadingZeroComponent
       ],
       providers: [
-        provideExperimentalZonelessChangeDetection()
+        provideExperimentalZonelessChangeDetection(),
+        provideRouter([])
       ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(FormLabelComponent);
+    fixture = TestBed.createComponent(AppLeadingZeroComponent);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

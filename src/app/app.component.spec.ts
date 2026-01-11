@@ -1,3 +1,4 @@
+import { provideExperimentalZonelessChangeDetection } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
 import { AppComponent } from './app.component';
@@ -12,6 +13,7 @@ describe('AppComponent', () => {
         AppComponent
       ],
       providers: [
+        provideExperimentalZonelessChangeDetection(),
         provideRouter([])
       ]
     })
@@ -19,7 +21,7 @@ describe('AppComponent', () => {
 
     fixture = TestBed.createComponent(AppComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+    await fixture.whenStable();
   });
 
   it('should create the app', () => {

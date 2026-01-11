@@ -8,8 +8,7 @@ type FormType =
   FormGroupDirective | NgForm;
 
 @Directive({
-  selector: 'form[appFormA11y]',
-  standalone: true
+  selector: 'form[appFormA11y]'
 })
 export class FormA11yDirective {
   private readonly reactiveForm =

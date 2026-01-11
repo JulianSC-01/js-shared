@@ -1,20 +1,18 @@
 import { provideExperimentalZonelessChangeDetection } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
-import { FocusService } from './focus.service';
+import { LeadingZeroPipe } from './leading-zero.pipe';
 
-describe('FocusService', () => {
-  let service: FocusService;
-
+describe('LeadingZeroPipe', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [
         provideExperimentalZonelessChangeDetection()
       ]
     });
-    service = TestBed.inject(FocusService);
   });
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
+  it('create an instance', () => {
+    const pipe = new LeadingZeroPipe();
+    expect(pipe).toBeTruthy();
   });
 });

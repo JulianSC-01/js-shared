@@ -1,3 +1,4 @@
+import { provideExperimentalZonelessChangeDetection } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
 import { AppFormReactiveComponent } from './app-form-reactive.component';
@@ -12,6 +13,7 @@ describe('AppFormReactiveComponent', () => {
         AppFormReactiveComponent
       ],
       providers: [
+        provideExperimentalZonelessChangeDetection(),
         provideRouter([])
       ]
     })
@@ -19,7 +21,7 @@ describe('AppFormReactiveComponent', () => {
 
     fixture = TestBed.createComponent(AppFormReactiveComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+    await fixture.whenStable();
   });
 
   it('should create', () => {
