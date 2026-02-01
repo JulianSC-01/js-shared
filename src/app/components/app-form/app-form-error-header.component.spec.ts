@@ -1,4 +1,4 @@
-import { provideExperimentalZonelessChangeDetection } from '@angular/core';
+import { provideZonelessChangeDetection } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppFormErrorHeaderComponent } from './app-form-error-header.component';
 
@@ -12,7 +12,7 @@ describe('AppFormErrorHeaderComponent', () => {
         AppFormErrorHeaderComponent
       ],
       providers: [
-        provideExperimentalZonelessChangeDetection()
+        provideZonelessChangeDetection()
       ]
     })
     .compileComponents();
