@@ -88,8 +88,9 @@
         "test": {
           "builder": "@angular/build:karma",
           "options": {
+            "browsers": "ChromeHeadless",
             "tsConfig": "tsconfig.spec.json",
-            "karmaConfig": "karma.conf.js",
+            "watch": false,
             "assets": [
               "src/favicon.ico",
               "src/assets"
@@ -126,8 +127,9 @@
         "test": {
           "builder": "@angular/build:karma",
           "options": {
+            "browsers": "ChromeHeadless",
             "tsConfig": "projects/ngx-js-shared/tsconfig.spec.json",
-            "karmaConfig": "projects/ngx-js-shared/karma.conf.js"
+            "watch": false
           }
         }
       }
