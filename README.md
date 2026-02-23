@@ -4,7 +4,7 @@ This sample application demonstrates the common components contained in the JSSh
 
 ## Change Log
 
-2026-02-01 (20.0.0)
+2026-02-23 (20.0.0)
 
 - Upgrade to Angular 20
 
