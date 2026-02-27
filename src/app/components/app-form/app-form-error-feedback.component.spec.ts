@@ -1,4 +1,4 @@
-import { provideExperimentalZonelessChangeDetection } from '@angular/core';
+import { provideZonelessChangeDetection } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppFormErrorFeedbackComponent } from './app-form-error-feedback.component';
 
@@ -12,7 +12,7 @@ describe('AppFormErrorFeedbackComponent', () => {
         AppFormErrorFeedbackComponent
       ],
       providers: [
-        provideExperimentalZonelessChangeDetection()
+        provideZonelessChangeDetection()
       ]
     })
     .compileComponents();

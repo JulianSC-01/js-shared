@@ -1,4 +1,4 @@
-import { provideExperimentalZonelessChangeDetection } from '@angular/core';
+import { provideZonelessChangeDetection } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppFormInputNumberComponent } from './app-form-input-number.component';
 
@@ -12,7 +12,7 @@ describe('AppFormInputNumberComponent', () => {
         AppFormInputNumberComponent
       ],
       providers: [
-        provideExperimentalZonelessChangeDetection()
+        provideZonelessChangeDetection()
       ]
     })
     .compileComponents();

@@ -1,4 +1,4 @@
-import { provideExperimentalZonelessChangeDetection } from '@angular/core';
+import { provideZonelessChangeDetection } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
 import { AppPageFooterComponent } from './app-page-footer.component';
@@ -13,7 +13,7 @@ describe('AppPageFooterComponent', () => {
         AppPageFooterComponent
       ],
       providers: [
-        provideExperimentalZonelessChangeDetection(),
+        provideZonelessChangeDetection(),
         provideRouter([])
       ]
     })

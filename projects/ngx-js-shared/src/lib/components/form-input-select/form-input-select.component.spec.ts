@@ -1,4 +1,4 @@
-import { provideExperimentalZonelessChangeDetection } from '@angular/core';
+import { provideZonelessChangeDetection } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { NgControl } from '@angular/forms';
 import { FormInputSelectComponent } from './form-input-select.component';
@@ -16,7 +16,7 @@ describe('FormInputSelectComponent', () => {
         FormInputSelectComponent
       ],
       providers: [
-        provideExperimentalZonelessChangeDetection()
+        provideZonelessChangeDetection()
       ]
     })
     .overrideComponent(FormInputSelectComponent, {

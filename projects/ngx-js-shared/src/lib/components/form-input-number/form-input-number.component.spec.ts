@@ -1,4 +1,4 @@
-import { provideExperimentalZonelessChangeDetection } from '@angular/core';
+import { provideZonelessChangeDetection } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { NgControl } from '@angular/forms';
 import { FormInputNumberComponent } from './form-input-number.component';
@@ -16,7 +16,7 @@ describe('FormInputNumberComponent', () => {
         FormInputNumberComponent
       ],
       providers: [
-        provideExperimentalZonelessChangeDetection()
+        provideZonelessChangeDetection()
       ]
     })
     .overrideComponent(FormInputNumberComponent, {

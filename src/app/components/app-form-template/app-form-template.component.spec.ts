@@ -1,4 +1,4 @@
-import { provideExperimentalZonelessChangeDetection } from '@angular/core';
+import { provideZonelessChangeDetection } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
 import { AppFormTemplateComponent } from './app-form-template.component';
@@ -13,7 +13,7 @@ describe('AppFormTemplateComponent', () => {
         AppFormTemplateComponent
       ],
       providers: [
-        provideExperimentalZonelessChangeDetection(),
+        provideZonelessChangeDetection(),
         provideRouter([])
       ]
     })
