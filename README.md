@@ -7,6 +7,7 @@ This sample application demonstrates the common components contained in the JSSh
 2026-04-05 (21.0.0)
 
 - Upgrade to Angular 21
+- Upgrade to bootstrap 5.3.8
 
 2026-02-26 (20.0.0)
 
