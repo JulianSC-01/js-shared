@@ -8,6 +8,7 @@ This sample application demonstrates the common components contained in the JSSh
 
 - Upgrade to Angular 21
 - Upgrade to bootstrap 5.3.8
+- Update npm dependencies (audit fixes)
 
 2026-02-26 (20.0.0)
 
