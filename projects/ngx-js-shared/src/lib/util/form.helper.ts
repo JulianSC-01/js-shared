@@ -14,10 +14,10 @@ export class FormHelper {
     let count: number =
       this.getErrorCount(formGroup);
 
-    if (count == 1)
-      return "Please correct the error on this page.";
+    if (count === 1)
+      return 'Please correct the error on this page.';
     if (count > 1)
-      return "Please correct the " + count + " errors on this page.";
+      return `Please correct the ${count} errors on this page.`;
 
     return '';
   }

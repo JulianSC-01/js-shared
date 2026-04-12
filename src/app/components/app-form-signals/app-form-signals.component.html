@@ -1,0 +1,216 @@
+<app-page-header>
+  Signal form components
+</app-page-header>
+<h2 class="mb-3">
+  Overview
+</h2>
+<app-alert
+  alertType="alert-warning">
+  Note: Re-usable components for signal forms are in development.
+</app-alert>
+<h2 class="mb-3">
+  Examples
+</h2>
+<form
+  autocomplete="off"
+  [formRoot]="signalForm">
+  @if (formInvalid()) {
+    <app-alert
+      alertId="errorHeader"
+      alertRole="note"
+      alertType="alert-danger">
+      {{ formErrorMessage() }}
+    </app-alert>
+  }
+  <h3 class="h4">
+    FormControl
+  </h3>
+  <fieldset>
+    <legend class="visually-hidden">
+      FormControl fields
+    </legend>
+    @let formControlTextInvalid = (
+      this.signalForm.formControlText().invalid() &&
+      this.signalForm.formControlText().touched()
+    );
+    <div class="col-lg-6 mb-3">
+      <app-form-label
+        labelControlId="formControlText"
+        labelRequired="true">
+        FormControl Text Value
+      </app-form-label>
+      <input
+        class="form-control"
+        id="formControlText"
+        type="text"
+        [attr.aria-describedby]="
+          formControlTextInvalid ? 'formControlTextError' : null"
+        [attr.aria-invalid]="formControlTextInvalid"
+        [class.is-invalid]="formControlTextInvalid"
+        [class.mb-1]="formControlTextInvalid"
+        [formField]="signalForm.formControlText">
+      @if (formControlTextInvalid) {
+        <div class="text-danger"
+          id="formControlTextError">
+          @for (error of signalForm.
+            formControlText().errors(); track error) {
+            <small class="d-block">
+              {{ error.message }}
+            </small>
+          }
+        </div>
+      }
+    </div>
+    @let formControlNumberInvalid = (
+      this.signalForm.formControlNumber().invalid() &&
+      this.signalForm.formControlNumber().touched()
+    );
+    <div class="col-lg-3 mb-3">
+      <app-form-label
+        labelControlId="formControlNumber"
+        labelRequired="true">
+        FormControl Number Value
+      </app-form-label>
+      <input
+        class="form-control"
+        id="formControlNumber"
+        type="number"
+        [attr.aria-describedby]="
+          formControlNumberInvalid ? 'formControlNumberError' : null"
+        [attr.aria-invalid]="formControlNumberInvalid"
+        [class.is-invalid]="formControlNumberInvalid"
+        [class.mb-1]="formControlNumberInvalid"
+        [formField]="signalForm.formControlNumber">
+      @if (formControlNumberInvalid) {
+        <div class="text-danger"
+          id="formControlNumberError">
+          @for (error of signalForm.
+            formControlNumber().errors(); track error) {
+            <small class="d-block">
+              {{ error.message }}
+            </small>
+          }
+        </div>
+      }
+    </div>
+    @let formControlSelectInvalid = (
+      this.signalForm.formControlSelect().invalid() &&
+      this.signalForm.formControlSelect().touched()
+    );
+    <div class="col-lg-3 mb-3">
+      <app-form-label
+        labelControlId="formControlSelect"
+        labelRequired="true">
+        FormControl Select Value
+      </app-form-label>
+      <select
+        class="form-select"
+        id="formControlSelect"
+        [attr.aria-describedby]="
+          formControlSelectInvalid ? 'formControlSelectError' : null"
+        [attr.aria-invalid]="formControlSelectInvalid"
+        [class.is-invalid]="formControlSelectInvalid"
+        [class.mb-1]="formControlSelectInvalid"
+        [formField]="signalForm.formControlSelect">
+        <option selected value="">
+          Select
+        </option>
+        @for (formSelectElement of
+          formSelectElements(); track $index) {
+          <option [value]="formSelectElement">
+            {{ 'Item ' + formSelectElement }}
+          </option>
+        }
+      </select>
+      @if (formControlSelectInvalid) {
+        <div class="text-danger"
+          id="formControlSelectError">
+          @for (error of signalForm.
+            formControlSelect().errors(); track error) {
+            <small class="d-block">
+              {{ error.message }}
+            </small>
+          }
+        </div>
+      }
+    </div>
+  </fieldset>
+  <h3 class="h4">
+    FormArray
+  </h3>
+  <fieldset>
+    <legend class="visually-hidden">
+      FormArray fields
+    </legend>
+    <div class="mb-3">
+      @for (field of signalForm.formArray; track field) {
+        @let formControlArrayInvalid = (
+          field().invalid() &&
+          field().touched()
+        );
+        <div class="col-lg-6 mb-3">
+          <app-form-label
+            labelRequired="true"
+            [labelControlId]="`formArrayText${$index}`">
+            {{ `FormArray Text Value ${$index+1}` }}
+          </app-form-label>
+          <input
+            class="form-control"
+            type="text"
+            [attr.aria-describedby]="
+              formControlArrayInvalid ? `formArrayText${$index}Error` : null"
+            [attr.aria-invalid]="formControlArrayInvalid"
+            [class.is-invalid]="formControlArrayInvalid"
+            [class.mb-1]="formControlArrayInvalid"
+            [formField]="field"
+            [id]="`formArrayText${$index}`">
+          @if (formControlArrayInvalid) {
+            <div class="text-danger"
+              [id]="`formArrayText${$index}Error`">
+              @for (error of field().errors(); track error) {
+                <small class="d-block">
+                  {{ error.message }}
+                </small>
+              }
+            </div>
+          }
+          <button
+            class="btn btn-sm btn-danger mb-1 mt-2"
+            type="button"
+            (click)="removeArrayElement($index)">
+            Remove control
+            <span class="visually-hidden">
+              {{ ($index+1) }}
+            </span>
+          </button>
+        </div>
+      } @empty {
+        <div class="mb-3">
+          <p>
+            Select the "Add control" button to add a control.
+          </p>
+        </div>
+      }
+      <button
+        class="btn btn-secondary mb-1"
+        id="addButton"
+        type="button"
+        (click)="addArrayElement()">
+        Add control
+      </button>
+    </div>
+  </fieldset>
+  <div class="mt-4">
+    <button
+      class="btn btn-primary mb-1"
+      type="submit">
+      Submit
+    </button>
+  </div>
+</form>
+<div class="mb-2 mt-4">
+  Return to:
+  <a routerLink="/" aria-label="Return to home page">
+    Home
+  </a>
+</div>
