@@ -114,8 +114,7 @@ export class AppFormSignalsComponent {
     this.signalFormModel.update(
       formModel => ({
         ...formModel,
-        formArray:
-          [...formModel.formArray, '']
+        formArray: [...formModel.formArray, '']
       })
     );
 
@@ -127,9 +126,8 @@ export class AppFormSignalsComponent {
     this.signalFormModel.update(
       formModel => ({
         ...formModel,
-        formArray:
-          formModel.formArray.filter(
-            (_, i) => i !== index)
+        formArray: formModel.formArray.filter(
+          (_, i) => i !== index)
       })
     );
 
