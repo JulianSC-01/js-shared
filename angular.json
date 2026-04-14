@@ -86,19 +86,9 @@
           }
         },
         "test": {
-          "builder": "@angular/build:karma",
+          "builder": "@angular/build:unit-test",
           "options": {
-            "browsers": "ChromeHeadless",
-            "tsConfig": "tsconfig.spec.json",
-            "watch": false,
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/styles.css"
-            ],
-            "scripts": []
+            "watch": false
           }
         }
       }
@@ -125,9 +115,8 @@
           "defaultConfiguration": "production"
         },
         "test": {
-          "builder": "@angular/build:karma",
+          "builder": "@angular/build:unit-test",
           "options": {
-            "browsers": "ChromeHeadless",
             "tsConfig": "projects/ngx-js-shared/tsconfig.spec.json",
             "watch": false
           }

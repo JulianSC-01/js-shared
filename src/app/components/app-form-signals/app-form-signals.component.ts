@@ -14,6 +14,9 @@ interface SignalForm {
   formArray: string[];
 }
 
+/**
+ * @experimental
+ */
 @Component({
   imports: [
     AlertComponent,

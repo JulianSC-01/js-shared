@@ -1,14 +1,12 @@
 import { provideZonelessChangeDetection } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { NgControl } from '@angular/forms';
+import { beforeEach, describe, expect, it } from "vitest";
 import { FormInputTextComponent } from './form-input-text.component';
 
 describe('FormInputTextComponent', () => {
   let component: FormInputTextComponent;
   let fixture: ComponentFixture<FormInputTextComponent>;
-
-  let mockNgControl: jasmine.SpyObj<NgControl> =
-    jasmine.createSpyObj('NgControl', [], ['control']); ;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -24,7 +22,7 @@ describe('FormInputTextComponent', () => {
         providers: [
           {
             provide: NgControl,
-            useValue: mockNgControl
+            useValue: {}
           }
         ]
       }

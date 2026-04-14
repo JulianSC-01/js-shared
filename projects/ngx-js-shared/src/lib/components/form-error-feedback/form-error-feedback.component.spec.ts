@@ -1,6 +1,7 @@
 import { ComponentRef, provideZonelessChangeDetection } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormControl } from '@angular/forms';
+import { beforeEach, describe, expect, it } from "vitest";
 import { FormErrorFeedbackComponent } from './form-error-feedback.component';
 
 describe('AppErrorFeedbackComponent', () => {
@@ -22,10 +23,8 @@ describe('AppErrorFeedbackComponent', () => {
     fixture = TestBed.createComponent(FormErrorFeedbackComponent);
     component = fixture.componentInstance;
 
-    componentRef =
-      fixture.componentRef;
-    componentRef.setInput(
-      'errorFeedbackControl', new FormControl());
+    componentRef = fixture.componentRef;
+    componentRef.setInput('errorFeedbackControl', new FormControl());
 
     await fixture.whenStable();
   });
