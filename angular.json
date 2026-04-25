@@ -96,7 +96,7 @@
     "ngx-js-shared": {
       "projectType": "library",
       "root": "projects/ngx-js-shared",
-      "sourceRoot": "projects/ngx-js-shared/src",
+      "sourceRoot": "projects/ngx-js-shared",
       "prefix": "app",
       "architect": {
         "build": {

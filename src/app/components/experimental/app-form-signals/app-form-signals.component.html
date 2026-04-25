@@ -14,14 +14,9 @@
 <form
   autocomplete="off"
   [formRoot]="signalForm">
-  @if (formInvalid()) {
-    <app-alert
-      alertId="errorHeader"
-      alertRole="note"
-      alertType="alert-danger">
-      {{ formErrorMessage() }}
-    </app-alert>
-  }
+  <app-form-signal-error-header
+    [errorFieldTree]="signalForm">
+  </app-form-signal-error-header>
   <h3 class="h4">
     FormControl
   </h3>
