@@ -9,9 +9,9 @@ import { AlertComponent } from 'ngx-js-shared';
   selector: 'app-form-signal-error-header',
   templateUrl: './form-signal-error-header.component.html'
 })
-export class FormSignalErrorHeaderComponent {
-  readonly errorFieldTree =
-    input.required<FieldTree<unknown>>();
+export class FormSignalErrorHeaderComponent<T> {
+  readonly errorFormRoot =
+    input.required<FieldTree<T>>();
   readonly errorMessage =
     input<string>();
 
@@ -19,7 +19,7 @@ export class FormSignalErrorHeaderComponent {
     computed(() => {
       let errorCount = 0;
 
-      this.errorFieldTree()().
+      this.errorFormRoot()().
         errorSummary().forEach(error => {
           if (error.fieldTree().touched()) {
             errorCount++;

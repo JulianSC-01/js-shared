@@ -15,8 +15,7 @@
   autocomplete="off"
   [formRoot]="signalForm">
   <app-form-signal-error-header
-    [errorFieldTree]="signalForm">
-  </app-form-signal-error-header>
+    [errorFormRoot]="signalForm"/>
   <h3 class="h4">
     FormControl
   </h3>
@@ -44,17 +43,9 @@
         [class.is-invalid]="formControlTextInvalid"
         [class.mb-1]="formControlTextInvalid"
         [formField]="signalForm.formControlText">
-      @if (formControlTextInvalid) {
-        <div class="text-danger"
-          id="formControlTextError">
-          @for (error of signalForm.
-            formControlText().errors(); track error) {
-            <small class="d-block">
-              {{ error.message }}
-            </small>
-          }
-        </div>
-      }
+      <app-form-signal-error-feedback
+        errorFeedbackId="formControlTextError"
+        [errorFormField]="signalForm.formControlText"/>
     </div>
     @let formControlNumberInvalid = (
       this.signalForm.formControlNumber().invalid() &&
@@ -76,17 +67,9 @@
         [class.is-invalid]="formControlNumberInvalid"
         [class.mb-1]="formControlNumberInvalid"
         [formField]="signalForm.formControlNumber">
-      @if (formControlNumberInvalid) {
-        <div class="text-danger"
-          id="formControlNumberError">
-          @for (error of signalForm.
-            formControlNumber().errors(); track error) {
-            <small class="d-block">
-              {{ error.message }}
-            </small>
-          }
-        </div>
-      }
+      <app-form-signal-error-feedback
+        errorFeedbackId="formControlNumberError"
+        [errorFormField]="signalForm.formControlNumber"/>
     </div>
     @let formControlSelectInvalid = (
       this.signalForm.formControlSelect().invalid() &&
@@ -117,17 +100,9 @@
           </option>
         }
       </select>
-      @if (formControlSelectInvalid) {
-        <div class="text-danger"
-          id="formControlSelectError">
-          @for (error of signalForm.
-            formControlSelect().errors(); track error) {
-            <small class="d-block">
-              {{ error.message }}
-            </small>
-          }
-        </div>
-      }
+      <app-form-signal-error-feedback
+        errorFeedbackId="formControlSelectError"
+        [errorFormField]="signalForm.formControlSelect"/>
     </div>
   </fieldset>
   <h3 class="h4">
@@ -159,16 +134,9 @@
             [class.mb-1]="formControlArrayInvalid"
             [formField]="field"
             [id]="`formArrayText${$index}`">
-          @if (formControlArrayInvalid) {
-            <div class="text-danger"
-              [id]="`formArrayText${$index}Error`">
-              @for (error of field().errors(); track error) {
-                <small class="d-block">
-                  {{ error.message }}
-                </small>
-              }
-            </div>
-          }
+          <app-form-signal-error-feedback
+            [errorFeedbackId]="`formArrayText${$index}Error`"
+            [errorFormField]="field"/>
           <button
             class="btn btn-sm btn-danger mb-1 mt-2"
             type="button"

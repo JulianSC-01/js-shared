@@ -17,7 +17,7 @@ export const appRoutes: Routes = [
   },
   { path: 'experimental',
     loadChildren: () =>
-      import ('./routes/app.experimental.routes').
+      import ('./experimental/routes/app.experimental.routes').
         then(m => m.appExperimentalRoutes)
   }
 ];

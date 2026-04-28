@@ -1,5 +1,5 @@
 import { Routes } from "@angular/router";
-import { AppFormSignalsComponent } from "../components/experimental/app-form-signals/app-form-signals.component";
+import { AppFormSignalsComponent } from "../components/app-form-signals/app-form-signals.component";
 
 /**
  * @experimental
