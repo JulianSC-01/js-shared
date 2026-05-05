@@ -1,4 +1,4 @@
-import { Component, computed, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
 import { FieldTree } from '@angular/forms/signals';
 import { AlertComponent } from 'ngx-js-shared';
 
@@ -7,7 +7,8 @@ import { AlertComponent } from 'ngx-js-shared';
     AlertComponent
   ],
   selector: 'app-form-signal-error-header',
-  templateUrl: './form-signal-error-header.component.html'
+  templateUrl: './form-signal-error-header.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FormSignalErrorHeaderComponent<T> {
   readonly errorFormRoot =

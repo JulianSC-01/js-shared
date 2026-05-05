@@ -1,13 +1,14 @@
-import { Component, computed, input } from '@angular/core';
-import { FieldTree } from '@angular/forms/signals';
+import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
+import { Field } from '@angular/forms/signals';
 
 @Component({
   selector: 'app-form-signal-error-feedback',
-  templateUrl: './form-signal-error-feedback.component.html'
+  templateUrl: './form-signal-error-feedback.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FormSignalErrorFeedbackComponent<T> {
   readonly errorFormField =
-    input.required<FieldTree<T>>();
+    input.required<Field<T>>();
   readonly errorFeedbackId =
     input<string>();
 

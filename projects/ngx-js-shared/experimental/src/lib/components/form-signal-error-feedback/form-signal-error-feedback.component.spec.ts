@@ -1,4 +1,4 @@
-import { ComponentRef, provideZonelessChangeDetection, signal } from '@angular/core';
+import { provideZonelessChangeDetection, signal } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FieldTree, form } from '@angular/forms/signals';
 import { beforeEach, describe, expect, it } from "vitest";
@@ -10,7 +10,6 @@ interface SignalTestForm {
 
 describe('FormSignalErrorFeedbackComponent', () => {
   let component: FormSignalErrorFeedbackComponent<string>;
-  let componentRef: ComponentRef<FormSignalErrorFeedbackComponent<string>>;
   let fixture: ComponentFixture<FormSignalErrorFeedbackComponent<string>>;
 
   let signalForm: FieldTree<SignalTestForm>;
@@ -38,9 +37,9 @@ describe('FormSignalErrorFeedbackComponent', () => {
       FormSignalErrorFeedbackComponent<string>);
 
     component = fixture.componentInstance;
-    componentRef = fixture.componentRef;
 
-    componentRef.setInput('errorFormField', signalForm.formControlText);
+    fixture.componentRef.
+      setInput('errorFormField', signalForm.formControlText);
 
     await fixture.whenStable();
   });

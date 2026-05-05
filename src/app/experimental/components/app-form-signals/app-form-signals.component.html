@@ -23,86 +23,35 @@
     <legend class="visually-hidden">
       FormControl fields
     </legend>
-    @let formControlTextInvalid = (
-      this.signalForm.formControlText().invalid() &&
-      this.signalForm.formControlText().touched()
-    );
     <div class="col-lg-6 mb-3">
-      <app-form-label
-        labelControlId="formControlText"
-        labelRequired="true">
-        FormControl Text Value
-      </app-form-label>
-      <input
-        class="form-control"
-        id="formControlText"
-        type="text"
-        [attr.aria-describedby]="
-          formControlTextInvalid ? 'formControlTextError' : null"
-        [attr.aria-invalid]="formControlTextInvalid"
-        [class.is-invalid]="formControlTextInvalid"
-        [class.mb-1]="formControlTextInvalid"
+      <app-form-signal-input-text
+        inputErrorMessageId="formControlTextError"
+        inputLabelText="FormControl Text Value"
+        inputId="formControlText"
         [formField]="signalForm.formControlText">
-      <app-form-signal-error-feedback
-        errorFeedbackId="formControlTextError"
-        [errorFormField]="signalForm.formControlText"/>
+      </app-form-signal-input-text>
     </div>
-    @let formControlNumberInvalid = (
-      this.signalForm.formControlNumber().invalid() &&
-      this.signalForm.formControlNumber().touched()
-    );
     <div class="col-lg-3 mb-3">
-      <app-form-label
-        labelControlId="formControlNumber"
-        labelRequired="true">
-        FormControl Number Value
-      </app-form-label>
-      <input
-        class="form-control"
-        id="formControlNumber"
-        type="number"
-        [attr.aria-describedby]="
-          formControlNumberInvalid ? 'formControlNumberError' : null"
-        [attr.aria-invalid]="formControlNumberInvalid"
-        [class.is-invalid]="formControlNumberInvalid"
-        [class.mb-1]="formControlNumberInvalid"
+      <app-form-signal-input-number
+        inputErrorMessageId="formControlNumberError"
+        inputId="formControlNumber"
+        inputLabelText="FormControl Number Value"
         [formField]="signalForm.formControlNumber">
-      <app-form-signal-error-feedback
-        errorFeedbackId="formControlNumberError"
-        [errorFormField]="signalForm.formControlNumber"/>
+      </app-form-signal-input-number>
     </div>
-    @let formControlSelectInvalid = (
-      this.signalForm.formControlSelect().invalid() &&
-      this.signalForm.formControlSelect().touched()
-    );
     <div class="col-lg-3 mb-3">
-      <app-form-label
-        labelControlId="formControlSelect"
-        labelRequired="true">
-        FormControl Select Value
-      </app-form-label>
-      <select
-        class="form-select"
-        id="formControlSelect"
-        [attr.aria-describedby]="
-          formControlSelectInvalid ? 'formControlSelectError' : null"
-        [attr.aria-invalid]="formControlSelectInvalid"
-        [class.is-invalid]="formControlSelectInvalid"
-        [class.mb-1]="formControlSelectInvalid"
+      <app-form-signal-input-select
+        inputErrorMessageId="formControlSelectError"
+        inputLabelText="FormControl Select Value"
+        inputId="formControlSelect"
         [formField]="signalForm.formControlSelect">
-        <option selected value="">
-          Select
-        </option>
         @for (formSelectElement of
           formSelectElements(); track $index) {
           <option [value]="formSelectElement">
             {{ 'Item ' + formSelectElement }}
           </option>
         }
-      </select>
-      <app-form-signal-error-feedback
-        errorFeedbackId="formControlSelectError"
-        [errorFormField]="signalForm.formControlSelect"/>
+      </app-form-signal-input-select>
     </div>
   </fieldset>
   <h3 class="h4">
@@ -114,29 +63,13 @@
     </legend>
     <div class="mb-3">
       @for (field of signalForm.formArray; track field) {
-        @let formControlArrayInvalid = (
-          field().invalid() &&
-          field().touched()
-        );
         <div class="col-lg-6 mb-3">
-          <app-form-label
-            labelRequired="true"
-            [labelControlId]="`formArrayText${$index}`">
-            {{ `FormArray Text Value ${$index+1}` }}
-          </app-form-label>
-          <input
-            class="form-control"
-            type="text"
-            [attr.aria-describedby]="
-              formControlArrayInvalid ? `formArrayText${$index}Error` : null"
-            [attr.aria-invalid]="formControlArrayInvalid"
-            [class.is-invalid]="formControlArrayInvalid"
-            [class.mb-1]="formControlArrayInvalid"
-            [formField]="field"
-            [id]="`formArrayText${$index}`">
-          <app-form-signal-error-feedback
-            [errorFeedbackId]="`formArrayText${$index}Error`"
-            [errorFormField]="field"/>
+          <app-form-signal-input-text
+            [inputErrorMessageId]="`formArrayText${$index}Error`"
+            [inputId]="`formArrayText${$index}`"
+            [inputLabelText]="`FormArray Text Value ${$index+1}`"
+            [formField]="field">
+          </app-form-signal-input-text>
           <button
             class="btn btn-sm btn-danger mb-1 mt-2"
             type="button"

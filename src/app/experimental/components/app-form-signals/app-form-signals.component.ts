@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { applyEach, form, FormField, FormRoot, max, min, required } from '@angular/forms/signals';
 import { RouterLink } from '@angular/router';
-import { AlertComponent, FocusService, FormLabelComponent, PageHeaderComponent } from 'ngx-js-shared';
-import { FormSignalErrorFeedbackComponent, FormSignalErrorHeaderComponent } from 'ngx-js-shared/experimental';
+import { AlertComponent, FocusService, PageHeaderComponent } from 'ngx-js-shared';
+import { FormSignalErrorHeaderComponent, FormSignalInputNumberComponent, FormSignalInputSelectComponent, FormSignalInputTextComponent } from 'ngx-js-shared/experimental';
 
 const REQ_ERROR = 'Error: Field is required.';
 const MIN_ERROR = 'Error: Field must be greater than or equal to 0';
@@ -23,9 +23,10 @@ interface SignalForm {
     AlertComponent,
     FormField,
     FormRoot,
-    FormLabelComponent,
-    FormSignalErrorFeedbackComponent,
     FormSignalErrorHeaderComponent,
+    FormSignalInputNumberComponent,
+    FormSignalInputSelectComponent,
+    FormSignalInputTextComponent,
     PageHeaderComponent,
     RouterLink
   ],
