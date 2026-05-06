@@ -1,7 +1,6 @@
-import { provideZonelessChangeDetection } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { NgControl } from '@angular/forms';
-import { beforeEach, describe, expect, it } from "vitest";
+import { beforeEach, describe, expect, test } from "vitest";
 import { FormInputSelectComponent } from './form-input-select.component';
 
 describe('FormInputSelectComponent', () => {
@@ -12,9 +11,6 @@ describe('FormInputSelectComponent', () => {
     await TestBed.configureTestingModule({
       imports: [
         FormInputSelectComponent
-      ],
-      providers: [
-        provideZonelessChangeDetection()
       ]
     })
     .overrideComponent(FormInputSelectComponent, {
@@ -34,7 +30,7 @@ describe('FormInputSelectComponent', () => {
     await fixture.whenStable();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  test('should create', () => {
+    expect(component).toBeDefined();
   });
 });

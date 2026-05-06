@@ -1,7 +1,7 @@
-import { provideZonelessChangeDetection, signal } from '@angular/core';
+import { signal } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FieldTree, form } from '@angular/forms/signals';
-import { beforeEach, describe, expect, it } from "vitest";
+import { beforeEach, describe, expect, test } from "vitest";
 import { FormSignalErrorHeaderComponent } from './form-signal-error-header.component';
 
 interface SignalTestForm {
@@ -22,9 +22,6 @@ describe('FormSignalErrorHeaderComponent', () => {
     await TestBed.configureTestingModule({
       imports: [
         FormSignalErrorHeaderComponent
-      ],
-      providers: [
-        provideZonelessChangeDetection()
       ]
     })
     .compileComponents();
@@ -44,7 +41,7 @@ describe('FormSignalErrorHeaderComponent', () => {
     await fixture.whenStable();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  test('should create', () => {
+    expect(component).toBeDefined();
   });
 });

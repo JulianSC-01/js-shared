@@ -1,6 +1,5 @@
-import { provideZonelessChangeDetection } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { beforeEach, describe, expect, it } from "vitest";
+import { beforeEach, describe, expect, test } from "vitest";
 import { PageFooterComponent } from './page-footer.component';
 
 describe('PageFooterComponent', () => {
@@ -11,9 +10,6 @@ describe('PageFooterComponent', () => {
     await TestBed.configureTestingModule({
       imports: [
         PageFooterComponent
-      ],
-      providers: [
-        provideZonelessChangeDetection()
       ]
     })
     .compileComponents();
@@ -23,7 +19,7 @@ describe('PageFooterComponent', () => {
     await fixture.whenStable();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  test('should create', () => {
+    expect(component).toBeDefined();
   });
 });

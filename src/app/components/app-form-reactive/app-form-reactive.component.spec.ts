@@ -1,7 +1,6 @@
-import { provideZonelessChangeDetection } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
-import { beforeEach, describe, expect, it } from "vitest";
+import { beforeEach, describe, expect, test } from "vitest";
 import { AppFormReactiveComponent } from './app-form-reactive.component';
 
 describe('AppFormReactiveComponent', () => {
@@ -14,7 +13,6 @@ describe('AppFormReactiveComponent', () => {
         AppFormReactiveComponent
       ],
       providers: [
-        provideZonelessChangeDetection(),
         provideRouter([])
       ]
     })
@@ -25,7 +23,7 @@ describe('AppFormReactiveComponent', () => {
     await fixture.whenStable();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  test('should create', () => {
+    expect(component).toBeDefined();
   });
 });

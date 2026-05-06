@@ -1,7 +1,6 @@
-import { provideZonelessChangeDetection } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
-import { beforeEach, describe, expect, it } from "vitest";
+import { beforeEach, describe, expect, test } from "vitest";
 import { AppLeadingZeroComponent } from './app-leading-zero.component';
 
 describe('AppLeadingZero', () => {
@@ -14,7 +13,6 @@ describe('AppLeadingZero', () => {
         AppLeadingZeroComponent
       ],
       providers: [
-        provideZonelessChangeDetection(),
         provideRouter([])
       ]
     })
@@ -25,7 +23,7 @@ describe('AppLeadingZero', () => {
     await fixture.whenStable();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  test('should create', () => {
+    expect(component).toBeDefined();
   });
 });

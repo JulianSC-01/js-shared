@@ -1,7 +1,6 @@
-import { provideZonelessChangeDetection } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormControl } from '@angular/forms';
-import { beforeEach, describe, expect, it } from "vitest";
+import { beforeEach, describe, expect, test } from "vitest";
 import { FormErrorFeedbackComponent } from './form-error-feedback.component';
 
 describe('AppErrorFeedbackComponent', () => {
@@ -12,9 +11,6 @@ describe('AppErrorFeedbackComponent', () => {
     await TestBed.configureTestingModule({
       imports: [
         FormErrorFeedbackComponent
-      ],
-      providers: [
-        provideZonelessChangeDetection()
       ]
     })
     .compileComponents();
@@ -28,7 +24,7 @@ describe('AppErrorFeedbackComponent', () => {
     await fixture.whenStable();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  test('should create', () => {
+    expect(component).toBeDefined();
   });
 });

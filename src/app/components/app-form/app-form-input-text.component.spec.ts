@@ -1,6 +1,5 @@
-import { provideZonelessChangeDetection } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { beforeEach, describe, expect, it } from "vitest";
+import { beforeEach, describe, expect, test } from "vitest";
 import { AppFormInputTextComponent } from './app-form-input-text.component';
 
 describe('AppFormInputTextComponent', () => {
@@ -11,9 +10,6 @@ describe('AppFormInputTextComponent', () => {
     await TestBed.configureTestingModule({
       imports: [
         AppFormInputTextComponent
-      ],
-      providers: [
-        provideZonelessChangeDetection()
       ]
     })
     .compileComponents();
@@ -23,7 +19,7 @@ describe('AppFormInputTextComponent', () => {
     await fixture.whenStable();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  test('should create', () => {
+    expect(component).toBeDefined();
   });
 });

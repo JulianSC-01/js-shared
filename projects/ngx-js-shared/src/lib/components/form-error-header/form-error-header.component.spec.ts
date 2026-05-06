@@ -1,6 +1,5 @@
-import { provideZonelessChangeDetection } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { beforeEach, describe, expect, it } from "vitest";
+import { beforeEach, describe, expect, test } from "vitest";
 import { FormErrorHeaderComponent } from './form-error-header.component';
 
 describe('FormErrorHeaderComponent', () => {
@@ -11,9 +10,6 @@ describe('FormErrorHeaderComponent', () => {
     await TestBed.configureTestingModule({
       imports: [
         FormErrorHeaderComponent
-      ],
-      providers: [
-        provideZonelessChangeDetection()
       ]
     })
     .compileComponents();
@@ -23,7 +19,7 @@ describe('FormErrorHeaderComponent', () => {
     await fixture.whenStable();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  test('should create', () => {
+    expect(component).toBeDefined();
   });
 });
