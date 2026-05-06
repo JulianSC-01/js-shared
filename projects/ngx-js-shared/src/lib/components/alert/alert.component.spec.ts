@@ -1,29 +1,99 @@
-import { provideZonelessChangeDetection } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { beforeEach, describe, expect, it } from "vitest";
+import { By } from '@angular/platform-browser';
+import { beforeEach, describe, expect, test } from "vitest";
 import { AlertComponent } from './alert.component';
 
 describe('AlertComponent', () => {
   let component: AlertComponent;
   let fixture: ComponentFixture<AlertComponent>;
 
+  let rootElement: HTMLElement;
+
   beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [
-        AlertComponent
-      ],
-      providers: [
-        provideZonelessChangeDetection()
-      ]
-    })
-    .compileComponents();
+    TestBed.configureTestingModule({
+      imports: [AlertComponent]
+    });
 
     fixture = TestBed.createComponent(AlertComponent);
+
     component = fixture.componentInstance;
+
+    rootElement = fixture.debugElement.
+      query(By.css('div')).nativeElement;
+
     await fixture.whenStable();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  test('should create', () => {
+    expect(component).toBeDefined();
+  });
+
+  test('should have default input', () => {
+    expect(component.alertId()).
+      toBeUndefined();
+    expect(component.alertRole()).
+      toBeUndefined();
+    expect(component.alertType()).
+      toBe('alert-info');
+    expect(component.alertClass()).
+      toBe('alert alert-info');
+  });
+
+  test('should have danger alertType', () => {
+    fixture.componentRef.
+      setInput('alertType', 'alert-danger');
+
+    expect(component.alertId()).
+      toBeUndefined();
+    expect(component.alertRole()).
+      toBeUndefined();
+    expect(component.alertType()).
+      toBe('alert-danger');
+    expect(component.alertClass()).
+      toBe('alert alert-danger');
+  });
+
+  test('should have default class', () => {
+    expect(rootElement.classList.
+      contains('alert')).toBe(true);
+    expect(rootElement.classList.
+      contains('alert-info')).toBe(true);
+  });
+
+  test('should have danger class', async () => {
+    fixture.componentRef.
+      setInput('alertType', 'alert-danger');
+
+    await fixture.whenStable();
+
+    expect(rootElement.classList.
+      contains('alert')).toBe(true);
+    expect(rootElement.classList.
+      contains('alert-danger')).toBe(true);
+  });
+
+  test('should have default attributes', () => {
+    expect(rootElement.hasAttribute('id')).
+      toBe(false);
+    expect(rootElement.hasAttribute('role')).
+      toBe(false);
+    expect(rootElement.hasAttribute('tabindex')).
+      toBe(false);
+  });
+
+  test('should have custom attributes', async () => {
+    fixture.componentRef.
+      setInput('alertId', 'alert-id');
+    fixture.componentRef.
+      setInput('alertRole', 'note');
+
+    await fixture.whenStable();
+
+    expect(rootElement.getAttribute('id')).
+      toBe('alert-id');
+    expect(rootElement.getAttribute('role')).
+      toBe('note');
+    expect(rootElement.getAttribute('tabindex')).
+      toBe('-1');
   });
 });
