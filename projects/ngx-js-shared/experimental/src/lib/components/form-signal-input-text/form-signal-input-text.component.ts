@@ -18,6 +18,7 @@ export class FormSignalInputTextComponent
   readonly value = model('');
 
   readonly maxLength = input<number | undefined>();
+
   readonly readonly = input(false);
 
   readonly inputPlaceholder =

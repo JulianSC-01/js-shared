@@ -19,9 +19,9 @@ export abstract class FormSignalInputBaseDirective {
 
   readonly touched = model(false);
 
-  readonly disabled  = input(false);
-  readonly invalid   = input(false);
-  readonly required  = input(false);
+  readonly disabled = input(false);
+  readonly invalid  = input(false);
+  readonly required = input(false);
 
   readonly controlInvalid =
     computed(() =>

@@ -19,6 +19,7 @@ export class FormSignalInputNumberComponent
 
   readonly min = input<number | undefined>();
   readonly max = input<number | undefined>();
+
   readonly readonly = input(false);
 
   readonly inputPlaceholder =
