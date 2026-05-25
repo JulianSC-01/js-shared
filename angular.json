@@ -88,6 +88,8 @@
         "test": {
           "builder": "@angular/build:unit-test",
           "options": {
+            "coverage": true,
+            "coverageReporters": ["html"],
             "watch": false
           }
         }
