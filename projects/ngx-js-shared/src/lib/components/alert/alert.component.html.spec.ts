@@ -15,7 +15,6 @@ describe('AlertComponent', () => {
     });
 
     fixture = TestBed.createComponent(AlertComponent);
-
     component = fixture.componentInstance;
 
     rootElement = fixture.debugElement.

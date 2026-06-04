@@ -11,8 +11,7 @@ export class FormHelper {
 
   static getErrorCountMessage(
     formGroup: FormGroup<any>) {
-    let count: number =
-      this.getErrorCount(formGroup);
+    let count = this.getErrorCount(formGroup);
 
     if (count === 1)
       return 'Please correct the error on this page.';

@@ -89,6 +89,7 @@
           "builder": "@angular/build:unit-test",
           "options": {
             "coverage": true,
+            "coverageExclude": ["projects/ngx-js-shared/**"],
             "coverageReporters": ["html"],
             "watch": false
           }
@@ -119,6 +120,9 @@
         "test": {
           "builder": "@angular/build:unit-test",
           "options": {
+            "coverage": true,
+            "coverageExclude": ["projects/ngx-js-shared/src/**/form-input-*.html"],
+            "coverageReporters": ["html"],
             "tsConfig": "projects/ngx-js-shared/tsconfig.spec.json",
             "watch": false
           }
