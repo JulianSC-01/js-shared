@@ -16,6 +16,7 @@ describe('FormLabelComponent', () => {
 
     fixture = TestBed.createComponent(FormLabelComponent);
     component = fixture.componentInstance;
+
     await fixture.whenStable();
   });
 

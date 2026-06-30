@@ -48,8 +48,6 @@ describe('FormErrorHeaderComponent - html', () => {
     const alertElement =
       alertElements[0].nativeElement as HTMLElement;
 
-    expect(alertElement).
-      toBeDefined();
     expect(alertElement.getAttribute('alertid')).
       toBe('errorHeader');
     expect(alertElement.getAttribute('alertrole')).
@@ -112,8 +110,6 @@ describe('FormErrorHeaderComponent - html', () => {
       const alertElement =
         alertElements[0].nativeElement as HTMLElement;
 
-      expect(alertElement).
-        toBeDefined();
       expect(alertElement.getAttribute('alertid')).
         toBe('errorHeader');
       expect(alertElement.getAttribute('alertrole')).
@@ -140,8 +136,6 @@ describe('FormErrorHeaderComponent - html', () => {
       const alertElement =
         alertElements[0].nativeElement as HTMLElement;
 
-      expect(alertElement).
-        toBeDefined();
       expect(alertElement.getAttribute('alertid')).
         toBe('errorHeader');
       expect(alertElement.getAttribute('alertrole')).

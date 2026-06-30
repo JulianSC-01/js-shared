@@ -53,8 +53,6 @@ describe('FormErrorFeedbackComponent - html', () => {
 
     expect(rootElement).
       toBeTruthy();
-    expect(rootElement.nativeElement).
-      toBeDefined();
     expect(rootElement.nativeElement.className).
       toBe('text-danger');
     expect(rootElement.nativeElement.hasAttribute('id')).
@@ -88,8 +86,6 @@ describe('FormErrorFeedbackComponent - html', () => {
 
     expect(rootElement).
       toBeTruthy();
-    expect(rootElement.nativeElement).
-      toBeDefined();
     expect(rootElement.nativeElement.className).
       toBe('text-danger');
     expect(rootElement.nativeElement.getAttribute('id')).

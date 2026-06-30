@@ -49,8 +49,6 @@ describe('FormInputTextComponent - html', () => {
     const labelHtmlElement =
       labelElement.nativeElement as HTMLElement;
 
-    expect(labelHtmlElement).
-      toBeDefined();
     expect(labelHtmlElement.textContent.trim()).
       toBe('Label');
   });
@@ -64,8 +62,6 @@ describe('FormInputTextComponent - html', () => {
     const inputHtmlElement =
       inputElement.nativeElement as HTMLInputElement;
 
-    expect(inputHtmlElement).
-      toBeDefined();
     expect(inputHtmlElement.className).
       toBe('form-control');
     expect(inputHtmlElement.hasAttribute('aria-describedby')).
@@ -121,8 +117,6 @@ describe('FormInputTextComponent - html', () => {
     const inputHtmlElement =
       inputElement.nativeElement as HTMLInputElement;
 
-    expect(inputHtmlElement).
-      toBeDefined();
     expect(inputHtmlElement.getAttribute('aria-describedby')).
       toBe('input-error');
     expect(inputHtmlElement.getAttribute('aria-invalid')).

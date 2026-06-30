@@ -49,8 +49,6 @@ describe('FormInputSelectComponent - html', () => {
     const labelHtmlElement =
       labelElement.nativeElement as HTMLElement;
 
-    expect(labelHtmlElement).
-      toBeDefined();
     expect(labelHtmlElement.textContent.trim()).
       toBe('Label');
   });
@@ -64,8 +62,6 @@ describe('FormInputSelectComponent - html', () => {
     const selectHtmlElement =
       selectElement.nativeElement as HTMLSelectElement;
 
-    expect(selectHtmlElement).
-      toBeDefined();
     expect(selectHtmlElement.className).
       toBe('form-select');
     expect(selectHtmlElement.hasAttribute('aria-describedby')).
@@ -105,8 +101,6 @@ describe('FormInputSelectComponent - html', () => {
     const selectHtmlElement =
       selectElement.nativeElement as HTMLSelectElement;
 
-    expect(selectHtmlElement).
-      toBeDefined();
     expect(selectHtmlElement.getAttribute('aria-describedby')).
       toBe('input-error');
     expect(selectHtmlElement.getAttribute('aria-invalid')).
