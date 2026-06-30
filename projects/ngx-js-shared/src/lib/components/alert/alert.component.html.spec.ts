@@ -3,7 +3,7 @@ import { By } from '@angular/platform-browser';
 import { beforeEach, describe, expect, test } from "vitest";
 import { AlertComponent } from './alert.component';
 
-describe('AlertComponent', () => {
+describe('AlertComponent - html', () => {
   let component: AlertComponent;
   let fixture: ComponentFixture<AlertComponent>;
 

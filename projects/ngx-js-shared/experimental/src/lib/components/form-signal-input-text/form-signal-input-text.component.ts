@@ -14,23 +14,30 @@ import { FormSignalInputBaseDirective } from '../form-signal-input-base/form-sig
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FormSignalInputTextComponent
-  extends FormSignalInputBaseDirective implements FormValueControl<string> {
-  readonly value = model('');
+  extends FormSignalInputBaseDirective
+  implements FormValueControl<string> {
+  readonly value =
+    model('');
 
-  readonly maxLength = input<number | undefined>();
-
-  readonly readonly = input(false);
+  readonly maxLength =
+    input<number | undefined>();
+  readonly readonly =
+    input(false);
 
   readonly inputPlaceholder =
     input<string>();
   readonly inputSize =
-    input(undefined, { transform: numberAttribute });
+    input(undefined, {
+      transform: (v) =>
+        numberAttribute(v, 50)
+    });
   readonly inputType =
     input<'text' | 'password'>('text');
 
   controlChanged(event: Event) {
     const newValue =
       (<HTMLInputElement>event.target).value;
+
     this.value.set(newValue);
   }
 }

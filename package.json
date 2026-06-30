@@ -25,12 +25,13 @@
     "@angular/cli": "~21.2.9",
     "@angular/compiler-cli": "~21.2.11",
     "@types/jasmine": "~4.0.0",
-    "@vitest/coverage-v8": "~4.1.7",
+    "@vitest/coverage-istanbul": "~4.1.8",
+    "@vitest/coverage-v8": "~4.1.8",
     "baseline-browser-mapping": "~2.9.19",
     "bootstrap": "~5.3.8",
     "jsdom": "~29.0.2",
     "ng-packagr": "~21.2.2",
     "typescript": "~5.9.3",
-    "vitest": "~4.1.4"
+    "vitest": "~4.1.8"
   }
 }

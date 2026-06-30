@@ -17,8 +17,9 @@ export class SpinnerComponent {
   readonly spinnerColor =
     input('');
   readonly spinnerSmall =
-    input(false,
-      { transform: booleanAttribute });
+    input(false, {
+      transform: booleanAttribute
+    });
   readonly spinnerStyle =
     input(SPINNER_BORDER);
 

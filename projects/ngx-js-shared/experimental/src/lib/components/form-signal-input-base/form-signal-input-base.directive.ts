@@ -11,11 +11,15 @@ export abstract class FormSignalInputBaseDirective {
   readonly inputId =
     input<string>();
   readonly inputLabelInvisible =
-    input(false, { transform: booleanAttribute });
+    input(false, {
+      transform: booleanAttribute
+    });
   readonly inputLabelText =
     input<string>();
   readonly inputShowErrors =
-    input(true, { transform: booleanAttribute });
+    input(true, {
+      transform: booleanAttribute
+    });
 
   readonly touched = model(false);
 

@@ -14,18 +14,26 @@ import { FormSignalInputBaseDirective } from '../form-signal-input-base/form-sig
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FormSignalInputNumberComponent
-  extends FormSignalInputBaseDirective implements FormValueControl<number | null> {
-  readonly value = model<number | null>(null);
+  extends FormSignalInputBaseDirective
+  implements FormValueControl<number | null> {
+  readonly value =
+    model<number | null>(null);
 
-  readonly min = input<number | undefined>();
-  readonly max = input<number | undefined>();
+  readonly min =
+    input<number | undefined>();
+  readonly max =
+    input<number | undefined>();
 
-  readonly readonly = input(false);
+  readonly readonly =
+    input(false);
 
   readonly inputPlaceholder =
     input<string>();
   readonly inputStep =
-    input(1, { transform: numberAttribute });
+    input(1, {
+      transform: (v) =>
+        numberAttribute(v, 1)
+    });
 
   controlChanged(event: Event) {
     const newValue =

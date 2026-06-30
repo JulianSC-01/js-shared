@@ -89,8 +89,11 @@
           "builder": "@angular/build:unit-test",
           "options": {
             "coverage": true,
-            "coverageExclude": ["projects/ngx-js-shared/**"],
-            "coverageReporters": ["html"],
+            "coverageExclude": [
+              "projects/ngx-js-shared/**",
+              "src/app/experimental/**"
+            ],
+            "runnerConfig": "vitest-base.config.ts",
             "watch": false
           }
         }
@@ -121,8 +124,11 @@
           "builder": "@angular/build:unit-test",
           "options": {
             "coverage": true,
-            "coverageExclude": ["projects/ngx-js-shared/src/**/form-input-*.html"],
-            "coverageReporters": ["html"],
+            "coverageExclude": [
+              "projects/ngx-js-shared/experimental/**",
+              "projects/ngx-js-shared/src/lib/**/spec/**"
+            ],
+            "runnerConfig": "vitest-base.config.ts",
             "tsConfig": "projects/ngx-js-shared/tsconfig.spec.json",
             "watch": false
           }

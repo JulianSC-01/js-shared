@@ -9,7 +9,7 @@ interface TestForm {
   lastName: FormControl<string>;
 }
 
-describe('FormErrorHeaderComponent', () => {
+describe('FormErrorHeaderComponent - html', () => {
   let component: FormErrorHeaderComponent;
   let fixture: ComponentFixture<FormErrorHeaderComponent>;
 

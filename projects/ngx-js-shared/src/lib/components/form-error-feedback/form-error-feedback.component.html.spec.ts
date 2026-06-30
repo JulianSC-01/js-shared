@@ -4,7 +4,7 @@ import { By } from '@angular/platform-browser';
 import { beforeEach, describe, expect, test } from "vitest";
 import { FormErrorFeedbackComponent } from './form-error-feedback.component';
 
-describe('FormErrorFeedbackComponent', () => {
+describe('FormErrorFeedbackComponent - html', () => {
   let component: FormErrorFeedbackComponent;
   let fixture: ComponentFixture<FormErrorFeedbackComponent>;
 

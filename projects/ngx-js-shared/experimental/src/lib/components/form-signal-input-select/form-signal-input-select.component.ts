@@ -16,17 +16,22 @@ const DEFAULT_EMPTY_OPTION_TEXT = 'Select';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FormSignalInputSelectComponent
-  extends FormSignalInputBaseDirective implements FormValueControl<string> {
-  readonly value = model('');
+  extends FormSignalInputBaseDirective
+  implements FormValueControl<string> {
+  readonly value =
+    model('');
 
   readonly inputEmptyOption =
-    input(true, { transform: booleanAttribute });
+    input(true, {
+      transform: booleanAttribute
+    });
   readonly inputEmptyOptionText =
     input(DEFAULT_EMPTY_OPTION_TEXT);
 
   controlChanged(event: Event) {
     const newValue =
-      (<HTMLInputElement>event.target).value;
+      (<HTMLSelectElement>event.target).value;
+
     this.value.set(newValue);
   }
 }
