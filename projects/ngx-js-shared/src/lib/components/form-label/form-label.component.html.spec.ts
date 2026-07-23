@@ -63,7 +63,7 @@ describe('FormLabelComponent - html', () => {
       toBeNull();
   });
 
-  test('should not have default classes', () => {
+  test('should have default classes', () => {
     expect(labelElement.classList.
       contains('form-label')).toBe(true);
     expect(labelElement.classList.

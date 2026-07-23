@@ -46,7 +46,7 @@ export abstract class FormInputBaseDirective
   /* istanbul ignore start */
   readonly input =
     viewChild.required<ElementRef>('input');
-  /* istanbul ignore end */
+  /* istanbul ignore stop */
 
   _onChange: any;
   _onTouched: any;
