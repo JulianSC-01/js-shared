@@ -1,4 +1,4 @@
-import { Component, input } from "@angular/core";
+import { ChangeDetectionStrategy, Component, input } from "@angular/core";
 import { FormControl, ReactiveFormsModule, Validators } from "@angular/forms";
 import { FormInputSelectComponent } from "../form-input-select.component";
 
@@ -18,7 +18,8 @@ import { FormInputSelectComponent } from "../form-input-select.component";
       [inputLabelText]="inputLabelText()">
       <option value="01">Option 1</option>
       <option value="02">Option 2</option>
-    </app-form-input-select>`
+    </app-form-input-select>`,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FormInputSelectHostComponent {
   protected readonly inputEmptyOption =

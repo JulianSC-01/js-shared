@@ -1,4 +1,4 @@
-import { Component, input } from "@angular/core";
+import { ChangeDetectionStrategy, Component, input } from "@angular/core";
 import { FormControl, ReactiveFormsModule, Validators } from "@angular/forms";
 import { FormInputNumberComponent } from "../form-input-number.component";
 
@@ -19,7 +19,8 @@ import { FormInputNumberComponent } from "../form-input-number.component";
       [inputMax]="inputMax()"
       [inputStep]="inputStep()"
       [inputReadOnly]="inputReadOnly()">
-    </app-form-input-number>`
+    </app-form-input-number>`,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FormInputNumberHostComponent {
   protected readonly inputEmptyOption =

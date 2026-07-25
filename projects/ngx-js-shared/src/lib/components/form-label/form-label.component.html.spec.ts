@@ -3,7 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { beforeEach, describe, expect, test } from "vitest";
 import { FormLabelComponent } from './form-label.component';
-import { FormLabelHostComponent } from './spec/form-lable-host.component';
+import { FormLabelHostComponent } from './spec/form-label-host.component';
 
 describe('FormLabelComponent - html', () => {
   let fixture: ComponentFixture<FormLabelHostComponent>;

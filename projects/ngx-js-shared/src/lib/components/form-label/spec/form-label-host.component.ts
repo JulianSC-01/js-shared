@@ -1,4 +1,4 @@
-import { Component, input } from "@angular/core";
+import { ChangeDetectionStrategy, Component, input } from "@angular/core";
 import { FormLabelComponent } from "../form-label.component";
 
 @Component({
@@ -12,7 +12,8 @@ import { FormLabelComponent } from "../form-label.component";
       [labelInvisible]="labelInvisible()"
       [labelRequired]="labelRequired()">
       Label content
-    </app-form-label>`
+    </app-form-label>`,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FormLabelHostComponent {
   protected readonly labelControlId =

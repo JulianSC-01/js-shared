@@ -1,4 +1,4 @@
-import { Component, input } from "@angular/core";
+import { ChangeDetectionStrategy, Component, input } from "@angular/core";
 import { FormControl, ReactiveFormsModule, Validators } from "@angular/forms";
 import { FormInputTextComponent } from "../form-input-text.component";
 
@@ -19,7 +19,8 @@ import { FormInputTextComponent } from "../form-input-text.component";
       [inputPlaceholder]="inputPlaceholder()"
       [inputReadOnly]="inputReadOnly()"
       [inputSize]="inputSize()">
-    </app-form-input-text>`
+    </app-form-input-text>`,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FormInputTextHostComponent {
   protected readonly inputErrorMessageId =
