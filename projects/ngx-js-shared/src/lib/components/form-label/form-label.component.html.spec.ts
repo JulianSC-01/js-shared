@@ -21,8 +21,8 @@ describe('FormLabelComponent - html', () => {
 
     fixture = TestBed.createComponent(FormLabelHostComponent);
 
-    labelDebugElement = fixture.debugElement.children[0].
-      query(By.css('label'));
+    labelDebugElement =
+      fixture.debugElement.children[0].query(By.css('label'));
     labelElement =
       labelDebugElement.nativeElement as HTMLLabelElement;
 

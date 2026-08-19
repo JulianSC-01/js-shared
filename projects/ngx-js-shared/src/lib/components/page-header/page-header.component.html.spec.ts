@@ -22,8 +22,8 @@ describe('PageHeaderComponent - html', () => {
 
     fixture = TestBed.createComponent(PageHeaderHostComponent);
 
-    headerDebugElement = fixture.debugElement.children[0].
-      query(By.css('h1'));
+    headerDebugElement =
+      fixture.debugElement.children[0].query(By.css('h1'));
     headerElement =
       headerDebugElement.nativeElement as HTMLHeadingElement;
 
